@@ -16,31 +16,5 @@ namespace SchoolManagementSystem
         {
             InitializeComponent();
         }
-
-        public override void addBtn_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Student");
-        }
-
-        public override void editBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public override void saveBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public override void deleteBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public override void searchBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

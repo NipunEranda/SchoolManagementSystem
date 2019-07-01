@@ -14,7 +14,7 @@ namespace SchoolManagementSystem
     public partial class Login : Form
     {
 
-        MainClass main = MainClass.getInstance();
+        MainClass main = new MainClass();
         MySqlConnection con;
         bool status = false;
 

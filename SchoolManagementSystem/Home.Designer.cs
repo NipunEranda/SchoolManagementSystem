@@ -267,7 +267,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 518);
             this.Name = "Home";
-            this.Text = "";
+            this.Text = "Home";
             this.leftPanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

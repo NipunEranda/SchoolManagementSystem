@@ -28,30 +28,12 @@
         /// </summary>
         new private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Text = "Details";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(571, 461);
-            this.dataGridView1.TabIndex = 0;
             // 
             // Students
             // 
@@ -59,21 +41,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 512);
             this.Name = "Students";
-            this.Text = "";
-            this.groupBox1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.Text = "Students";
+            this.panel1.ResumeLayout(false);
             this.leftPanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.rightPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

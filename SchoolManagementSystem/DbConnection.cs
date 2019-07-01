@@ -10,21 +10,21 @@ namespace SchoolManagementSystem
     class DbConnection
     {
 
-        public static volatile MySqlConnection Instance;
+        public static volatile MySqlConnection conInstance;
 
         private DbConnection() { }
 
         public static MySqlConnection getConnectionObj()
         {
 
-            if (Instance == null)
+            if (conInstance == null)
             {
                 string myConnection = "datasource=localhost;port=3306;database=SMS;username=root;password=4212";
-                Instance = new MySqlConnection(myConnection);
-                return Instance;
+                conInstance = new MySqlConnection(myConnection);
+                return conInstance;
             }
 
-            return Instance;
+            return conInstance;
 
         }
 
