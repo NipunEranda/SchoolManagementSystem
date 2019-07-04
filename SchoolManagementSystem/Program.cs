@@ -17,11 +17,10 @@ namespace SchoolManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MySqlConnection con = DbConnection.getConnectionObj();
-            Login loginInstance = new Login(con);
-            Application.Run(loginInstance);
-            if (loginInstance.getStatus())
-                Application.Run(new MDI(con));
+            Login loginInstance = new Login();
+            /*Application.Run(loginInstance);
+            if (loginInstance.getStatus())*/
+                Application.Run(new MDI());
         }
     }
 }

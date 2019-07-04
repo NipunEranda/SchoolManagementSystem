@@ -13,25 +13,31 @@ namespace SchoolManagementSystem
 {
     public partial class MDI : Form
     {
-        private MySqlConnection con;
+        private MySqlConnection con = DbConnection.getConnection();
+        MainClass main = MainClass.getInstance();
 
-        public MDI(MySqlConnection con)
+        public MDI()
         {
-            this.con = con;
             InitializeComponent();
         }
 
         private void MDI_Load(object sender, EventArgs e)
         {
-            Home Home = new Home();
-            Home.MdiParent = this;
-            Home.WindowState = FormWindowState.Maximized;
-            Home.Show();
+            Home home = new Home();
+            home.MdiParent = this;
+            home.WindowState = FormWindowState.Maximized;
+            home.Show();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
         }
     }
 }

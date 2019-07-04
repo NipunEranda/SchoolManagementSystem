@@ -31,10 +31,10 @@
             this.leftPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.leftPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -68,6 +68,17 @@
             this.panel4.Size = new System.Drawing.Size(244, 32);
             this.panel4.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(163, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Welcome";
+            // 
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.panel6);
@@ -94,17 +105,6 @@
             this.panel3.Size = new System.Drawing.Size(637, 32);
             this.panel3.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(163, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome";
-            // 
             // mainWindows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,7 +114,6 @@
             this.Controls.Add(this.rightPanel);
             this.Controls.Add(this.leftPanel);
             this.Name = "mainWindows";
-            this.Text = "mainWindows";
             this.leftPanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

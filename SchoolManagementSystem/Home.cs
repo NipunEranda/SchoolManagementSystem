@@ -12,8 +12,10 @@ namespace SchoolManagementSystem
 {
     public partial class Home : mainWindows
     {
-
-        MainClass main = new MainClass();
+        
+        MainClass main = MainClass.getInstance();
+        Students students = new Students();
+        Staff staff = new Staff();
 
         public Home()
         {
@@ -22,13 +24,13 @@ namespace SchoolManagementSystem
 
         private void stdBtn_Click(object sender, EventArgs e)
         {
-            Students students = new Students();
+            
             main.showWindow(students, this, MDI.ActiveForm);
         }
 
         private void staffBtn_Click(object sender, EventArgs e)
         {
-
+            main.showWindow(staff, this, MDI.ActiveForm);
         }
 
         private void classesBtn_Click(object sender, EventArgs e)

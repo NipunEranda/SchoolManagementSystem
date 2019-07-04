@@ -12,10 +12,52 @@ namespace SchoolManagementSystem
 {
     public partial class subWindows : mainWindows
     {
+        MainClass main = MainClass.getInstance();
         public subWindows()
         {
             InitializeComponent();
         }
 
+        public void backBtn_Click(object sender, EventArgs e)
+        {
+
+            Home home = new Home();
+            main.showWindow(home, this, MDI.ActiveForm);
+        }
+
+        public virtual void searchBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void addBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void editBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void deleteBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void SearchBtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void ViewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void ViewBtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,9 +12,15 @@ namespace SchoolManagementSystem
 {
     public partial class Staff : subWindows
     {
+
         public Staff()
         {
             InitializeComponent();
+        }
+
+        public override void searchBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         public override void addBtn_Click(object sender, EventArgs e)
@@ -27,7 +33,7 @@ namespace SchoolManagementSystem
 
         }
 
-        public override void saveBtn_Click(object sender, EventArgs e)
+        public override void ViewBtn_Click_1(object sender, EventArgs e)
         {
 
         }
@@ -37,9 +43,5 @@ namespace SchoolManagementSystem
 
         }
 
-        public override void searchBtn_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

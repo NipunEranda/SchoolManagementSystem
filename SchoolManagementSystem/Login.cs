@@ -14,19 +14,19 @@ namespace SchoolManagementSystem
     public partial class Login : Form
     {
 
-        MainClass main = new MainClass();
-        MySqlConnection con;
+        MainClass main = MainClass.getInstance();
+        MySqlConnection con = DbConnection.getConnection();
         bool status = false;
 
-        public Login(MySqlConnection con)
+        public Login()
         {
-            this.con = con;
             InitializeComponent();
         }
 
 
         private void loginBtn_Click_1(object sender, EventArgs e)
         {
+            con.Open();
             string query = "select * from users where userName = '" + userName.Text.Trim() + "' and password = '" + password.Text.Trim() + "'";
             MySqlDataAdapter dataAdapt = new MySqlDataAdapter(query, con);
             DataTable dataTable = new DataTable();
@@ -41,6 +41,7 @@ namespace SchoolManagementSystem
                 status = false;
                 MessageBox.Show("Incorrect username or password");
             }
+            con.Close();
         }
 
         public bool getStatus()
