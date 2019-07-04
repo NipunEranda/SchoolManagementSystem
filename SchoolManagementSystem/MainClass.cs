@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,27 @@ namespace SchoolManagementSystem
             return dateFromString;
         }
 
+        public int getSID()
+        {
+            int sid = 0;
+            con.Open();
+            string getSID = "select * from student";
+            MySqlDataAdapter sqlDA = new MySqlDataAdapter(getSID, con);
+            DataTable dataTable = new DataTable();
+            sqlDA.Fill(dataTable);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                sid = dataTable.Rows.Count;
+                ++sid;
+            }
+            else if (dataTable.Rows.Count == 0)
+            {
+                sid = 1;
+            }
+            con.Close();
+            return sid;
+        }
 
     }
 }

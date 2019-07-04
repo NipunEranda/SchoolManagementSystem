@@ -26,9 +26,10 @@ namespace SchoolManagementSystem
             InitializeComponent();
         }
 
-        public override void searchBtn_Click(object sender, EventArgs e)
+        public override void SearchBtn_Click_1(object sender, EventArgs e)
         {
-
+            
+            searchStudents(searchTxt.Text);
         }
 
         public override void addBtn_Click(object sender, EventArgs e)
@@ -46,7 +47,7 @@ namespace SchoolManagementSystem
             edit = 1;
             submit.Visible = true;
             operation.Text = "Edit Student";
-
+            viewStudents();
         }
 
         public override void ViewBtn_Click_1(object sender, EventArgs e)
@@ -80,7 +81,7 @@ namespace SchoolManagementSystem
                     loadStudents();
                     clearFields();
                 }
-                catch (NullReferenceException ex)
+                catch (NullReferenceException)
                 {
                     MessageBox.Show("Empty Dataset");
                 }
@@ -101,7 +102,7 @@ namespace SchoolManagementSystem
                     DialogResult result = MessageBox.Show("Do you want to Add?", "Add the student", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     if (result.Equals(DialogResult.OK))
                     {
-                        string insertStudent = "insert into student values(" + getSID() + ", '" + NIC_txt.Text + "', '" + firstName_txt.Text + "', '" + lastName_txt.Text + "', '" + telephone_txt.Text + "', '" + birthDay_txt.Text + "', '" + address_txt.Text + "', '" + gender_txt.Text + "')";
+                        string insertStudent = "insert into student values(" + main.getSID() + ", '" + NIC_txt.Text + "', '" + firstName_txt.Text + "', '" + lastName_txt.Text + "', '" + telephone_txt.Text + "', '" + birthDay_txt.Text + "', '" + address_txt.Text + "', '" + gender_txt.Text + "')";
                         MySqlDataAdapter sqlDA = new MySqlDataAdapter(insertStudent, con);
                         DataTable DataTable = new DataTable();
                         sqlDA.Fill(DataTable);
@@ -138,6 +139,97 @@ namespace SchoolManagementSystem
                     clearFields();
                 }
                 else { }
+
+            }
+        }
+
+        public void loadStudents()
+        {
+            con.Open();
+            string students_set = "select * from student order by sid ASC";
+            MySqlDataAdapter sqlDA = new MySqlDataAdapter(students_set, con);
+            DataTable DataTable = new DataTable();
+            sqlDA.Fill(DataTable);
+            if (DataTable.Rows.Count > 0)
+                studentGridView.DataSource = DataTable;
+            else
+            {
+
+            }
+            con.Close();
+        }
+
+        public void searchStudents(string name) {
+            con.Open();
+            string searchStudent = "select * from student where firstName LIKE '%" + name + "%' or lastName LIKE '%" + name + "%'";
+            MySqlDataAdapter sqlDA = new MySqlDataAdapter(searchStudent, con);
+            DataTable DataTable = new DataTable();
+            sqlDA.Fill(DataTable);
+            if (DataTable.Rows.Count > 0)
+                studentGridView.DataSource = DataTable;
+            else
+            {
+
+            }
+            con.Close();
+        }
+
+        public void clearFields()
+        {
+            NIC_txt.Text = "";
+            firstName_txt.Text = "";
+            lastName_txt.Text = "";
+            telephone_txt.Text = "";
+            address_txt.Text = "";
+            gender_txt.Text = "";
+            mand_nic.Visible = false;
+            mand_address.Visible = false;
+            mand_birthDate.Visible = false;
+            mand_firstName.Visible = false;
+            mand_lastName.Visible = false;
+            mand_gender.Visible = false;
+            mand_telephone.Visible = false;
+        }
+
+        public int fieldCheck()
+        {
+            int status = 0;
+            if (NIC_txt.Text == "")
+                MessageBox.Show("NIC value cannot be empty");
+            else if (firstName_txt.Text == "")
+                MessageBox.Show("First Name value cannot be empty");
+            else if (lastName_txt.Text == "")
+                MessageBox.Show("Last Name value cannot be empty");
+            else if (birthDay_txt.Text == "")
+                MessageBox.Show("Birthday value cannot be empty");
+            else if (telephone_txt.Text == "")
+                MessageBox.Show("Telephone value cannot be empty");
+            else if (address_txt.Text == "")
+                MessageBox.Show("Address value cannot be empty");
+            else if (gender_txt.Text == "")
+                MessageBox.Show("Gender value cannot be empty");
+            else
+                status = 1;
+            return status;
+        }
+
+        public void viewStudents()
+        {
+
+            try
+            {
+                int viewRowIndex = studentGridView.CurrentCell.RowIndex;
+                NIC_txt.Text = studentGridView.Rows[viewRowIndex].Cells[1].Value.ToString();
+                firstName_txt.Text = studentGridView.Rows[viewRowIndex].Cells[2].Value.ToString();
+                lastName_txt.Text = studentGridView.Rows[viewRowIndex].Cells[3].Value.ToString();
+                telephone_txt.Text = studentGridView.Rows[viewRowIndex].Cells[4].Value.ToString();
+                birthDay_txt.Value = main.getDateFromString(studentGridView.Rows[viewRowIndex].Cells[5].Value.ToString());
+                address_txt.Text = studentGridView.Rows[viewRowIndex].Cells[6].Value.ToString();
+                gender_txt.Text = studentGridView.Rows[viewRowIndex].Cells[7].Value.ToString();
+
+            }
+            catch (NullReferenceException)
+            {
 
             }
         }
@@ -188,97 +280,6 @@ namespace SchoolManagementSystem
         {
             loadStudents();
             viewStudents();
-        }
-
-        public int getSID()
-        {
-            int sid = 0;
-            con.Open();
-            string getSID = "select * from student";
-            MySqlDataAdapter sqlDA = new MySqlDataAdapter(getSID, con);
-            DataTable dataTable = new DataTable();
-            sqlDA.Fill(dataTable);
-
-            if (dataTable.Rows.Count > 0)
-            {
-                sid = dataTable.Rows.Count;
-                ++sid;
-            }
-            else if (dataTable.Rows.Count == 0) {
-                sid = 1;
-            }
-            con.Close();
-            return sid;
-        }
-
-        public void loadStudents() {
-            con.Open();
-            string students_set = "select * from student order by sid ASC";
-            MySqlDataAdapter sqlDA = new MySqlDataAdapter(students_set, con);
-            DataTable DataTable = new DataTable();
-            sqlDA.Fill(DataTable);
-            if (DataTable.Rows.Count > 0)
-                studentGridView.DataSource = DataTable;
-            else {
-
-            }
-            con.Close();
-        }
-
-        public void clearFields() {
-            NIC_txt.Text = "";
-            firstName_txt.Text = "";
-            lastName_txt.Text = "";
-            telephone_txt.Text = "";
-            address_txt.Text = "";
-            gender_txt.Text = "";
-            mand_nic.Visible = false;
-            mand_address.Visible = false;
-            mand_birthDate.Visible = false;
-            mand_firstName.Visible = false;
-            mand_lastName.Visible = false;
-            mand_gender.Visible = false;
-            mand_telephone.Visible = false;
-        }
-
-        public int fieldCheck() {
-            int status = 0;
-            if (NIC_txt.Text == "")
-                MessageBox.Show("NIC value cannot be empty");
-            else if (firstName_txt.Text == "")
-                MessageBox.Show("First Name value cannot be empty");
-            else if (lastName_txt.Text == "")
-                MessageBox.Show("Last Name value cannot be empty");
-            else if (birthDay_txt.Text == "")
-                MessageBox.Show("Birthday value cannot be empty");
-            else if (telephone_txt.Text == "")
-                MessageBox.Show("Telephone value cannot be empty");
-            else if (address_txt.Text == "")
-                MessageBox.Show("Address value cannot be empty");
-            else if (gender_txt.Text == "")
-                MessageBox.Show("Gender value cannot be empty");
-            else
-                status = 1;
-            return status;
-        }
-
-        public void viewStudents() {
-
-            try
-            {
-                int viewRowIndex = studentGridView.CurrentCell.RowIndex;
-                NIC_txt.Text = studentGridView.Rows[viewRowIndex].Cells[1].Value.ToString();
-                firstName_txt.Text = studentGridView.Rows[viewRowIndex].Cells[2].Value.ToString();
-                lastName_txt.Text = studentGridView.Rows[viewRowIndex].Cells[3].Value.ToString();
-                telephone_txt.Text = studentGridView.Rows[viewRowIndex].Cells[4].Value.ToString();
-                birthDay_txt.Value = main.getDateFromString(studentGridView.Rows[viewRowIndex].Cells[5].Value.ToString());
-                address_txt.Text = studentGridView.Rows[viewRowIndex].Cells[6].Value.ToString();
-                gender_txt.Text = studentGridView.Rows[viewRowIndex].Cells[7].Value.ToString();
-
-            }
-            catch (NullReferenceException ex) {
-
-            }
         }
     }
 }

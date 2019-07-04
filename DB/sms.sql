@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2019 at 12:54 PM
+-- Generation Time: Jul 04, 2019 at 03:55 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `sms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `sid` int(11) NOT NULL,
+  `NIC` varchar(20) DEFAULT NULL,
+  `firstName` varchar(50) DEFAULT NULL,
+  `lastName` varchar(50) DEFAULT NULL,
+  `telephone` varchar(10) NOT NULL,
+  `birthDate` varchar(100) DEFAULT NULL,
+  `address` varchar(80) DEFAULT NULL,
+  `gender` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`sid`, `NIC`, `firstName`, `lastName`, `telephone`, `birthDate`, `address`, `gender`) VALUES
+(1, '199833002025', 'Nipun', 'Amarasekara', '0770415266', 'Monday, May 11, 2009', 'Ambalangoda', 'M'),
+(2, '51463', 'NEO', 'fwfewf', 'fewf', 'Saturday, September 6, 2008', 'fwefwef', 'M');
 
 -- --------------------------------------------------------
 
@@ -44,6 +69,12 @@ INSERT INTO `users` (`id`, `userName`, `password`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`sid`);
 
 --
 -- Indexes for table `users`
