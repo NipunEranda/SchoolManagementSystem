@@ -1,9 +1,3 @@
-create table roles(
-roleId int not null identity primary key,
-roleName varchar(50) not null,
-status varchar(15) not null
-)
-
 create procedure roles_insert
 @name varchar(50),
 @status tinyint

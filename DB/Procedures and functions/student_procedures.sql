@@ -1,14 +1,3 @@
-create table student(sid bigint, 
-nic varchar(20), 
-firstName varchar(20), 
-lastName varchar(20), 
-birthdate varchar(20), 
-address varchar(100), 
-telephone varchar(10), 
-gender char(1), 
-image image, constraint student_pk primary key(sid)
-)
-
 /*Insert*/
 create procedure student_insert
 @nic varchar(50),
@@ -21,6 +10,28 @@ create procedure student_insert
 @image image
 as
 insert into student values(@nic, @firstName, @lastName, @telephone, @birthDate, @address, @gender, @image)
+
+create procedure student_insert_withoutImage
+@nic varchar(50),
+@firstName varchar(50),
+@lastName varchar(50),
+@telephone varchar(10),
+@birthDate date,
+@address varchar(100),
+@gender tinyint,
+@sid int
+as
+update student
+set
+NIC = @nic,
+firstName = @firstName,
+lastName = @lastName,
+telephone = @telephone,
+birthDate = @birthDate,
+address = @address,
+gender = @gender
+where
+sid = @sid
 
 /*update*/
 create procedure student_update
