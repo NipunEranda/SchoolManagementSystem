@@ -22,12 +22,7 @@ namespace SchoolManagementSystem
         {
 
             Home home = new Home();
-            main.showWindow(home, this, MDI.ActiveForm);
-        }
-
-        public virtual void searchBtn_Click(object sender, EventArgs e)
-        {
-
+            MainClass.showWindow(home, this, MDI.ActiveForm);
         }
 
         public virtual void addBtn_Click(object sender, EventArgs e)
@@ -46,11 +41,6 @@ namespace SchoolManagementSystem
         }
 
         public virtual void SearchBtn_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        public virtual void ViewBtn_Click(object sender, EventArgs e)
         {
 
         }

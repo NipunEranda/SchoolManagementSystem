@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SchoolManagementSystem
 {
@@ -17,10 +18,24 @@ namespace SchoolManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            MDI mdi = new MDI();
             Login loginInstance = new Login();
-            /*Application.Run(loginInstance);
-            if (loginInstance.getStatus())*/
-                Application.Run(new MDI());
+            MainClass main = MainClass.getInstance();
+            if (File.Exists(MainClass.path + "\\cnt"))
+            {
+                Application.Run(loginInstance);
+                if (loginInstance.getStatus())
+                    Application.Run(new MDI());
+            }
+            else {
+                Settings settings = new Settings();
+                Application.Run(settings);
+                if (settings.status == "ok") {
+                    Application.Run(loginInstance);
+                    if (loginInstance.getStatus())
+                        Application.Run(new MDI());
+                }
+            }
         }
     }
 }

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace SchoolManagementSystem
 {
@@ -15,11 +17,12 @@ namespace SchoolManagementSystem
     public partial class Students : subWindows
     {
 
-        private string btnStatus = "";
-        private int edit = 0;
+        private string btnStatus = "view";
+        int sid;
 
-        private MySqlConnection con = DbConnection.getConnection();
         MainClass main = MainClass.getInstance();
+        schoolDBDataContext obj = new schoolDBDataContext();
+        Image i;
 
         public Students()
         {
@@ -28,258 +31,262 @@ namespace SchoolManagementSystem
 
         public override void SearchBtn_Click_1(object sender, EventArgs e)
         {
-            
-            searchStudents(searchTxt.Text);
+
+            MainClass.disable_reset(panel5);
+            var dataSet = obj.student_search(searchTxt.Text);
+            id.DataPropertyName = "SID";
+            nicId.DataPropertyName = "NIC";
+            fName.DataPropertyName = "FNAME";
+            lName.DataPropertyName = "LNAME";
+            birthDate.DataPropertyName = "BIRTHDATE";
+            address.DataPropertyName = "ADDRESS";
+            telephone.DataPropertyName = "TELEPHONE";
+            gender.DataPropertyName = "GENDER";
+            studentGridView.DataSource = dataSet;
+
         }
 
         public override void addBtn_Click(object sender, EventArgs e)
         {
             btnStatus = "add";
-            clearFields();
-            submit.Visible = true;
+            MainClass.enable_reset(panel5);
             operation.Text = "Add Student";
-
+            acceptBtn.Visible = true;
         }
 
         public override void editBtn_Click(object sender, EventArgs e)
         {
             btnStatus = "edit";
-            edit = 1;
-            submit.Visible = true;
             operation.Text = "Edit Student";
-            viewStudents();
+            MainClass.enable(panel5);
         }
 
         public override void ViewBtn_Click_1(object sender, EventArgs e)
         {
-            btnStatus = "save";
-            edit = 0;
+            btnStatus = "view";
             operation.Text = "View";
             loadStudents();
-            viewStudents();
-            submit.Visible = false;
+            MainClass.disable_reset(panel5);
         }
 
         public override void deleteBtn_Click(object sender, EventArgs e)
         {
             operation.Text = "View";
-            btnStatus = "delete";
+            btnStatus = "view";
 
-            DialogResult result = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (result.Equals(DialogResult.OK))
+            DialogResult dr = MessageBox.Show("Are you sure want to delete " + firstName_txt.Text + "?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                try
-                {
-                    int deleteRowIndex = studentGridView.CurrentCell.RowIndex;
-                    string deleteRecord = "delete from student where sid = " + (studentGridView.Rows[deleteRowIndex].Cells[0].Value);
-                    MySqlCommand command = new MySqlCommand(deleteRecord, con);
-                    MySqlDataReader reader;
-                    con.Open();
-                    reader = command.ExecuteReader();
-                    while (reader.Read()) { }
-                    con.Close();
-                    loadStudents();
-                    clearFields();
-                }
-                catch (NullReferenceException)
-                {
-                    MessageBox.Show("Empty Dataset");
-                }
+                obj.student_delete(sid);
+                MainClass.showMsg(firstName_txt.Text + " deleted successfully", "Success", "success");
+                MainClass.disable_reset(panel5);
+                loadStudents();
             }
-            else
-            {
-            }
+            else { }
 
-            
         }
 
-        private void Submit_Click(object sender, EventArgs e)
+        private void image_browse_Click(object sender, EventArgs e)
         {
-            if (btnStatus == "add") {
-                int status = fieldCheck();
-                if (status == 1)
-                {
-                    DialogResult result = MessageBox.Show("Do you want to Add?", "Add the student", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    if (result.Equals(DialogResult.OK))
-                    {
-                        string insertStudent = "insert into student values(" + main.getSID() + ", '" + NIC_txt.Text + "', '" + firstName_txt.Text + "', '" + lastName_txt.Text + "', '" + telephone_txt.Text + "', '" + birthDay_txt.Text + "', '" + address_txt.Text + "', '" + gender_txt.Text + "')";
-                        MySqlDataAdapter sqlDA = new MySqlDataAdapter(insertStudent, con);
-                        DataTable DataTable = new DataTable();
-                        sqlDA.Fill(DataTable);
-
-                        if (DataTable.Rows.Count == 0)
-                        {
-                            clearFields();
-                            loadStudents();
-                        }
-                        else
-                        {
-                            loadStudents();
-                        }
-                    }
-                    else { }
-                }
-                else
-                {
-                }
-            }
-            else if (btnStatus == "edit") {
-
-                int status = fieldCheck();
-                if (status == 1)
-                {
-                    string updateRecord = "update student set NIC = '" + NIC_txt.Text + "', firstName = '" + firstName_txt.Text + "', lastName = '" + lastName_txt.Text + "', telephone = '" + telephone_txt.Text + "', birthDate = '" + birthDay_txt.Text + "', address = '" + address_txt.Text + "', gender = '" + gender_txt.Text + "' where sid = " + studentGridView.Rows[studentGridView.CurrentCell.RowIndex].Cells[0].Value;
-                    MySqlCommand command = new MySqlCommand(updateRecord, con);
-                    MySqlDataReader reader;
-                    con.Open();
-                    reader = command.ExecuteReader();
-                    while (reader.Read()) { }
-                    con.Close();
-                    loadStudents();
-                    clearFields();
-                }
-                else { }
-
+            DialogResult dr = openImage.ShowDialog();
+            if (dr == DialogResult.OK) {
+                i = new Bitmap(openImage.FileName);
+                studentImage.Image = i;
+                studentImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                imagePath.Text = openImage.FileName;
             }
         }
 
         public void loadStudents()
         {
-            con.Open();
-            string students_set = "select * from student order by sid ASC";
-            MySqlDataAdapter sqlDA = new MySqlDataAdapter(students_set, con);
-            DataTable DataTable = new DataTable();
-            sqlDA.Fill(DataTable);
-            if (DataTable.Rows.Count > 0)
-                studentGridView.DataSource = DataTable;
-            else
-            {
-
-            }
-            con.Close();
+            MainClass.disable_reset(panel5);
+            var dataSet = obj.student_getStudent();
+            id.DataPropertyName = "sid";
+            nicId.DataPropertyName = "nic";
+            fName.DataPropertyName = "firstName";
+            lName.DataPropertyName = "lastName";
+            birthDate.DataPropertyName = "birthdate";
+            address.DataPropertyName = "address";
+            telephone.DataPropertyName = "telephone";
+            gender.DataPropertyName = "gender";
+            studentGridView.DataSource = dataSet;
         }
 
         public void searchStudents(string name) {
-            con.Open();
-            string searchStudent = "select * from student where firstName LIKE '%" + name + "%' or lastName LIKE '%" + name + "%'";
-            MySqlDataAdapter sqlDA = new MySqlDataAdapter(searchStudent, con);
-            DataTable DataTable = new DataTable();
-            sqlDA.Fill(DataTable);
-            if (DataTable.Rows.Count > 0)
-                studentGridView.DataSource = DataTable;
-            else
-            {
 
-            }
-            con.Close();
-        }
-
-        public void clearFields()
-        {
-            NIC_txt.Text = "";
-            firstName_txt.Text = "";
-            lastName_txt.Text = "";
-            telephone_txt.Text = "";
-            address_txt.Text = "";
-            gender_txt.Text = "";
-            mand_nic.Visible = false;
-            mand_address.Visible = false;
-            mand_birthDate.Visible = false;
-            mand_firstName.Visible = false;
-            mand_lastName.Visible = false;
-            mand_gender.Visible = false;
-            mand_telephone.Visible = false;
         }
 
         public int fieldCheck()
         {
             int status = 0;
             if (NIC_txt.Text == "")
-                MessageBox.Show("NIC value cannot be empty");
+                MainClass.showMsg("NIC value cannot be empty", "Stop", "error");
             else if (firstName_txt.Text == "")
-                MessageBox.Show("First Name value cannot be empty");
+                MainClass.showMsg("First Name value cannot be empty", "Stop", "error");
             else if (lastName_txt.Text == "")
-                MessageBox.Show("Last Name value cannot be empty");
+                MainClass.showMsg("Last Name value cannot be empty", "Stop", "error");
             else if (birthDay_txt.Text == "")
-                MessageBox.Show("Birthday value cannot be empty");
+                MainClass.showMsg("Birthday value cannot be empty", "Stop", "error");
             else if (telephone_txt.Text == "")
-                MessageBox.Show("Telephone value cannot be empty");
+                MainClass.showMsg("Telephone value cannot be empty", "Stop", "error");
             else if (address_txt.Text == "")
-                MessageBox.Show("Address value cannot be empty");
-            else if (gender_txt.Text == "")
-                MessageBox.Show("Gender value cannot be empty");
+                MainClass.showMsg("Address value cannot be empty", "Stop", "error");
+            else if (genderDropDown.SelectedIndex < 0)
+                MainClass.showMsg("Gender value cannot be empty", "Stop", "error");
             else
                 status = 1;
             return status;
-        }
-
-        public void viewStudents()
-        {
-
-            try
-            {
-                int viewRowIndex = studentGridView.CurrentCell.RowIndex;
-                NIC_txt.Text = studentGridView.Rows[viewRowIndex].Cells[1].Value.ToString();
-                firstName_txt.Text = studentGridView.Rows[viewRowIndex].Cells[2].Value.ToString();
-                lastName_txt.Text = studentGridView.Rows[viewRowIndex].Cells[3].Value.ToString();
-                telephone_txt.Text = studentGridView.Rows[viewRowIndex].Cells[4].Value.ToString();
-                birthDay_txt.Value = main.getDateFromString(studentGridView.Rows[viewRowIndex].Cells[5].Value.ToString());
-                address_txt.Text = studentGridView.Rows[viewRowIndex].Cells[6].Value.ToString();
-                gender_txt.Text = studentGridView.Rows[viewRowIndex].Cells[7].Value.ToString();
-
-            }
-            catch (NullReferenceException)
-            {
-
-            }
         }
 
         private void NIC_txt_TextChanged(object sender, EventArgs e)
         {
             if (NIC_txt.Text == "")
                 mand_nic.Visible = true;
+            else
+                mand_nic.Visible = false;
         }
 
         private void FirstName_txt_TextChanged(object sender, EventArgs e)
         {
             if (firstName_txt.Text == "")
                 mand_firstName.Visible = true;
+            else
+                mand_firstName.Visible = false;
         }
 
         private void LastName_txt_TextChanged(object sender, EventArgs e)
         {
             if (lastName_txt.Text == "")
                 mand_lastName.Visible = true;
+            else
+                mand_lastName.Visible = false;
         }
 
         private void BirthDay_txt_ValueChanged(object sender, EventArgs e)
         {
             if (birthDay_txt.Text == "")
                 mand_birthDate.Visible = true;
+            else
+                mand_birthDate.Visible = false;
         }
 
         private void Telephone_txt_TextChanged(object sender, EventArgs e)
         {
             if (telephone_txt.Text == "")
                 mand_telephone.Visible = true;
+            else
+                mand_telephone.Visible = false;
         }
 
         private void Address_txt_TextChanged(object sender, EventArgs e)
         {
             if (address_txt.Text == "")
                 mand_address.Visible = true;
+            else
+                mand_address.Visible = false;
         }
 
         private void Gender_txt_TextChanged(object sender, EventArgs e)
         {
-            if (gender_txt.Text == "")
+            if (genderDropDown.SelectedIndex < 0)
                 mand_gender.Visible = true;
+            else
+                mand_gender.Visible = false;
         }
 
         private void Students_Load(object sender, EventArgs e)
         {
+            loadStudents();    
+        }
+
+        private void acceptBtn_Click(object sender, EventArgs e)
+        {
+            if (btnStatus == "add")
+            {
+                student s = new student();
+                byte gender;
+
+                if (genderDropDown.SelectedIndex == 0)
+                {
+                    gender = 1;
+                }
+                else
+                {
+                    gender = 0;
+                }
+
+                if (imagePath.Text == "")
+                {
+                    obj.student_insert_withoutImage(NIC_txt.Text, firstName_txt.Text, lastName_txt.Text, telephone_txt.Text, birthDay_txt.Value, address_txt.Text, gender);
+                    MainClass.showMsg(firstName_txt.Text + " added Successfully", "Success", "success");
+                }
+                else
+                {
+                    MemoryStream ms = new MemoryStream();
+                    i.Save(ms, ImageFormat.Jpeg);
+                    byte[] arr = ms.ToArray();
+                    obj.student_insert(NIC_txt.Text, firstName_txt.Text, lastName_txt.Text, telephone_txt.Text, birthDay_txt.Value, address_txt.Text, gender, arr);
+                    MainClass.showMsg(firstName_txt.Text + " added Successfully", "Success", "success");
+                }
+            }
+            else if (btnStatus == "edit") {
+
+                student s = new student();
+                byte gender;
+
+                if (genderDropDown.SelectedIndex == 0)
+                    gender = 1;
+                else
+                    gender = 0;
+
+                if (imagePath.Text == "")
+                {
+                    obj.student_update_withoutImage(NIC_txt.Text, firstName_txt.Text, lastName_txt.Text, telephone_txt.Text, birthDay_txt.Value, address_txt.Text, gender, sid);
+                }
+                else {
+                    MemoryStream ms = new MemoryStream();
+                    i.Save(ms, ImageFormat.Jpeg);
+                    byte[] arr = ms.ToArray();
+                    obj.student_update(NIC_txt.Text, firstName_txt.Text, lastName_txt.Text, telephone_txt.Text, birthDay_txt.Value, address_txt.Text, gender, arr, sid);
+                    MainClass.showMsg(firstName_txt.Text + " updated Successfully", "Success", "success");
+                }
+            }
+            MainClass.disable_reset(panel5);
             loadStudents();
-            viewStudents();
+        }
+
+
+
+        private void studentGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (btnStatus == "view" || btnStatus == "add")
+            {
+                MainClass.disable(panel5);
+            }
+            else {
+                MainClass.enable(panel5);
+            }
+            if (e.RowIndex != -1 && e.ColumnIndex != -1) {
+                DataGridViewRow row = studentGridView.Rows[e.RowIndex];
+                sid = Convert.ToInt32(row.Cells["id"].Value.ToString());
+                NIC_txt.Text = row.Cells["nicId"].Value.ToString();
+                firstName_txt.Text = row.Cells["fName"].Value.ToString();
+                lastName_txt.Text = row.Cells["lName"].Value.ToString();
+                address_txt.Text = row.Cells["address"].Value.ToString();
+                telephone_txt.Text = row.Cells["telephone"].Value.ToString();
+                genderDropDown.SelectedItem = row.Cells["gender"].Value.ToString();
+
+                var im = (from x in obj.students where x.sid == sid select x.image).First();
+                if (im == null) { }
+                else {
+                    byte[] arr = im.ToArray();
+                    MemoryStream ms = new MemoryStream(arr);
+                    i = Image.FromStream(ms);
+                    studentImage.Image = i;
+                    studentImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
         }
     }
-}
+    }
+

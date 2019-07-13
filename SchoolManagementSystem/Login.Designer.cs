@@ -140,6 +140,7 @@
             this.Controls.Add(this.password);
             this.Controls.Add(this.userName);
             this.Controls.Add(this.pictureBox2);
+            this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

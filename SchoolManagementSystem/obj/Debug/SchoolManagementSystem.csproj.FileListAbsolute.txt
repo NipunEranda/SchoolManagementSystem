@@ -5,7 +5,6 @@ C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\Sc
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\bin\Debug\Google.Protobuf.dll
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\bin\Debug\MySql.Data.xml
-C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Login.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.MDI.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Properties.Resources.resources
@@ -23,7 +22,6 @@ C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\Sc
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\bin\Debug\Google.Protobuf.dll
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\bin\Debug\MySql.Data.xml
-C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csprojAssemblyReference.cache
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Home.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Login.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.mainWindows.resources
@@ -36,3 +34,28 @@ C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\Sc
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csproj.CopyComplete
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.exe
 C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.pdb
+C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csprojAssemblyReference.cache
+C:\Users\Zyph3Rx\Documents\Visual Studio 2019\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Settings.resources
+C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Settings.resources
+C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Roles.resources
+C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csprojResolveAssemblyReference.cache
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\SchoolManagementSystem.exe.config
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.exe
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.pdb
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\SchoolManagementSystem.exe
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\SchoolManagementSystem.pdb
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\MySql.Data.dll
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\Google.Protobuf.dll
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\BouncyCastle.Crypto.dll
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\MySql.Data.xml
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csprojResolveAssemblyReference.cache
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Home.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Login.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.mainWindows.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.MDI.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Properties.Resources.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Roles.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Settings.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Students.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.subWindows.resources
+D:\SLIIT\Year2\Projects\sem2\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csproj.GenerateResource.Cache

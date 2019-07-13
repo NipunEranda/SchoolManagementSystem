@@ -43,6 +43,7 @@
             this.classesBtn = new System.Windows.Forms.Button();
             this.staffBtn = new System.Windows.Forms.Button();
             this.stdBtn = new System.Windows.Forms.Button();
+            this.rolesBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -116,6 +117,7 @@
             this.tableLayoutPanel1.Controls.Add(this.classesBtn, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.staffBtn, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.stdBtn, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.rolesBtn, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(24, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -270,6 +272,20 @@
             this.stdBtn.UseVisualStyleBackColor = true;
             this.stdBtn.Click += new System.EventHandler(this.stdBtn_Click);
             // 
+            // rolesBtn
+            // 
+            this.rolesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rolesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rolesBtn.FlatAppearance.BorderSize = 2;
+            this.rolesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rolesBtn.Location = new System.Drawing.Point(297, 177);
+            this.rolesBtn.Name = "rolesBtn";
+            this.rolesBtn.Size = new System.Drawing.Size(141, 81);
+            this.rolesBtn.TabIndex = 10;
+            this.rolesBtn.Text = "Roles";
+            this.rolesBtn.UseVisualStyleBackColor = true;
+            this.rolesBtn.Click += new System.EventHandler(this.rolesBtn_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,5 +320,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button rolesBtn;
     }
 }

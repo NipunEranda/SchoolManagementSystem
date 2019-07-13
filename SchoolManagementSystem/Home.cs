@@ -15,7 +15,6 @@ namespace SchoolManagementSystem
         
         MainClass main = MainClass.getInstance();
         Students students = new Students();
-        Staff staff = new Staff();
 
         public Home()
         {
@@ -25,12 +24,12 @@ namespace SchoolManagementSystem
         private void stdBtn_Click(object sender, EventArgs e)
         {
             
-            main.showWindow(students, this, MDI.ActiveForm);
+            MainClass.showWindow(students, this, MDI.ActiveForm);
         }
 
         private void staffBtn_Click(object sender, EventArgs e)
         {
-            main.showWindow(staff, this, MDI.ActiveForm);
+
         }
 
         private void classesBtn_Click(object sender, EventArgs e)
@@ -71,6 +70,12 @@ namespace SchoolManagementSystem
         private void inventoryBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void rolesBtn_Click(object sender, EventArgs e)
+        {
+            Roles role = new Roles();
+            MainClass.showWindow(role, this, MDI.ActiveForm);
         }
     }
 }
