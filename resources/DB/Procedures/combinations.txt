@@ -1,0 +1,106 @@
+combinations
+
+1 Comb(done)
+nic
+sid
+fname
+lname
+grade
+class
+
+2(done)
+nic & sid & fname & lname & grade & class
+
+3(done)
+nic $ sid
+4
+nic & fname
+5
+nic & lname
+6
+nic & grade
+7
+nic & class
+
+8(done)
+sid & fname
+9
+sid & lname
+10
+sid & grade
+11
+sid & class
+
+12(done)
+fname & lname
+13
+fname & grade
+14
+fname & class
+
+15(done)
+lname & grade
+16
+lname & class
+
+17(done)
+grade & class
+
+18(done)
+nic & sid & fname
+19
+nic & sid & lname
+20
+nic & sid & grade
+21
+nic & sid & class
+
+22(done)
+nic & fname & lname
+23
+nic & fname & grade
+24
+nic & fname & class
+
+25(done)
+nic & lname & grade
+26
+nic & lname & class
+
+27(done)
+nic & grade & class
+
+28(done)
+sid & fname & lname
+29
+sid & fname & grade
+30
+sid & fname & class
+
+31(done)
+fname & lname & grade
+32
+fname & lname & class
+
+33(done)
+lname & grade & class
+
+34(done)
+nic & sid & fname & lname
+35
+nic & sid & fname & grade
+36
+nic & sid & fname & class
+
+37(done)
+sid & fname & lname & grade
+38
+sid & fname & lname & class
+
+39(done)
+fname & lname & grade & class
+
+40
+nic & sid & fname & lname & grade
+41
+nic & sid & fname & lname & class

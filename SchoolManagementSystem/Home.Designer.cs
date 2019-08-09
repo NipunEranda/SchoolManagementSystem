@@ -44,6 +44,7 @@
             this.staffBtn = new System.Windows.Forms.Button();
             this.stdBtn = new System.Windows.Forms.Button();
             this.rolesBtn = new System.Windows.Forms.Button();
+            this.usersBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -63,20 +64,24 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(225, 9);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(637, 24);
+            this.panel1.Size = new System.Drawing.Size(581, 24);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(613, 24);
+            this.panel2.Location = new System.Drawing.Point(557, 24);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(24, 462);
             this.panel2.TabIndex = 1;
@@ -96,7 +101,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(24, 462);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(589, 24);
+            this.panel8.Size = new System.Drawing.Size(533, 24);
             this.panel8.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -118,6 +123,7 @@
             this.tableLayoutPanel1.Controls.Add(this.staffBtn, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.stdBtn, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.rolesBtn, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.usersBtn, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(24, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -129,7 +135,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(589, 438);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(533, 438);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // inventoryBtn
@@ -138,9 +144,9 @@
             this.inventoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventoryBtn.FlatAppearance.BorderSize = 2;
             this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventoryBtn.Location = new System.Drawing.Point(150, 177);
+            this.inventoryBtn.Location = new System.Drawing.Point(136, 177);
             this.inventoryBtn.Name = "inventoryBtn";
-            this.inventoryBtn.Size = new System.Drawing.Size(141, 81);
+            this.inventoryBtn.Size = new System.Drawing.Size(127, 81);
             this.inventoryBtn.TabIndex = 9;
             this.inventoryBtn.Text = "Inventory";
             this.inventoryBtn.UseVisualStyleBackColor = true;
@@ -154,7 +160,7 @@
             this.examBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.examBtn.Location = new System.Drawing.Point(3, 177);
             this.examBtn.Name = "examBtn";
-            this.examBtn.Size = new System.Drawing.Size(141, 81);
+            this.examBtn.Size = new System.Drawing.Size(127, 81);
             this.examBtn.TabIndex = 8;
             this.examBtn.Text = "Examinations";
             this.examBtn.UseVisualStyleBackColor = true;
@@ -166,9 +172,9 @@
             this.libraryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.libraryBtn.FlatAppearance.BorderSize = 2;
             this.libraryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.libraryBtn.Location = new System.Drawing.Point(444, 90);
+            this.libraryBtn.Location = new System.Drawing.Point(402, 90);
             this.libraryBtn.Name = "libraryBtn";
-            this.libraryBtn.Size = new System.Drawing.Size(142, 81);
+            this.libraryBtn.Size = new System.Drawing.Size(128, 81);
             this.libraryBtn.TabIndex = 7;
             this.libraryBtn.Text = "Library";
             this.libraryBtn.UseVisualStyleBackColor = true;
@@ -180,9 +186,9 @@
             this.eventsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventsBtn.FlatAppearance.BorderSize = 2;
             this.eventsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eventsBtn.Location = new System.Drawing.Point(297, 90);
+            this.eventsBtn.Location = new System.Drawing.Point(269, 90);
             this.eventsBtn.Name = "eventsBtn";
-            this.eventsBtn.Size = new System.Drawing.Size(141, 81);
+            this.eventsBtn.Size = new System.Drawing.Size(127, 81);
             this.eventsBtn.TabIndex = 6;
             this.eventsBtn.Text = "Events";
             this.eventsBtn.UseVisualStyleBackColor = true;
@@ -194,9 +200,9 @@
             this.paymentsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paymentsBtn.FlatAppearance.BorderSize = 2;
             this.paymentsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paymentsBtn.Location = new System.Drawing.Point(150, 90);
+            this.paymentsBtn.Location = new System.Drawing.Point(136, 90);
             this.paymentsBtn.Name = "paymentsBtn";
-            this.paymentsBtn.Size = new System.Drawing.Size(141, 81);
+            this.paymentsBtn.Size = new System.Drawing.Size(127, 81);
             this.paymentsBtn.TabIndex = 5;
             this.paymentsBtn.Text = "Payments";
             this.paymentsBtn.UseVisualStyleBackColor = true;
@@ -210,7 +216,7 @@
             this.timeTablesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.timeTablesBtn.Location = new System.Drawing.Point(3, 90);
             this.timeTablesBtn.Name = "timeTablesBtn";
-            this.timeTablesBtn.Size = new System.Drawing.Size(141, 81);
+            this.timeTablesBtn.Size = new System.Drawing.Size(127, 81);
             this.timeTablesBtn.TabIndex = 4;
             this.timeTablesBtn.Text = "TimeTables";
             this.timeTablesBtn.UseVisualStyleBackColor = true;
@@ -222,9 +228,9 @@
             this.coursesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.coursesBtn.FlatAppearance.BorderSize = 2;
             this.coursesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.coursesBtn.Location = new System.Drawing.Point(444, 3);
+            this.coursesBtn.Location = new System.Drawing.Point(402, 3);
             this.coursesBtn.Name = "coursesBtn";
-            this.coursesBtn.Size = new System.Drawing.Size(142, 81);
+            this.coursesBtn.Size = new System.Drawing.Size(128, 81);
             this.coursesBtn.TabIndex = 3;
             this.coursesBtn.Text = "Courses";
             this.coursesBtn.UseVisualStyleBackColor = true;
@@ -236,9 +242,9 @@
             this.classesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classesBtn.FlatAppearance.BorderSize = 2;
             this.classesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.classesBtn.Location = new System.Drawing.Point(297, 3);
+            this.classesBtn.Location = new System.Drawing.Point(269, 3);
             this.classesBtn.Name = "classesBtn";
-            this.classesBtn.Size = new System.Drawing.Size(141, 81);
+            this.classesBtn.Size = new System.Drawing.Size(127, 81);
             this.classesBtn.TabIndex = 2;
             this.classesBtn.Text = "Classes";
             this.classesBtn.UseVisualStyleBackColor = true;
@@ -250,9 +256,9 @@
             this.staffBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.staffBtn.FlatAppearance.BorderSize = 2;
             this.staffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.staffBtn.Location = new System.Drawing.Point(150, 3);
+            this.staffBtn.Location = new System.Drawing.Point(136, 3);
             this.staffBtn.Name = "staffBtn";
-            this.staffBtn.Size = new System.Drawing.Size(141, 81);
+            this.staffBtn.Size = new System.Drawing.Size(127, 81);
             this.staffBtn.TabIndex = 1;
             this.staffBtn.Text = "Staff";
             this.staffBtn.UseVisualStyleBackColor = true;
@@ -266,7 +272,7 @@
             this.stdBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stdBtn.Location = new System.Drawing.Point(3, 3);
             this.stdBtn.Name = "stdBtn";
-            this.stdBtn.Size = new System.Drawing.Size(141, 81);
+            this.stdBtn.Size = new System.Drawing.Size(127, 81);
             this.stdBtn.TabIndex = 0;
             this.stdBtn.Text = "Students";
             this.stdBtn.UseVisualStyleBackColor = true;
@@ -278,21 +284,37 @@
             this.rolesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rolesBtn.FlatAppearance.BorderSize = 2;
             this.rolesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rolesBtn.Location = new System.Drawing.Point(297, 177);
+            this.rolesBtn.Location = new System.Drawing.Point(269, 177);
             this.rolesBtn.Name = "rolesBtn";
-            this.rolesBtn.Size = new System.Drawing.Size(141, 81);
+            this.rolesBtn.Size = new System.Drawing.Size(127, 81);
             this.rolesBtn.TabIndex = 10;
             this.rolesBtn.Text = "Roles";
             this.rolesBtn.UseVisualStyleBackColor = true;
             this.rolesBtn.Click += new System.EventHandler(this.rolesBtn_Click);
+            // 
+            // usersBtn
+            // 
+            this.usersBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.usersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usersBtn.FlatAppearance.BorderSize = 2;
+            this.usersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.usersBtn.Location = new System.Drawing.Point(402, 177);
+            this.usersBtn.Name = "usersBtn";
+            this.usersBtn.Size = new System.Drawing.Size(128, 81);
+            this.usersBtn.TabIndex = 11;
+            this.usersBtn.Text = "Users";
+            this.usersBtn.UseVisualStyleBackColor = true;
+            this.usersBtn.Click += new System.EventHandler(this.usersBtn_Click);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 518);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Name = "Home";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.leftPanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -321,5 +343,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button rolesBtn;
+        private System.Windows.Forms.Button usersBtn;
     }
 }

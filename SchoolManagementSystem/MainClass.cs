@@ -6,14 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SchoolManagementSystem
 {
     class MainClass
     {
+        public static Form current;
+        private static string userName;
+        private static int roleId;
+        private static int teacherId;
+        public static bool loginCheck = false;
+        public static string appStatus = "open";
+        public static MDI mdi;
+
         public static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public static volatile MainClass Instance;
-        private SqlConnection con = DbConnection.getConnection();
+        schoolDBDataContext obj = new schoolDBDataContext();
         private MainClass() { }
 
         public static MainClass getInstance() {
@@ -24,6 +33,57 @@ namespace SchoolManagementSystem
             }
             else
                 return Instance;
+        }
+
+        public static string USERNAME {
+            get {
+                return userName;
+            }
+            private set {
+                userName = value;
+            }
+        }
+        public static int ROLEID
+        {
+            get
+            {
+                return roleId;
+            }
+            private set
+            {
+                roleId = value;
+            }
+        }
+        public static int TEACHERID
+        {
+            get
+            {
+                return teacherId;
+            }
+            private set
+            {
+                teacherId = value;
+            }
+        }
+
+        public bool setLogin(string un, string pw)
+        {
+            var login = obj.systemLogin(un, pw);
+
+            foreach (var item in login) {
+                if (item.userName == null || item.roleId == null)
+                {
+                    loginCheck = false;
+                    break;
+                }
+                else {
+                    loginCheck = true;
+                    appStatus = "logged";
+                }
+                USERNAME = item.userName;
+                ROLEID = Convert.ToInt32(item.roleId);
+            }
+            return loginCheck;
         }
 
         public static void showWindow(Form openWindow, Form closeWin, Form MDI)
@@ -44,6 +104,16 @@ namespace SchoolManagementSystem
                 return MessageBox.Show(msg, heading, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        public static DialogResult checkAction(string msg, string heading)
+        {
+                return MessageBox.Show(msg, heading, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+        }
+
+        public static void disableButtons(Button b) {
+            b.Enabled = false;
+            b.BackColor = Color.LightGray;
         }
 
         public static void disable_reset(Panel p)
@@ -126,8 +196,8 @@ namespace SchoolManagementSystem
                 }
                 if (c is PictureBox)
                 {
-                    PictureBox pb = (PictureBox)c;
-                    pb.Image = null;
+                    /*PictureBox pb = (PictureBox)c;
+                    pb.Image = null;*/
                 }
                 if (c is MonthCalendar)
                 {
@@ -286,6 +356,15 @@ namespace SchoolManagementSystem
 
         }
 
+        public static void setCurrentForm(Form form) {
+            current = form;
+        }
+
+        public static Form getCurrentForm(Form form)
+        {
+            return current;
+        }
+
         public DateTime getDateFromString(string date) {
             DateTime dateFromString =
                 DateTime.Parse(date, System.Globalization.CultureInfo.InvariantCulture);
@@ -293,27 +372,13 @@ namespace SchoolManagementSystem
             return dateFromString;
         }
 
-        /*public int getSID()
-        {
-            int sid = 0;
-            con.Open();
-            string getSID = "select * from student";
-            MySqlDataAdapter sqlDA = new MySqlDataAdapter(getSID, con);
-            DataTable dataTable = new DataTable();
-            sqlDA.Fill(dataTable);
+        public static void setBtnVisibilityTrue(Button btn) {
+            btn.Visible = true;
+        }
 
-            if (dataTable.Rows.Count > 0)
-            {
-                sid = dataTable.Rows.Count;
-                ++sid;
-            }
-            else if (dataTable.Rows.Count == 0)
-            {
-                sid = 1;
-            }
-            con.Close();
-            return sid;
-        }*/
+        public static void setMDI(MDI m) {
+            mdi = m;
+        }
 
     }
 }

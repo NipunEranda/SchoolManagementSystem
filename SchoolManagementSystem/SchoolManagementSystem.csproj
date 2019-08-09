@@ -12,7 +12,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Zyph3Rx\Documents\Application\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -47,9 +48,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>65CD474F857D3B627F6FE1F39BBDB4B1E0C18C1B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SchoolManagementSystem_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconD.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -63,7 +80,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbConnection.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +113,9 @@
     <Compile Include="Roles.Designer.cs">
       <DependentUpon>Roles.cs</DependentUpon>
     </Compile>
+    <Compile Include="schoolDB.cs">
+      <DependentUpon>schoolDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="schoolDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +138,18 @@
     </Compile>
     <Compile Include="subWindows.Designer.cs">
       <DependentUpon>subWindows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserPrivileges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserPrivileges.Designer.cs">
+      <DependentUpon>UserPrivileges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -144,6 +175,37 @@
     <EmbeddedResource Include="Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserPrivileges.resx">
+      <DependentUpon>UserPrivileges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\DbConnection.datasource" />
+    <None Include="Properties\DataSources\get_homePrivillegesResult.datasource" />
+    <None Include="Properties\DataSources\get_privillegesResult.datasource" />
+    <None Include="Properties\DataSources\Home.datasource" />
+    <None Include="Properties\DataSources\Login.datasource" />
+    <None Include="Properties\DataSources\MainClass.datasource" />
+    <None Include="Properties\DataSources\mainWindows.datasource" />
+    <None Include="Properties\DataSources\MDI.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\role.datasource" />
+    <None Include="Properties\DataSources\Roles.datasource" />
+    <None Include="Properties\DataSources\roles_getRolesResult.datasource" />
+    <None Include="Properties\DataSources\roles_searchResult.datasource" />
+    <None Include="Properties\DataSources\schoolDBDataContext.datasource" />
+    <None Include="Properties\DataSources\SchoolManagementSystem.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\SchoolManagementSystem.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Settings.datasource" />
+    <None Include="Properties\DataSources\student.datasource" />
+    <None Include="Properties\DataSources\Students.datasource" />
+    <None Include="Properties\DataSources\student_getStudentResult.datasource" />
+    <None Include="Properties\DataSources\student_searchResult.datasource" />
+    <None Include="Properties\DataSources\subWindows.datasource" />
+    <None Include="Properties\DataSources\systemLoginResult.datasource" />
+    <None Include="Properties\DataSources\Users.datasource" />
+    <None Include="Properties\DataSources\users_viewUsersResult.datasource" />
     <None Include="schoolDB.dbml.layout">
       <DependentUpon>schoolDB.dbml</DependentUpon>
     </None>
@@ -170,9 +232,12 @@
       <LastGenOutput>schoolDB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="SchoolManagementSystem_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -188,6 +253,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iconD.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace SchoolManagementSystem
 {
@@ -15,6 +16,7 @@ namespace SchoolManagementSystem
     {
         MainClass main = MainClass.getInstance();
         public string status = "";
+        public string currentConnectionString = ConfigurationManager.ConnectionStrings["schoolDbConString"].ToString();
         public Settings()
         {
             InitializeComponent();
@@ -25,15 +27,21 @@ namespace SchoolManagementSystem
             StringBuilder sb = new StringBuilder();
             if (integratedCheck.Checked)
             {
+                
                 sb.Append("Data Source=" + dataSourceTxt.Text + ";Initial Catalog=" + dataBaseTxt.Text + ";Integrated Security=true;MultipleActiveResultSets=true");
                 File.WriteAllText(MainClass.path + "\\cnt", sb.ToString());
                 DialogResult dr = MessageBox.Show("setting saved succesfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (dr == DialogResult.OK)
                 {
+                    string integrateConfig = "Data Source=" + dataSourceTxt.Text + ";Initial Catalog=" + dataBaseTxt.Text + ";Integrated Security=true;MultipleActiveResultSets=true";
+
                     status = "ok";
                     this.Close();
-                    Login login = new Login();
-                    login.Show();
+                    if (MainClass.USERNAME == null)
+                    {
+                        Login login = new Login();
+                        login.Show();
+                    }
                 }
             }
             else {
@@ -42,10 +50,15 @@ namespace SchoolManagementSystem
                 DialogResult dr = MessageBox.Show("setting saved succesfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (dr == DialogResult.OK)
                 {
+                    string manualConfig = "Data Source=" + dataSourceTxt.Text + ";Initial Catalog=" + dataBaseTxt.Text + ";User ID=" + userNameTxt.Text + ";Password=" + passwordTxt.Text + ";MultipleActiveResultSets=true";
+
                     status = "ok";
                     this.Close();
-                    Login login = new Login();
-                    login.Show();
+                    if (MainClass.USERNAME == null)
+                    {
+                        Login login = new Login();
+                        login.Show();
+                    }
                 }
             }
         }
@@ -67,5 +80,6 @@ namespace SchoolManagementSystem
 
             }
         }
+
     }
 }

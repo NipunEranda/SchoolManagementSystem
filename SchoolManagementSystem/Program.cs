@@ -18,24 +18,34 @@ namespace SchoolManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MDI mdi = new MDI();
-            Login loginInstance = new Login();
-            MainClass main = MainClass.getInstance();
-            if (File.Exists(MainClass.path + "\\cnt"))
+
+            do
             {
-                Application.Run(loginInstance);
-                if (loginInstance.getStatus())
-                    Application.Run(new MDI());
-            }
-            else {
-                Settings settings = new Settings();
-                Application.Run(settings);
-                if (settings.status == "ok") {
-                    Application.Run(loginInstance);
-                    if (loginInstance.getStatus())
-                        Application.Run(new MDI());
+                if (MainClass.appStatus == "" || MainClass.appStatus == "open")
+                {
+                    MDI mdi = new MDI();
+                    MainClass.setMDI(mdi);
+                    Login loginInstance = new Login();
+                    MainClass main = MainClass.getInstance();
+                    if (!File.Exists(MainClass.path + "\\cnt"))
+                    {
+                        Settings settings = new Settings();
+                        Application.Run(settings);
+                        if(settings.status == "")
+                        break;
+                    }
+                    else
+                    {
+                        Application.Run(loginInstance);
+                        if (loginInstance.getStatus())
+                        {
+                            Application.Run(mdi);
+                        }
+                        if (MainClass.appStatus == "exit")
+                            break;
+                    }
                 }
-            }
+            } while (MainClass.appStatus != null);
         }
     }
 }

@@ -31,6 +31,7 @@ namespace SchoolManagementSystem
             else {
                 rolesErrorLabel.Visible = false;
             }
+
         }
 
         private void statusTxt_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,7 +64,9 @@ namespace SchoolManagementSystem
 
         public override void deleteBtn_Click(object sender, EventArgs e)
         {
-            operation.Text = "View";
+            if (roleTxt.Text != "")
+            {
+                operation.Text = "View";
                 DialogResult dr = MessageBox.Show("Are you sure want to delete " + roleTxt.Text + "?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
@@ -73,19 +76,28 @@ namespace SchoolManagementSystem
                     loadRoles();
                 }
                 else { }
+            }
+            else {
+                MainClass.showMsg("Select a row first", "error", "error");
+            }
         }
 
-        public override void SearchBtn_Click_1(object sender, EventArgs e)
+        public void rolesSearch(String searchQuery)
         {
             MainClass.disable_reset(panel5);
-            var dataSet = obj.roles_search(searchTxt.Text);
+            var dataSet = obj.roles_search(searchQuery);
             RolesIdGV.DataPropertyName = "ID";
             RolesGv.DataPropertyName = "Role";
             statusGv.DataPropertyName = "Status";
             rolesDGV.DataSource = dataSet;
         }
 
-        public override void ViewBtn_Click_1(object sender, EventArgs e)
+        public override void searchTxt_TextChanged(object sender, EventArgs e)
+        {
+            rolesSearch(searchTxt.Text);
+        }
+
+        public override void ViewBtn_Click(object sender, EventArgs e)
         {
             btnStatus = "";
             operation.Text = "View";
@@ -127,7 +139,6 @@ namespace SchoolManagementSystem
 
             if (btnStatus == "add")
             {
-                int roleId = 0;
                 role r = new role();
                 r.roleName = roleTxt.Text;
                 if (statusTxt.SelectedIndex == 0)
@@ -171,6 +182,7 @@ namespace SchoolManagementSystem
         {
             loadRoles();
             MainClass.disable_reset(panel5);
+            adSearch.Visible = false;
         }
 
         public void loadRoles() {

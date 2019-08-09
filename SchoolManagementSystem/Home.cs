@@ -12,10 +12,9 @@ namespace SchoolManagementSystem
 {
     public partial class Home : mainWindows
     {
-        
+        private int loggedId = MainClass.ROLEID;
         MainClass main = MainClass.getInstance();
-        Students students = new Students();
-
+        schoolDBDataContext obj = new schoolDBDataContext();
         public Home()
         {
             InitializeComponent();
@@ -23,7 +22,8 @@ namespace SchoolManagementSystem
 
         private void stdBtn_Click(object sender, EventArgs e)
         {
-            
+            Students students = new Students();
+            MainClass.setCurrentForm(new Students());
             MainClass.showWindow(students, this, MDI.ActiveForm);
         }
 
@@ -75,7 +75,66 @@ namespace SchoolManagementSystem
         private void rolesBtn_Click(object sender, EventArgs e)
         {
             Roles role = new Roles();
+            MainClass.setCurrentForm(role);
             MainClass.showWindow(role, this, MDI.ActiveForm);
         }
+
+        private void usersBtn_Click(object sender, EventArgs e)
+        {
+            Users user = new Users();
+            MainClass.setCurrentForm(user);
+            MainClass.showWindow(user, this, MDI.ActiveForm);
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            setPrivilleges();
+            MainClass.mdi.topic.Text = "HOME";
+        }
+
+        private void setPrivilleges() {
+
+            var privileges = obj.privileges_HomePrivileges(loggedId);
+
+            foreach (var item in privileges)
+            {
+                if (item.student == 0)
+                    MainClass.disableButtons(stdBtn);
+
+                if (item.staff == 0)
+                    MainClass.disableButtons(staffBtn);
+
+                if (item.classes == 0)
+                    MainClass.disableButtons(classesBtn);
+
+                if (item.courses == 0)
+                    MainClass.disableButtons(coursesBtn);
+                
+                if (item.library == 0)
+                    MainClass.disableButtons(libraryBtn);
+
+                if (item.events == 0)
+                    MainClass.disableButtons(eventsBtn);
+
+                if (item.payments == 0)
+                    MainClass.disableButtons(paymentsBtn);
+
+                if (item.timetables == 0)
+                    MainClass.disableButtons(timeTablesBtn);
+
+                if (item.examinations == 0)
+                    MainClass.disableButtons(examBtn);
+
+                if (item.inventory == 0)
+                    MainClass.disableButtons(inventoryBtn);
+
+                if (item.roles == 0)
+                    MainClass.disableButtons(rolesBtn);
+                if (item.users == 0)
+                    MainClass.disableButtons(usersBtn);
+
+            }
+        }
+
     }
 }

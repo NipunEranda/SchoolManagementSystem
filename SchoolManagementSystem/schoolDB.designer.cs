@@ -134,24 +134,45 @@ namespace SchoolManagementSystem
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_insert")]
-		public int student_insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Image")] System.Data.Linq.Binary image)
+		public int student_insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> grade, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="class", DbType="Int")] System.Nullable<int> @class, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Image")] System.Data.Linq.Binary image)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, image);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, grade, @class, image);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_insert_withoutImage")]
-		public int student_insert_withoutImage([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender)
+		public int student_insert_withoutImage([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> grade, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="class", DbType="Int")] System.Nullable<int> @class)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, grade, @class);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_update")]
-		public int student_update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Image")] System.Data.Linq.Binary image, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_search")]
+		public ISingleResult<student_searchResult> student_search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, image, sid);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<student_searchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_update")]
+		public int student_update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Image")] System.Data.Linq.Binary image, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> grade, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="class", DbType="Int")] System.Nullable<int> @class, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, image, grade, @class, sid);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_update_withoutImage")]
+		public int student_update_withoutImage([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> grade, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="class", DbType="Int")] System.Nullable<int> @class, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, grade, @class, sid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.systemLogin")]
+		public ISingleResult<systemLoginResult> systemLogin([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password);
+			return ((ISingleResult<systemLoginResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getRoleId", IsComposable=true)]
@@ -166,18 +187,53 @@ namespace SchoolManagementSystem
 			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_search")]
-		public ISingleResult<student_searchResult> student_search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.class_getClasses")]
+		public ISingleResult<class_getClassesResult> class_getClasses()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
-			return ((ISingleResult<student_searchResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<class_getClassesResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_update_withoutImage")]
-		public int student_update_withoutImage([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.grades_getGrades")]
+		public ISingleResult<grades_getGradesResult> grades_getGrades()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, sid);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<grades_getGradesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_advanceSearch")]
+		public ISingleResult<student_advanceSearchResult> student_advanceSearch([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string fName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> gradeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> classId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, sid, fName, lName, gradeId, classId);
+			return ((ISingleResult<student_advanceSearchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.privileges_HomePrivileges")]
+		public ISingleResult<privileges_HomePrivilegesResult> privileges_HomePrivileges([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), roleId);
+			return ((ISingleResult<privileges_HomePrivilegesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.privileges_getPrivileges")]
+		public ISingleResult<privileges_getPrivilegesResult> privileges_getPrivileges([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), roleId);
+			return ((ISingleResult<privileges_getPrivilegesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_search")]
+		public ISingleResult<users_searchResult> users_search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<users_searchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_viewUsers")]
+		public ISingleResult<users_viewUsersResult> users_viewUsers()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<users_viewUsersResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -688,6 +744,10 @@ namespace SchoolManagementSystem
 		
 		private string _gender;
 		
+		private string _grade;
+		
+		private System.Nullable<char> _class;
+		
 		public student_getStudentResult()
 		{
 		}
@@ -819,155 +879,1043 @@ namespace SchoolManagementSystem
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_grade", DbType="Char(2)")]
+		public string grade
+		{
+			get
+			{
+				return this._grade;
+			}
+			set
+			{
+				if ((this._grade != value))
+				{
+					this._grade = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="class", Storage="_class", DbType="Char(1)")]
+		public System.Nullable<char> @class
+		{
+			get
+			{
+				return this._class;
+			}
+			set
+			{
+				if ((this._class != value))
+				{
+					this._class = value;
+				}
+			}
+		}
 	}
 	
 	public partial class student_searchResult
 	{
 		
-		private long _SID;
+		private long _sid;
 		
-		private string _NIC;
+		private string _nic;
 		
-		private string _FNAME;
+		private string _firstName;
 		
-		private string _LNAME;
+		private string _lastName;
 		
-		private string _BIRTHDATE;
+		private string _birthdate;
 		
-		private string _ADDRESS;
+		private string _telephone;
 		
-		private string _TELEPHONE;
+		private string _address;
 		
-		private string _GENDER;
+		private string _gender;
+		
+		private string _grade;
+		
+		private System.Nullable<char> _class;
 		
 		public student_searchResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SID", DbType="BigInt NOT NULL")]
-		public long SID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sid", DbType="BigInt NOT NULL")]
+		public long sid
 		{
 			get
 			{
-				return this._SID;
+				return this._sid;
 			}
 			set
 			{
-				if ((this._SID != value))
+				if ((this._sid != value))
 				{
-					this._SID = value;
+					this._sid = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(20)")]
-		public string NIC
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nic", DbType="VarChar(20)")]
+		public string nic
 		{
 			get
 			{
-				return this._NIC;
+				return this._nic;
 			}
 			set
 			{
-				if ((this._NIC != value))
+				if ((this._nic != value))
 				{
-					this._NIC = value;
+					this._nic = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNAME", DbType="VarChar(20)")]
-		public string FNAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="VarChar(20)")]
+		public string firstName
 		{
 			get
 			{
-				return this._FNAME;
+				return this._firstName;
 			}
 			set
 			{
-				if ((this._FNAME != value))
+				if ((this._firstName != value))
 				{
-					this._FNAME = value;
+					this._firstName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LNAME", DbType="VarChar(20)")]
-		public string LNAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="VarChar(20)")]
+		public string lastName
 		{
 			get
 			{
-				return this._LNAME;
+				return this._lastName;
 			}
 			set
 			{
-				if ((this._LNAME != value))
+				if ((this._lastName != value))
 				{
-					this._LNAME = value;
+					this._lastName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDATE", DbType="VarChar(20)")]
-		public string BIRTHDATE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthdate", DbType="VarChar(20)")]
+		public string birthdate
 		{
 			get
 			{
-				return this._BIRTHDATE;
+				return this._birthdate;
 			}
 			set
 			{
-				if ((this._BIRTHDATE != value))
+				if ((this._birthdate != value))
 				{
-					this._BIRTHDATE = value;
+					this._birthdate = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDRESS", DbType="VarChar(100)")]
-		public string ADDRESS
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telephone", DbType="VarChar(10)")]
+		public string telephone
 		{
 			get
 			{
-				return this._ADDRESS;
+				return this._telephone;
 			}
 			set
 			{
-				if ((this._ADDRESS != value))
+				if ((this._telephone != value))
 				{
-					this._ADDRESS = value;
+					this._telephone = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEPHONE", DbType="VarChar(10)")]
-		public string TELEPHONE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="VarChar(100)")]
+		public string address
 		{
 			get
 			{
-				return this._TELEPHONE;
+				return this._address;
 			}
 			set
 			{
-				if ((this._TELEPHONE != value))
+				if ((this._address != value))
 				{
-					this._TELEPHONE = value;
+					this._address = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENDER", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
-		public string GENDER
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string gender
 		{
 			get
 			{
-				return this._GENDER;
+				return this._gender;
 			}
 			set
 			{
-				if ((this._GENDER != value))
+				if ((this._gender != value))
 				{
-					this._GENDER = value;
+					this._gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_grade", DbType="Char(2)")]
+		public string grade
+		{
+			get
+			{
+				return this._grade;
+			}
+			set
+			{
+				if ((this._grade != value))
+				{
+					this._grade = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="class", Storage="_class", DbType="Char(1)")]
+		public System.Nullable<char> @class
+		{
+			get
+			{
+				return this._class;
+			}
+			set
+			{
+				if ((this._class != value))
+				{
+					this._class = value;
+				}
+			}
+		}
+	}
+	
+	public partial class systemLoginResult
+	{
+		
+		private string _userName;
+		
+		private System.Nullable<int> _roleId;
+		
+		public systemLoginResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="VarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this._userName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int")]
+		public System.Nullable<int> roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class class_getClassesResult
+	{
+		
+		private int _classId;
+		
+		private System.Nullable<char> _className;
+		
+		private string _status;
+		
+		public class_getClassesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_classId", DbType="Int NOT NULL")]
+		public int classId
+		{
+			get
+			{
+				return this._classId;
+			}
+			set
+			{
+				if ((this._classId != value))
+				{
+					this._classId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_className", DbType="Char(1)")]
+		public System.Nullable<char> className
+		{
+			get
+			{
+				return this._className;
+			}
+			set
+			{
+				if ((this._className != value))
+				{
+					this._className = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class grades_getGradesResult
+	{
+		
+		private int _gradeId;
+		
+		private System.Nullable<int> _sectionId;
+		
+		private string _gradeName;
+		
+		private string _status;
+		
+		public grades_getGradesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gradeId", DbType="Int NOT NULL")]
+		public int gradeId
+		{
+			get
+			{
+				return this._gradeId;
+			}
+			set
+			{
+				if ((this._gradeId != value))
+				{
+					this._gradeId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sectionId", DbType="Int")]
+		public System.Nullable<int> sectionId
+		{
+			get
+			{
+				return this._sectionId;
+			}
+			set
+			{
+				if ((this._sectionId != value))
+				{
+					this._sectionId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gradeName", DbType="Char(2)")]
+		public string gradeName
+		{
+			get
+			{
+				return this._gradeName;
+			}
+			set
+			{
+				if ((this._gradeName != value))
+				{
+					this._gradeName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class student_advanceSearchResult
+	{
+		
+		private long _sid;
+		
+		private string _nic;
+		
+		private string _firstName;
+		
+		private string _lastName;
+		
+		private string _birthdate;
+		
+		private string _telephone;
+		
+		private string _address;
+		
+		private string _gender;
+		
+		private string _grade;
+		
+		private System.Nullable<char> _class;
+		
+		public student_advanceSearchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sid", DbType="BigInt NOT NULL")]
+		public long sid
+		{
+			get
+			{
+				return this._sid;
+			}
+			set
+			{
+				if ((this._sid != value))
+				{
+					this._sid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nic", DbType="VarChar(20)")]
+		public string nic
+		{
+			get
+			{
+				return this._nic;
+			}
+			set
+			{
+				if ((this._nic != value))
+				{
+					this._nic = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="VarChar(20)")]
+		public string firstName
+		{
+			get
+			{
+				return this._firstName;
+			}
+			set
+			{
+				if ((this._firstName != value))
+				{
+					this._firstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="VarChar(20)")]
+		public string lastName
+		{
+			get
+			{
+				return this._lastName;
+			}
+			set
+			{
+				if ((this._lastName != value))
+				{
+					this._lastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthdate", DbType="VarChar(20)")]
+		public string birthdate
+		{
+			get
+			{
+				return this._birthdate;
+			}
+			set
+			{
+				if ((this._birthdate != value))
+				{
+					this._birthdate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telephone", DbType="VarChar(10)")]
+		public string telephone
+		{
+			get
+			{
+				return this._telephone;
+			}
+			set
+			{
+				if ((this._telephone != value))
+				{
+					this._telephone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="VarChar(100)")]
+		public string address
+		{
+			get
+			{
+				return this._address;
+			}
+			set
+			{
+				if ((this._address != value))
+				{
+					this._address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string gender
+		{
+			get
+			{
+				return this._gender;
+			}
+			set
+			{
+				if ((this._gender != value))
+				{
+					this._gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_grade", DbType="Char(2)")]
+		public string grade
+		{
+			get
+			{
+				return this._grade;
+			}
+			set
+			{
+				if ((this._grade != value))
+				{
+					this._grade = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="class", Storage="_class", DbType="Char(1)")]
+		public System.Nullable<char> @class
+		{
+			get
+			{
+				return this._class;
+			}
+			set
+			{
+				if ((this._class != value))
+				{
+					this._class = value;
+				}
+			}
+		}
+	}
+	
+	public partial class privileges_HomePrivilegesResult
+	{
+		
+		private int _roleId;
+		
+		private System.Nullable<byte> _student;
+		
+		private System.Nullable<byte> _staff;
+		
+		private System.Nullable<byte> _classes;
+		
+		private System.Nullable<byte> _courses;
+		
+		private System.Nullable<byte> _timetables;
+		
+		private System.Nullable<byte> _payments;
+		
+		private System.Nullable<byte> _events;
+		
+		private System.Nullable<byte> _library;
+		
+		private System.Nullable<byte> _examinations;
+		
+		private System.Nullable<byte> _inventory;
+		
+		private System.Nullable<byte> _roles;
+		
+		private System.Nullable<byte> _users;
+		
+		public privileges_HomePrivilegesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int NOT NULL")]
+		public int roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student", DbType="TinyInt")]
+		public System.Nullable<byte> student
+		{
+			get
+			{
+				return this._student;
+			}
+			set
+			{
+				if ((this._student != value))
+				{
+					this._student = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_staff", DbType="TinyInt")]
+		public System.Nullable<byte> staff
+		{
+			get
+			{
+				return this._staff;
+			}
+			set
+			{
+				if ((this._staff != value))
+				{
+					this._staff = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_classes", DbType="TinyInt")]
+		public System.Nullable<byte> classes
+		{
+			get
+			{
+				return this._classes;
+			}
+			set
+			{
+				if ((this._classes != value))
+				{
+					this._classes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_courses", DbType="TinyInt")]
+		public System.Nullable<byte> courses
+		{
+			get
+			{
+				return this._courses;
+			}
+			set
+			{
+				if ((this._courses != value))
+				{
+					this._courses = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_timetables", DbType="TinyInt")]
+		public System.Nullable<byte> timetables
+		{
+			get
+			{
+				return this._timetables;
+			}
+			set
+			{
+				if ((this._timetables != value))
+				{
+					this._timetables = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payments", DbType="TinyInt")]
+		public System.Nullable<byte> payments
+		{
+			get
+			{
+				return this._payments;
+			}
+			set
+			{
+				if ((this._payments != value))
+				{
+					this._payments = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_events", DbType="TinyInt")]
+		public System.Nullable<byte> events
+		{
+			get
+			{
+				return this._events;
+			}
+			set
+			{
+				if ((this._events != value))
+				{
+					this._events = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_library", DbType="TinyInt")]
+		public System.Nullable<byte> library
+		{
+			get
+			{
+				return this._library;
+			}
+			set
+			{
+				if ((this._library != value))
+				{
+					this._library = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_examinations", DbType="TinyInt")]
+		public System.Nullable<byte> examinations
+		{
+			get
+			{
+				return this._examinations;
+			}
+			set
+			{
+				if ((this._examinations != value))
+				{
+					this._examinations = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inventory", DbType="TinyInt")]
+		public System.Nullable<byte> inventory
+		{
+			get
+			{
+				return this._inventory;
+			}
+			set
+			{
+				if ((this._inventory != value))
+				{
+					this._inventory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roles", DbType="TinyInt")]
+		public System.Nullable<byte> roles
+		{
+			get
+			{
+				return this._roles;
+			}
+			set
+			{
+				if ((this._roles != value))
+				{
+					this._roles = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_users", DbType="TinyInt")]
+		public System.Nullable<byte> users
+		{
+			get
+			{
+				return this._users;
+			}
+			set
+			{
+				if ((this._users != value))
+				{
+					this._users = value;
+				}
+			}
+		}
+	}
+	
+	public partial class privileges_getPrivilegesResult
+	{
+		
+		private int _roleId;
+		
+		private System.Nullable<byte> _studAdd;
+		
+		private System.Nullable<byte> _studEdit;
+		
+		private System.Nullable<byte> _studDelete;
+		
+		public privileges_getPrivilegesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int NOT NULL")]
+		public int roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studAdd", DbType="TinyInt")]
+		public System.Nullable<byte> studAdd
+		{
+			get
+			{
+				return this._studAdd;
+			}
+			set
+			{
+				if ((this._studAdd != value))
+				{
+					this._studAdd = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studEdit", DbType="TinyInt")]
+		public System.Nullable<byte> studEdit
+		{
+			get
+			{
+				return this._studEdit;
+			}
+			set
+			{
+				if ((this._studEdit != value))
+				{
+					this._studEdit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studDelete", DbType="TinyInt")]
+		public System.Nullable<byte> studDelete
+		{
+			get
+			{
+				return this._studDelete;
+			}
+			set
+			{
+				if ((this._studDelete != value))
+				{
+					this._studDelete = value;
+				}
+			}
+		}
+	}
+	
+	public partial class users_searchResult
+	{
+		
+		private int _userId;
+		
+		private string _userName;
+		
+		private string _roleId;
+		
+		public users_searchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+		public int userId
+		{
+			get
+			{
+				return this._userId;
+			}
+			set
+			{
+				if ((this._userId != value))
+				{
+					this._userId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="VarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this._userName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="VarChar(20)")]
+		public string roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class users_viewUsersResult
+	{
+		
+		private int _userId;
+		
+		private string _userName;
+		
+		private string _roleId;
+		
+		public users_viewUsersResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+		public int userId
+		{
+			get
+			{
+				return this._userId;
+			}
+			set
+			{
+				if ((this._userId != value))
+				{
+					this._userId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="VarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this._userName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="VarChar(20)")]
+		public string roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
 				}
 			}
 		}

@@ -82,9 +82,9 @@
             // 
             // roleTxt
             // 
-            this.roleTxt.Location = new System.Drawing.Point(10, 101);
+            this.roleTxt.Location = new System.Drawing.Point(12, 101);
             this.roleTxt.Name = "roleTxt";
-            this.roleTxt.Size = new System.Drawing.Size(226, 20);
+            this.roleTxt.Size = new System.Drawing.Size(275, 20);
             this.roleTxt.TabIndex = 0;
             this.roleTxt.TextChanged += new System.EventHandler(this.roleTxt_TextChanged);
             // 
@@ -92,7 +92,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(10, 81);
+            this.label3.Location = new System.Drawing.Point(12, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 2;
@@ -102,7 +102,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(8, 127);
+            this.label4.Location = new System.Drawing.Point(10, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 3;
@@ -110,7 +110,7 @@
             // 
             // acceptBtn
             // 
-            this.acceptBtn.Location = new System.Drawing.Point(120, 184);
+            this.acceptBtn.Location = new System.Drawing.Point(172, 184);
             this.acceptBtn.Name = "acceptBtn";
             this.acceptBtn.Size = new System.Drawing.Size(116, 30);
             this.acceptBtn.TabIndex = 4;
@@ -122,6 +122,7 @@
             // 
             this.rolesDGV.AllowUserToAddRows = false;
             this.rolesDGV.AllowUserToDeleteRows = false;
+            this.rolesDGV.AllowUserToResizeRows = false;
             this.rolesDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.rolesDGV.BackgroundColor = System.Drawing.Color.White;
             this.rolesDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -152,7 +153,7 @@
             this.rolesDGV.ReadOnly = true;
             this.rolesDGV.RowHeadersVisible = false;
             this.rolesDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rolesDGV.Size = new System.Drawing.Size(554, 437);
+            this.rolesDGV.Size = new System.Drawing.Size(498, 437);
             this.rolesDGV.TabIndex = 5;
             this.rolesDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rolesDGV_CellClick);
             // 
@@ -183,9 +184,9 @@
             this.statusTxt.Items.AddRange(new object[] {
             "Active",
             "In-active"});
-            this.statusTxt.Location = new System.Drawing.Point(10, 146);
+            this.statusTxt.Location = new System.Drawing.Point(12, 146);
             this.statusTxt.Name = "statusTxt";
-            this.statusTxt.Size = new System.Drawing.Size(226, 21);
+            this.statusTxt.Size = new System.Drawing.Size(275, 21);
             this.statusTxt.TabIndex = 5;
             this.statusTxt.SelectedIndexChanged += new System.EventHandler(this.statusTxt_SelectedIndexChanged);
             // 
@@ -193,7 +194,7 @@
             // 
             this.rolesErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rolesErrorLabel.ForeColor = System.Drawing.Color.White;
-            this.rolesErrorLabel.Location = new System.Drawing.Point(222, 82);
+            this.rolesErrorLabel.Location = new System.Drawing.Point(274, 82);
             this.rolesErrorLabel.Name = "rolesErrorLabel";
             this.rolesErrorLabel.Size = new System.Drawing.Size(14, 16);
             this.rolesErrorLabel.TabIndex = 6;
@@ -203,7 +204,7 @@
             // 
             this.statusErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusErrorLabel.ForeColor = System.Drawing.Color.White;
-            this.statusErrorLabel.Location = new System.Drawing.Point(222, 127);
+            this.statusErrorLabel.Location = new System.Drawing.Point(274, 127);
             this.statusErrorLabel.Name = "statusErrorLabel";
             this.statusErrorLabel.Size = new System.Drawing.Size(14, 16);
             this.statusErrorLabel.TabIndex = 7;
@@ -225,6 +226,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 512);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Name = "Roles";
             this.Text = "Roles";
             this.Load += new System.EventHandler(this.Roles_Load);
@@ -250,7 +252,7 @@
         private System.Windows.Forms.DataGridView rolesDGV;
         private System.Windows.Forms.Button acceptBtn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        new private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox roleTxt;
         private System.Windows.Forms.ComboBox statusTxt;
         private System.Windows.Forms.Label rolesErrorLabel;
