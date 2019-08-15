@@ -85,12 +85,12 @@
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(931, 729);
+            this.panel1.Size = new System.Drawing.Size(931, 717);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.studentGridView);
-            this.groupBox1.Size = new System.Drawing.Size(931, 729);
+            this.groupBox1.Size = new System.Drawing.Size(931, 717);
             this.groupBox1.Controls.SetChildIndex(this.panel2, 0);
             this.groupBox1.Controls.SetChildIndex(this.panel8, 0);
             this.groupBox1.Controls.SetChildIndex(this.panel9, 0);
@@ -101,7 +101,7 @@
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(755, 16);
-            this.panel2.Size = new System.Drawing.Size(173, 710);
+            this.panel2.Size = new System.Drawing.Size(173, 698);
             // 
             // panel8
             // 
@@ -109,18 +109,18 @@
             // 
             // panel11
             // 
-            this.panel11.Location = new System.Drawing.Point(13, 716);
+            this.panel11.Location = new System.Drawing.Point(13, 704);
             this.panel11.Size = new System.Drawing.Size(732, 10);
             // 
             // panel10
             // 
             this.panel10.Location = new System.Drawing.Point(745, 26);
-            this.panel10.Size = new System.Drawing.Size(10, 700);
+            this.panel10.Size = new System.Drawing.Size(10, 688);
             // 
             // panel9
             // 
             this.panel9.Location = new System.Drawing.Point(3, 26);
-            this.panel9.Size = new System.Drawing.Size(10, 700);
+            this.panel9.Size = new System.Drawing.Size(10, 688);
             // 
             // panel13
             // 
@@ -128,7 +128,7 @@
             // 
             // leftPanel
             // 
-            this.leftPanel.Size = new System.Drawing.Size(244, 761);
+            this.leftPanel.Size = new System.Drawing.Size(244, 749);
             // 
             // panel5
             // 
@@ -159,15 +159,15 @@
             this.panel5.Controls.Add(this.firstName_txt);
             this.panel5.Controls.Add(this.NIC_txt);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Size = new System.Drawing.Size(244, 729);
+            this.panel5.Size = new System.Drawing.Size(244, 717);
             // 
             // rightPanel
             // 
-            this.rightPanel.Size = new System.Drawing.Size(931, 761);
+            this.rightPanel.Size = new System.Drawing.Size(931, 749);
             // 
             // panel6
             // 
-            this.panel6.Size = new System.Drawing.Size(931, 729);
+            this.panel6.Size = new System.Drawing.Size(931, 717);
             // 
             // panel3
             // 
@@ -417,7 +417,7 @@
             this.studentGridView.ReadOnly = true;
             this.studentGridView.RowHeadersVisible = false;
             this.studentGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.studentGridView.Size = new System.Drawing.Size(732, 690);
+            this.studentGridView.Size = new System.Drawing.Size(732, 678);
             this.studentGridView.TabIndex = 5;
             this.studentGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentGridView_CellClick);
             // 
@@ -549,7 +549,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 761);
+            this.ClientSize = new System.Drawing.Size(1175, 749);
             this.Name = "Students";
             this.Text = "Students";
             this.Load += new System.EventHandler(this.Students_Load);

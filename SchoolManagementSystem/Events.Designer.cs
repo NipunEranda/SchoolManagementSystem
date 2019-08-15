@@ -268,21 +268,26 @@
             this.EventGridView.TabIndex = 25;
             this.EventGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EventGridView_CellClick);
             // 
-            // Form1
+            // Events
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 450);
+            this.ClientSize = new System.Drawing.Size(1191, 726);
+            this.ControlBox = false;
             this.Controls.Add(this.EventGridView);
             this.Controls.Add(this.EventgroupBox);
             this.Controls.Add(this.seaBtn);
             this.Controls.Add(this.repoBtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1191, 726);
+            this.Name = "Events";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Calendar";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.EventgroupBox.ResumeLayout(false);

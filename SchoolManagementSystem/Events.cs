@@ -14,6 +14,8 @@ namespace SchoolManagementSystem
     public partial class Events : Form
     {
 
+        schoolDBDataContext obj = new schoolDBDataContext();
+
         MainClass main = MainClass.getInstance();
 
         public Events()
@@ -36,7 +38,6 @@ namespace SchoolManagementSystem
 
             SqlCommand cmd = new SqlCommand("select * from EventTb", con);
             DataTable dt = new DataTable();
-
             con.Open();
 
             SqlDataReader sdr = cmd.ExecuteReader();

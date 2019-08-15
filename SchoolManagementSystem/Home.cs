@@ -49,7 +49,7 @@ namespace SchoolManagementSystem
 
         private void eventsBtn_Click(object sender, EventArgs e)
         {
-
+            MainClass.showWindow(new Events(), this, MDI.ActiveForm);
         }
 
         private void paymentsBtn_Click(object sender, EventArgs e)

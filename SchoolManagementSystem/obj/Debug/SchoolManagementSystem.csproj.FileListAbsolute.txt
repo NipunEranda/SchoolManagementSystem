@@ -78,3 +78,4 @@ C:\Users\Ash\Downloads\GIThub download\SchoolManagemetSystem\SchoolManagementSys
 C:\Users\Ash\Downloads\GIThub download\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Ash\Downloads\GIThub download\SchoolManagemetSystem\SchoolManagementSystem\bin\Debug\MySql.Data.xml
 C:\Users\Ash\Downloads\GIThub download\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csprojResolveAssemblyReference.cache
+C:\Users\Ash\Downloads\GIThub download\SchoolManagemetSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Events.resources

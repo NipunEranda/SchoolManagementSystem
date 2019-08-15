@@ -190,6 +190,40 @@ namespace SchoolManagementSystem
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, sid);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getEventId", IsComposable=true)]
+		public System.Nullable<int> getEventId()
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.event_insert")]
+		public int event_insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string eName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> eDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string eVenue, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> time)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eName, eDate, eVenue, time);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.event_update")]
+		public int event_update([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string eName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> eDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string eVenue, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> time)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, eName, eDate, eVenue, time);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.event_view")]
+		public ISingleResult<event_viewResult> event_view([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string eName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eName);
+			return ((ISingleResult<event_viewResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.event_delete")]
+		public int event_delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.roles")]
@@ -1137,6 +1171,104 @@ namespace SchoolManagementSystem
 				if ((this._GENDER != value))
 				{
 					this._GENDER = value;
+				}
+			}
+		}
+	}
+	
+	public partial class event_viewResult
+	{
+		
+		private int _eventID;
+		
+		private string _eventName;
+		
+		private System.DateTime _date;
+		
+		private string _venue;
+		
+		private System.TimeSpan _time;
+		
+		public event_viewResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_eventID", DbType="Int NOT NULL")]
+		public int eventID
+		{
+			get
+			{
+				return this._eventID;
+			}
+			set
+			{
+				if ((this._eventID != value))
+				{
+					this._eventID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_eventName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string eventName
+		{
+			get
+			{
+				return this._eventName;
+			}
+			set
+			{
+				if ((this._eventName != value))
+				{
+					this._eventName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="Date NOT NULL")]
+		public System.DateTime date
+		{
+			get
+			{
+				return this._date;
+			}
+			set
+			{
+				if ((this._date != value))
+				{
+					this._date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_venue", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string venue
+		{
+			get
+			{
+				return this._venue;
+			}
+			set
+			{
+				if ((this._venue != value))
+				{
+					this._venue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_time", DbType="Time NOT NULL")]
+		public System.TimeSpan time
+		{
+			get
+			{
+				return this._time;
+			}
+			set
+			{
+				if ((this._time != value))
+				{
+					this._time = value;
 				}
 			}
 		}

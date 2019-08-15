@@ -138,4 +138,36 @@
     <Parameter Name="sid" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.getEventId" Method="getEventId" IsComposable="true">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.event_insert" Method="event_insert">
+    <Parameter Name="eName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="eDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="eVenue" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="time" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.event_update" Method="event_update">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="eName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="eDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="eVenue" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="time" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.event_view" Method="event_view">
+    <Parameter Name="eName" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="event_viewResult">
+      <Column Name="eventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="eventName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="venue" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.event_delete" Method="event_delete">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

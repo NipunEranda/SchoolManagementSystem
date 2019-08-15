@@ -126,6 +126,9 @@
     <Compile Include="subWindows.Designer.cs">
       <DependentUpon>subWindows.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Events.resx">
+      <DependentUpon>Events.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
