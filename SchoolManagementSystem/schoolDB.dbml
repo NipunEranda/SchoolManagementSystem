@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="sms" Class="schoolDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-TM7VHQ4;Initial Catalog=sms;Integrated Security=True" SettingsObjectName="SchoolManagementSystem.Properties.Settings" SettingsPropertyName="smsDB" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-6TO1UR3\SQLEXPRESS;Initial Catalog=sms;Integrated Security=True" SettingsObjectName="SchoolManagementSystem.Properties.Settings" SettingsPropertyName="smsConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.roles" Member="roles">
     <Type Name="role">
       <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -18,6 +18,15 @@
       <Column Name="address" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="gender" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
       <Column Name="image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventTb" Member="EventTbs">
+    <Type Name="EventTb">
+      <Column Name="eventID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="eventName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="venue" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.roles_delete" Method="roles_delete">

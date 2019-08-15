@@ -36,10 +36,13 @@ namespace SchoolManagementSystem
     partial void Insertstudent(student instance);
     partial void Updatestudent(student instance);
     partial void Deletestudent(student instance);
+    partial void InsertEventTb(EventTb instance);
+    partial void UpdateEventTb(EventTb instance);
+    partial void DeleteEventTb(EventTb instance);
     #endregion
 		
 		public schoolDBDataContext() : 
-				base(global::SchoolManagementSystem.Properties.Settings.Default.smsDB, mappingSource)
+				base(global::SchoolManagementSystem.Properties.Settings.Default.smsConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -81,6 +84,14 @@ namespace SchoolManagementSystem
 			get
 			{
 				return this.GetTable<student>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EventTb> EventTbs
+		{
+			get
+			{
+				return this.GetTable<EventTb>();
 			}
 		}
 		
@@ -520,6 +531,164 @@ namespace SchoolManagementSystem
 					this._image = value;
 					this.SendPropertyChanged("image");
 					this.OnimageChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EventTb")]
+	public partial class EventTb : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _eventID;
+		
+		private string _eventName;
+		
+		private System.DateTime _date;
+		
+		private string _venue;
+		
+		private System.TimeSpan _time;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OneventIDChanging(int value);
+    partial void OneventIDChanged();
+    partial void OneventNameChanging(string value);
+    partial void OneventNameChanged();
+    partial void OndateChanging(System.DateTime value);
+    partial void OndateChanged();
+    partial void OnvenueChanging(string value);
+    partial void OnvenueChanged();
+    partial void OntimeChanging(System.TimeSpan value);
+    partial void OntimeChanged();
+    #endregion
+		
+		public EventTb()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_eventID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int eventID
+		{
+			get
+			{
+				return this._eventID;
+			}
+			set
+			{
+				if ((this._eventID != value))
+				{
+					this.OneventIDChanging(value);
+					this.SendPropertyChanging();
+					this._eventID = value;
+					this.SendPropertyChanged("eventID");
+					this.OneventIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_eventName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string eventName
+		{
+			get
+			{
+				return this._eventName;
+			}
+			set
+			{
+				if ((this._eventName != value))
+				{
+					this.OneventNameChanging(value);
+					this.SendPropertyChanging();
+					this._eventName = value;
+					this.SendPropertyChanged("eventName");
+					this.OneventNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="Date NOT NULL")]
+		public System.DateTime date
+		{
+			get
+			{
+				return this._date;
+			}
+			set
+			{
+				if ((this._date != value))
+				{
+					this.OndateChanging(value);
+					this.SendPropertyChanging();
+					this._date = value;
+					this.SendPropertyChanged("date");
+					this.OndateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_venue", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string venue
+		{
+			get
+			{
+				return this._venue;
+			}
+			set
+			{
+				if ((this._venue != value))
+				{
+					this.OnvenueChanging(value);
+					this.SendPropertyChanging();
+					this._venue = value;
+					this.SendPropertyChanged("venue");
+					this.OnvenueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_time", DbType="Time NOT NULL")]
+		public System.TimeSpan time
+		{
+			get
+			{
+				return this._time;
+			}
+			set
+			{
+				if ((this._time != value))
+				{
+					this.OntimeChanging(value);
+					this.SendPropertyChanging();
+					this._time = value;
+					this.SendPropertyChanged("time");
+					this.OntimeChanged();
 				}
 			}
 		}
