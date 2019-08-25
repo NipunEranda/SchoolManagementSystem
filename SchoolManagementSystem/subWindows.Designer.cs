@@ -44,7 +44,7 @@
             this.viewBtn = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.setPrivilleges = new System.Windows.Forms.Button();
+            this.privilegesAndAttendance = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.backBtn = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -79,7 +79,6 @@
             // 
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.backBtn);
-            this.panel4.Controls.SetChildIndex(this.label1, 0);
             this.panel4.Controls.SetChildIndex(this.backBtn, 0);
             this.panel4.Controls.SetChildIndex(this.label2, 0);
             // 
@@ -99,7 +98,6 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(222, 9);
             // 
             // panel1
             // 
@@ -187,15 +185,16 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(173, 245);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(173, 184);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // adSearch
             // 
+            this.adSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.adSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adSearch.Location = new System.Drawing.Point(3, 199);
+            this.adSearch.Location = new System.Drawing.Point(3, 147);
             this.adSearch.Name = "adSearch";
-            this.adSearch.Size = new System.Drawing.Size(167, 43);
+            this.adSearch.Size = new System.Drawing.Size(167, 34);
             this.adSearch.TabIndex = 4;
             this.adSearch.Text = "ADVANCE SEARCH";
             this.adSearch.UseVisualStyleBackColor = true;
@@ -206,9 +205,9 @@
             // 
             this.deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteBtn.Location = new System.Drawing.Point(3, 101);
+            this.deleteBtn.Location = new System.Drawing.Point(3, 75);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(167, 43);
+            this.deleteBtn.Size = new System.Drawing.Size(167, 30);
             this.deleteBtn.TabIndex = 3;
             this.deleteBtn.Text = "DELETE";
             this.deleteBtn.UseVisualStyleBackColor = true;
@@ -218,9 +217,9 @@
             // 
             this.editBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editBtn.Location = new System.Drawing.Point(3, 52);
+            this.editBtn.Location = new System.Drawing.Point(3, 39);
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(167, 43);
+            this.editBtn.Size = new System.Drawing.Size(167, 30);
             this.editBtn.TabIndex = 1;
             this.editBtn.Text = "EDIT";
             this.editBtn.UseVisualStyleBackColor = true;
@@ -232,7 +231,7 @@
             this.addBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addBtn.Location = new System.Drawing.Point(3, 3);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(167, 43);
+            this.addBtn.Size = new System.Drawing.Size(167, 30);
             this.addBtn.TabIndex = 0;
             this.addBtn.Text = "ADD";
             this.addBtn.UseVisualStyleBackColor = true;
@@ -242,9 +241,9 @@
             // 
             this.viewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewBtn.Location = new System.Drawing.Point(3, 150);
+            this.viewBtn.Location = new System.Drawing.Point(3, 111);
             this.viewBtn.Name = "viewBtn";
-            this.viewBtn.Size = new System.Drawing.Size(167, 43);
+            this.viewBtn.Size = new System.Drawing.Size(167, 30);
             this.viewBtn.TabIndex = 2;
             this.viewBtn.Text = "VIEW";
             this.viewBtn.UseVisualStyleBackColor = true;
@@ -260,25 +259,25 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.setPrivilleges);
+            this.panel12.Controls.Add(this.privilegesAndAttendance);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 402);
+            this.panel12.Location = new System.Drawing.Point(0, 411);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(173, 49);
+            this.panel12.Size = new System.Drawing.Size(173, 40);
             this.panel12.TabIndex = 2;
             // 
-            // setPrivilleges
+            // privilegesAndAttendance
             // 
-            this.setPrivilleges.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.setPrivilleges.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.setPrivilleges.Location = new System.Drawing.Point(0, 0);
-            this.setPrivilleges.Name = "setPrivilleges";
-            this.setPrivilleges.Size = new System.Drawing.Size(173, 49);
-            this.setPrivilleges.TabIndex = 5;
-            this.setPrivilleges.Text = "SET PRIVILLEGES";
-            this.setPrivilleges.UseVisualStyleBackColor = true;
-            this.setPrivilleges.Visible = false;
-            this.setPrivilleges.Click += new System.EventHandler(this.setPrivilleges_Click);
+            this.privilegesAndAttendance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.privilegesAndAttendance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.privilegesAndAttendance.Location = new System.Drawing.Point(0, 0);
+            this.privilegesAndAttendance.Name = "privilegesAndAttendance";
+            this.privilegesAndAttendance.Size = new System.Drawing.Size(173, 40);
+            this.privilegesAndAttendance.TabIndex = 5;
+            this.privilegesAndAttendance.Text = "SET PRIVILEGES";
+            this.privilegesAndAttendance.UseVisualStyleBackColor = true;
+            this.privilegesAndAttendance.Visible = false;
+            this.privilegesAndAttendance.Click += new System.EventHandler(this.setPrivilleges_Click);
             // 
             // panel14
             // 
@@ -298,7 +297,6 @@
             this.backBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.backBtn.TabIndex = 1;
             this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // label2
             // 
@@ -363,7 +361,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 512);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Name = "subWindows";
             this.Load += new System.EventHandler(this.subWindows_Load);
             this.leftPanel.ResumeLayout(false);
@@ -404,7 +401,7 @@
         public System.Windows.Forms.Button adSearch;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox searchTxt;
-        public System.Windows.Forms.Button setPrivilleges;
+        public System.Windows.Forms.Button privilegesAndAttendance;
         public System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
         public System.Windows.Forms.Panel panel14;

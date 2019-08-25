@@ -106,8 +106,7 @@ namespace SchoolManagementSystem
 
         private void backBtn_Click_1(object sender, EventArgs e)
         {
-            Home home = new Home();
-            MainClass.showWindow(home, this, MDI.ActiveForm);
+            MainClass.showWindow(new Home(), this, MDI.ActiveForm);
         }
 
         private void acceptBtn_Click(object sender, EventArgs e)
@@ -187,6 +186,8 @@ namespace SchoolManagementSystem
 
         public void loadRoles() {
             MainClass.disable_reset(panel5);
+            MainClass.setCurrentForm(new Roles());
+            MainClass.mdi.topic.Text = "Roles";
             var dataSet = obj.roles_getRoles();
             RolesIdGV.DataPropertyName = "ID";
             RolesGv.DataPropertyName = "Role";

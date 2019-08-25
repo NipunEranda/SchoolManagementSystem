@@ -20,18 +20,6 @@ namespace SchoolManagementSystem
             InitializeComponent();
         }
 
-        public void backBtn_Click(object sender, EventArgs e)
-        {
-            if (MainClass.current.Name == "UserPrivileges")
-            {
-                MainClass.showWindow(new Users(), this, MDI.ActiveForm);
-            }
-            else
-            {
-                MainClass.showWindow(new Home(), this, MDI.ActiveForm);
-            }
-        }
-
         public virtual void addBtn_Click(object sender, EventArgs e)
         {
 

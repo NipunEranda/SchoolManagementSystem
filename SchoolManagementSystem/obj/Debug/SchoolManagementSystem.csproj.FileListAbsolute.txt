@@ -34,6 +34,8 @@ C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\Sc
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.MDI.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Properties.Resources.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Roles.resources
+C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.StudentAttendance.resources
+C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.UserPrivileges.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Users.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Settings.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Students.resources
@@ -43,5 +45,5 @@ C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\Sc
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.application
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.exe
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.pdb
-C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.UserPrivileges.resources
+C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.Events.resources
 C:\Users\Zyph3Rx\Documents\Visual Studio 2015\Projects\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csprojResolveAssemblyReference.cache

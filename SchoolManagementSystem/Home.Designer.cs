@@ -45,12 +45,37 @@
             this.stdBtn = new System.Windows.Forms.Button();
             this.rolesBtn = new System.Windows.Forms.Button();
             this.usersBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.siteLink = new System.Windows.Forms.LinkLabel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.helpBtn = new System.Windows.Forms.Button();
+            this.logoPanel = new System.Windows.Forms.Panel();
             this.leftPanel.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel9.SuspendLayout();
+            this.logoPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.Size = new System.Drawing.Size(300, 784);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.logoPanel);
+            this.panel5.Controls.Add(this.panel9);
+            this.panel5.Size = new System.Drawing.Size(300, 752);
+            // 
+            // rightPanel
+            // 
+            this.rightPanel.Size = new System.Drawing.Size(784, 784);
             // 
             // panel6
             // 
@@ -59,14 +84,12 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.panel2);
             this.panel6.Controls.Add(this.panel1);
+            this.panel6.Size = new System.Drawing.Size(784, 752);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(225, 9);
+            this.panel3.Size = new System.Drawing.Size(784, 32);
             // 
             // panel1
             // 
@@ -74,16 +97,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(581, 24);
+            this.panel1.Size = new System.Drawing.Size(784, 24);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(557, 24);
+            this.panel2.Location = new System.Drawing.Point(760, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(24, 462);
+            this.panel2.Size = new System.Drawing.Size(24, 728);
             this.panel2.TabIndex = 1;
             // 
             // panel7
@@ -92,16 +115,16 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel7.Location = new System.Drawing.Point(0, 24);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(24, 462);
+            this.panel7.Size = new System.Drawing.Size(24, 728);
             this.panel7.TabIndex = 2;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(24, 462);
+            this.panel8.Location = new System.Drawing.Point(24, 728);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(533, 24);
+            this.panel8.Size = new System.Drawing.Size(736, 24);
             this.panel8.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -135,7 +158,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(533, 438);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(736, 704);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // inventoryBtn
@@ -144,9 +167,9 @@
             this.inventoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventoryBtn.FlatAppearance.BorderSize = 2;
             this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventoryBtn.Location = new System.Drawing.Point(136, 177);
+            this.inventoryBtn.Location = new System.Drawing.Point(187, 283);
             this.inventoryBtn.Name = "inventoryBtn";
-            this.inventoryBtn.Size = new System.Drawing.Size(127, 81);
+            this.inventoryBtn.Size = new System.Drawing.Size(178, 134);
             this.inventoryBtn.TabIndex = 9;
             this.inventoryBtn.Text = "Inventory";
             this.inventoryBtn.UseVisualStyleBackColor = true;
@@ -158,9 +181,9 @@
             this.examBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.examBtn.FlatAppearance.BorderSize = 2;
             this.examBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.examBtn.Location = new System.Drawing.Point(3, 177);
+            this.examBtn.Location = new System.Drawing.Point(3, 283);
             this.examBtn.Name = "examBtn";
-            this.examBtn.Size = new System.Drawing.Size(127, 81);
+            this.examBtn.Size = new System.Drawing.Size(178, 134);
             this.examBtn.TabIndex = 8;
             this.examBtn.Text = "Examinations";
             this.examBtn.UseVisualStyleBackColor = true;
@@ -172,9 +195,9 @@
             this.libraryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.libraryBtn.FlatAppearance.BorderSize = 2;
             this.libraryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.libraryBtn.Location = new System.Drawing.Point(402, 90);
+            this.libraryBtn.Location = new System.Drawing.Point(555, 143);
             this.libraryBtn.Name = "libraryBtn";
-            this.libraryBtn.Size = new System.Drawing.Size(128, 81);
+            this.libraryBtn.Size = new System.Drawing.Size(178, 134);
             this.libraryBtn.TabIndex = 7;
             this.libraryBtn.Text = "Library";
             this.libraryBtn.UseVisualStyleBackColor = true;
@@ -186,9 +209,9 @@
             this.eventsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventsBtn.FlatAppearance.BorderSize = 2;
             this.eventsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eventsBtn.Location = new System.Drawing.Point(269, 90);
+            this.eventsBtn.Location = new System.Drawing.Point(371, 143);
             this.eventsBtn.Name = "eventsBtn";
-            this.eventsBtn.Size = new System.Drawing.Size(127, 81);
+            this.eventsBtn.Size = new System.Drawing.Size(178, 134);
             this.eventsBtn.TabIndex = 6;
             this.eventsBtn.Text = "Events";
             this.eventsBtn.UseVisualStyleBackColor = true;
@@ -200,9 +223,9 @@
             this.paymentsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paymentsBtn.FlatAppearance.BorderSize = 2;
             this.paymentsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paymentsBtn.Location = new System.Drawing.Point(136, 90);
+            this.paymentsBtn.Location = new System.Drawing.Point(187, 143);
             this.paymentsBtn.Name = "paymentsBtn";
-            this.paymentsBtn.Size = new System.Drawing.Size(127, 81);
+            this.paymentsBtn.Size = new System.Drawing.Size(178, 134);
             this.paymentsBtn.TabIndex = 5;
             this.paymentsBtn.Text = "Payments";
             this.paymentsBtn.UseVisualStyleBackColor = true;
@@ -214,9 +237,9 @@
             this.timeTablesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timeTablesBtn.FlatAppearance.BorderSize = 2;
             this.timeTablesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.timeTablesBtn.Location = new System.Drawing.Point(3, 90);
+            this.timeTablesBtn.Location = new System.Drawing.Point(3, 143);
             this.timeTablesBtn.Name = "timeTablesBtn";
-            this.timeTablesBtn.Size = new System.Drawing.Size(127, 81);
+            this.timeTablesBtn.Size = new System.Drawing.Size(178, 134);
             this.timeTablesBtn.TabIndex = 4;
             this.timeTablesBtn.Text = "TimeTables";
             this.timeTablesBtn.UseVisualStyleBackColor = true;
@@ -228,9 +251,9 @@
             this.coursesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.coursesBtn.FlatAppearance.BorderSize = 2;
             this.coursesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.coursesBtn.Location = new System.Drawing.Point(402, 3);
+            this.coursesBtn.Location = new System.Drawing.Point(555, 3);
             this.coursesBtn.Name = "coursesBtn";
-            this.coursesBtn.Size = new System.Drawing.Size(128, 81);
+            this.coursesBtn.Size = new System.Drawing.Size(178, 134);
             this.coursesBtn.TabIndex = 3;
             this.coursesBtn.Text = "Courses";
             this.coursesBtn.UseVisualStyleBackColor = true;
@@ -242,9 +265,9 @@
             this.classesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classesBtn.FlatAppearance.BorderSize = 2;
             this.classesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.classesBtn.Location = new System.Drawing.Point(269, 3);
+            this.classesBtn.Location = new System.Drawing.Point(371, 3);
             this.classesBtn.Name = "classesBtn";
-            this.classesBtn.Size = new System.Drawing.Size(127, 81);
+            this.classesBtn.Size = new System.Drawing.Size(178, 134);
             this.classesBtn.TabIndex = 2;
             this.classesBtn.Text = "Classes";
             this.classesBtn.UseVisualStyleBackColor = true;
@@ -256,9 +279,9 @@
             this.staffBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.staffBtn.FlatAppearance.BorderSize = 2;
             this.staffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.staffBtn.Location = new System.Drawing.Point(136, 3);
+            this.staffBtn.Location = new System.Drawing.Point(187, 3);
             this.staffBtn.Name = "staffBtn";
-            this.staffBtn.Size = new System.Drawing.Size(127, 81);
+            this.staffBtn.Size = new System.Drawing.Size(178, 134);
             this.staffBtn.TabIndex = 1;
             this.staffBtn.Text = "Staff";
             this.staffBtn.UseVisualStyleBackColor = true;
@@ -272,7 +295,7 @@
             this.stdBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stdBtn.Location = new System.Drawing.Point(3, 3);
             this.stdBtn.Name = "stdBtn";
-            this.stdBtn.Size = new System.Drawing.Size(127, 81);
+            this.stdBtn.Size = new System.Drawing.Size(178, 134);
             this.stdBtn.TabIndex = 0;
             this.stdBtn.Text = "Students";
             this.stdBtn.UseVisualStyleBackColor = true;
@@ -284,9 +307,9 @@
             this.rolesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rolesBtn.FlatAppearance.BorderSize = 2;
             this.rolesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rolesBtn.Location = new System.Drawing.Point(269, 177);
+            this.rolesBtn.Location = new System.Drawing.Point(371, 283);
             this.rolesBtn.Name = "rolesBtn";
-            this.rolesBtn.Size = new System.Drawing.Size(127, 81);
+            this.rolesBtn.Size = new System.Drawing.Size(178, 134);
             this.rolesBtn.TabIndex = 10;
             this.rolesBtn.Text = "Roles";
             this.rolesBtn.UseVisualStyleBackColor = true;
@@ -298,29 +321,121 @@
             this.usersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usersBtn.FlatAppearance.BorderSize = 2;
             this.usersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usersBtn.Location = new System.Drawing.Point(402, 177);
+            this.usersBtn.Location = new System.Drawing.Point(555, 283);
             this.usersBtn.Name = "usersBtn";
-            this.usersBtn.Size = new System.Drawing.Size(128, 81);
+            this.usersBtn.Size = new System.Drawing.Size(178, 134);
             this.usersBtn.TabIndex = 11;
             this.usersBtn.Text = "Users";
             this.usersBtn.UseVisualStyleBackColor = true;
             this.usersBtn.Click += new System.EventHandler(this.usersBtn_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = global::SchoolManagementSystem.Properties.Resources.ico;
+            this.pictureBox1.Location = new System.Drawing.Point(45, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(211, 211);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(109, 181);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "JMC";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(35, 242);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(232, 24);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "SCHOOL MANAGEMENT";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(102, 268);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 24);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "SYSTEM";
+            // 
+            // siteLink
+            // 
+            this.siteLink.AutoSize = true;
+            this.siteLink.ForeColor = System.Drawing.Color.White;
+            this.siteLink.LinkColor = System.Drawing.Color.White;
+            this.siteLink.Location = new System.Drawing.Point(47, 294);
+            this.siteLink.Name = "siteLink";
+            this.siteLink.Size = new System.Drawing.Size(210, 13);
+            this.siteLink.TabIndex = 4;
+            this.siteLink.TabStop = true;
+            this.siteLink.Text = "https://www.jmc.lk/branch/havelock-town";
+            this.siteLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.siteLink_LinkClicked);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.helpBtn);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(0, 684);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(300, 68);
+            this.panel9.TabIndex = 5;
+            // 
+            // helpBtn
+            // 
+            this.helpBtn.Location = new System.Drawing.Point(219, 12);
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.Size = new System.Drawing.Size(75, 23);
+            this.helpBtn.TabIndex = 0;
+            this.helpBtn.Text = "Help";
+            this.helpBtn.UseVisualStyleBackColor = true;
+            // 
+            // logoPanel
+            // 
+            this.logoPanel.Controls.Add(this.pictureBox1);
+            this.logoPanel.Controls.Add(this.label3);
+            this.logoPanel.Controls.Add(this.siteLink);
+            this.logoPanel.Controls.Add(this.label2);
+            this.logoPanel.Controls.Add(this.label4);
+            this.logoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logoPanel.Location = new System.Drawing.Point(0, 0);
+            this.logoPanel.Name = "logoPanel";
+            this.logoPanel.Size = new System.Drawing.Size(300, 684);
+            this.logoPanel.TabIndex = 6;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 518);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.ClientSize = new System.Drawing.Size(1084, 784);
+            this.MinimumSize = new System.Drawing.Size(1100, 800);
             this.Name = "Home";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.leftPanel.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.logoPanel.ResumeLayout(false);
+            this.logoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -344,5 +459,13 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button rolesBtn;
         private System.Windows.Forms.Button usersBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel siteLink;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button helpBtn;
+        private System.Windows.Forms.Panel logoPanel;
     }
 }

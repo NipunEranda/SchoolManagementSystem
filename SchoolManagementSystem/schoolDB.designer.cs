@@ -235,6 +235,33 @@ namespace SchoolManagementSystem
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<users_viewUsersResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_deleteUser")]
+		public int users_deleteUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getUserId", IsComposable=true)]
+		public System.Nullable<int> getUserId()
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_insert")]
+		public int users_insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password, roleId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_changePassword")]
+		public ISingleResult<users_changePasswordResult> users_changePassword([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string currentPassword, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string newPassword)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, currentPassword, newPassword);
+			return ((ISingleResult<users_changePasswordResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.roles")]
@@ -1916,6 +1943,32 @@ namespace SchoolManagementSystem
 				if ((this._roleId != value))
 				{
 					this._roleId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class users_changePasswordResult
+	{
+		
+		private int _changedId;
+		
+		public users_changePasswordResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_changedId", DbType="Int NOT NULL")]
+		public int changedId
+		{
+			get
+			{
+				return this._changedId;
+			}
+			set
+			{
+				if ((this._changedId != value))
+				{
+					this._changedId = value;
 				}
 			}
 		}

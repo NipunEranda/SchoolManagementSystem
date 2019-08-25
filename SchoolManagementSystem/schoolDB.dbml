@@ -226,4 +226,25 @@
       <Column Name="roleId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.users_deleteUser" Method="users_deleteUser">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.getUserId" Method="getUserId" IsComposable="true">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.users_insert" Method="users_insert">
+    <Parameter Name="userName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.users_changePassword" Method="users_changePassword">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="currentPassword" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="newPassword" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="users_changePasswordResult">
+      <Column Name="changedId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

@@ -21,7 +21,6 @@ namespace SchoolManagementSystem
         private string btnStatus = "view";
         private int sid;
         private int studentId;
-        Boolean advSearchOn = false;
         schoolDBDataContext obj = new schoolDBDataContext();
         Image i;
 
@@ -108,7 +107,7 @@ namespace SchoolManagementSystem
 
         public override void deleteBtn_Click(object sender, EventArgs e)
         {
-            if (NIC_txt.Text != "")
+            if (firstName_txt.Text != "")
             {
                 operation.Text = "View";
                 btnStatus = "view";
@@ -136,10 +135,6 @@ namespace SchoolManagementSystem
             else
                 advanceSearchPanel.Visible = true;
 
-            if (advSearchOn == true)
-                advSearchOn = false;
-            else
-                advSearchOn = true;
         }
 
         private void image_browse_Click(object sender, EventArgs e)
@@ -173,9 +168,7 @@ namespace SchoolManagementSystem
         public int fieldCheck()
         {
             int status = 0;
-            if (NIC_txt.Text == "")
-                MainClass.showMsg("NIC value cannot be empty", "Stop", "error");
-            else if (firstName_txt.Text == "")
+            if (firstName_txt.Text == "")
                 MainClass.showMsg("First Name value cannot be empty", "Stop", "error");
             else if (lastName_txt.Text == "")
                 MainClass.showMsg("Last Name value cannot be empty", "Stop", "error");
@@ -190,14 +183,6 @@ namespace SchoolManagementSystem
             else
                 status = 1;
             return status;
-        }
-
-        private void NIC_txt_TextChanged(object sender, EventArgs e)
-        {
-            if (NIC_txt.Text == "")
-                mand_nic.Visible = true;
-            else
-                mand_nic.Visible = false;
         }
 
         private void FirstName_txt_TextChanged(object sender, EventArgs e)
@@ -252,6 +237,8 @@ namespace SchoolManagementSystem
         {
             MainClass.setCurrentForm(new Students());
             MainClass.mdi.topic.Text = "Students";
+            privilegesAndAttendance.Visible = true;
+ //           privilegesAndAttendance.Text = "Student Attendance";
             loadStudents();
             privillegeCheck();
             loadGradesClasses();
@@ -321,7 +308,7 @@ namespace SchoolManagementSystem
         private void studentGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (advSearchOn == true)
+            if (advanceSearchPanel.Visible == true)
             {
                 if (e.RowIndex != -1 && e.ColumnIndex != -1)
                 {
@@ -340,8 +327,7 @@ namespace SchoolManagementSystem
                     }
                 }
             }
-            else
-            {
+
                 if (btnStatus == "view" || btnStatus == "add")
                 {
                     MainClass.disable(panel5);
@@ -350,8 +336,6 @@ namespace SchoolManagementSystem
                 {
                     MainClass.enable(panel5);
                 }
-
-                advanceSearchPanel.Visible = false;
                 if (e.RowIndex != -1 && e.ColumnIndex != -1)
                 {
                     DataGridViewRow row = studentGridView.Rows[e.RowIndex];
@@ -377,7 +361,6 @@ namespace SchoolManagementSystem
                         studentImage.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
                 }
-            }
         }
 
 
@@ -466,11 +449,33 @@ namespace SchoolManagementSystem
         private void advGradeDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             AdvanceSearch();
+            
         }
 
         private void advClassDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             AdvanceSearch();
+        }
+
+        private void gradeDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (gradeDropDown.SelectedIndex > 9)
+            {
+                NIC_txt.Enabled = true;
+            }
+            else {
+                NIC_txt.Enabled = false;
+            }
+        }
+
+        private void privilegesAndAttendance_Click(object sender, EventArgs e)
+        {
+            MainClass.showWindow(new StudentAttendance(), this, MDI.ActiveForm);
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            MainClass.showWindow(new Home(), this, MDI.ActiveForm);
         }
     }
     }

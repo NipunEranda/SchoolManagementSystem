@@ -97,7 +97,7 @@
             this.fILEToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 32);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1175, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1100, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,8 +109,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1175, 32);
+            this.panel1.Size = new System.Drawing.Size(1100, 32);
             this.panel1.TabIndex = 10;
+            this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -119,11 +120,11 @@
             // 
             this.topic.AutoSize = true;
             this.topic.BackColor = System.Drawing.Color.Transparent;
-            this.topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topic.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topic.ForeColor = System.Drawing.Color.White;
             this.topic.Location = new System.Drawing.Point(12, 8);
             this.topic.Name = "topic";
-            this.topic.Size = new System.Drawing.Size(51, 16);
+            this.topic.Size = new System.Drawing.Size(45, 16);
             this.topic.TabIndex = 4;
             this.topic.Text = "ROOT";
             // 
@@ -133,7 +134,7 @@
             this.panel2.Controls.Add(this.closeBtn);
             this.panel2.Controls.Add(this.maximizeBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1065, 0);
+            this.panel2.Location = new System.Drawing.Point(990, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(110, 32);
             this.panel2.TabIndex = 0;
@@ -143,7 +144,7 @@
             this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
             this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("minimizeBtn.Image")));
+            this.minimizeBtn.Image = global::SchoolManagementSystem.Properties.Resources.min_normal;
             this.minimizeBtn.Location = new System.Drawing.Point(34, 8);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(17, 17);
@@ -151,13 +152,15 @@
             this.minimizeBtn.TabIndex = 2;
             this.minimizeBtn.TabStop = false;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
+            this.minimizeBtn.MouseLeave += new System.EventHandler(this.minimizeBtn_MouseLeave);
+            this.minimizeBtn.MouseHover += new System.EventHandler(this.minimizeBtn_MouseHover);
             // 
             // closeBtn
             // 
             this.closeBtn.BackColor = System.Drawing.Color.Transparent;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeBtn.Image")));
+            this.closeBtn.Image = global::SchoolManagementSystem.Properties.Resources.close_normal;
             this.closeBtn.Location = new System.Drawing.Point(84, 8);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(17, 17);
@@ -165,13 +168,15 @@
             this.closeBtn.TabIndex = 0;
             this.closeBtn.TabStop = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.closeBtn.MouseLeave += new System.EventHandler(this.closeBtn_MouseLeave);
+            this.closeBtn.MouseHover += new System.EventHandler(this.closeBtn_MouseHover);
             // 
             // maximizeBtn
             // 
             this.maximizeBtn.BackColor = System.Drawing.Color.Transparent;
             this.maximizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.maximizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.maximizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("maximizeBtn.Image")));
+            this.maximizeBtn.Image = global::SchoolManagementSystem.Properties.Resources.max_normal;
             this.maximizeBtn.Location = new System.Drawing.Point(59, 8);
             this.maximizeBtn.Name = "maximizeBtn";
             this.maximizeBtn.Size = new System.Drawing.Size(17, 17);
@@ -179,12 +184,14 @@
             this.maximizeBtn.TabIndex = 1;
             this.maximizeBtn.TabStop = false;
             this.maximizeBtn.Click += new System.EventHandler(this.maximizeBtn_Click);
+            this.maximizeBtn.MouseLeave += new System.EventHandler(this.maximizeBtn_MouseLeave);
+            this.maximizeBtn.MouseHover += new System.EventHandler(this.maximizeBtn_MouseHover);
             // 
             // MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 811);
+            this.ClientSize = new System.Drawing.Size(1100, 800);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -15,6 +15,7 @@ namespace SchoolManagementSystem
         private int loggedId = MainClass.ROLEID;
         MainClass main = MainClass.getInstance();
         schoolDBDataContext obj = new schoolDBDataContext();
+        string url = "https://www.jmc.lk/branch/havelock-town";
         public Home()
         {
             InitializeComponent();
@@ -23,7 +24,8 @@ namespace SchoolManagementSystem
         private void stdBtn_Click(object sender, EventArgs e)
         {
             Students students = new Students();
-            MainClass.setCurrentForm(new Students());
+            MainClass.setCurrentForm(students);
+            logoPanel.Visible = false;
             MainClass.showWindow(students, this, MDI.ActiveForm);
         }
 
@@ -49,7 +51,9 @@ namespace SchoolManagementSystem
 
         private void eventsBtn_Click(object sender, EventArgs e)
         {
-
+            Events events = new Events();
+            MainClass.setCurrentForm(new Students());
+            MainClass.showWindow(events, this, MDI.ActiveForm);
         }
 
         private void paymentsBtn_Click(object sender, EventArgs e)
@@ -136,5 +140,14 @@ namespace SchoolManagementSystem
             }
         }
 
+        private void siteLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(url);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

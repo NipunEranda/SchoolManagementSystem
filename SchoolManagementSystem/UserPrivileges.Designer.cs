@@ -65,13 +65,17 @@
             // 
             this.panel9.Size = new System.Drawing.Size(10, 696);
             // 
+            // backBtn
+            // 
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // panel13
             // 
             this.panel13.Size = new System.Drawing.Size(875, 32);
             // 
-            // setPrivilleges
+            // privilegesAndAttendance
             // 
-            this.setPrivilleges.Click += new System.EventHandler(this.setPrivilleges_Click_1);
+            this.privilegesAndAttendance.Click += new System.EventHandler(this.setPrivilleges_Click_1);
             // 
             // panel11
             // 
@@ -107,7 +111,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 761);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Name = "UserPrivileges";
             this.Text = "UserPrivileges";
             this.Load += new System.EventHandler(this.UserPrivileges_Load);

@@ -44,7 +44,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.image_browse = new System.Windows.Forms.Button();
-            this.mand_nic = new System.Windows.Forms.Label();
             this.mand_firstName = new System.Windows.Forms.Label();
             this.mand_lastName = new System.Windows.Forms.Label();
             this.mand_birthDate = new System.Windows.Forms.Label();
@@ -141,9 +140,18 @@
             this.panel9.Location = new System.Drawing.Point(3, 26);
             this.panel9.Size = new System.Drawing.Size(10, 700);
             // 
+            // backBtn
+            // 
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // panel13
             // 
             this.panel13.Size = new System.Drawing.Size(875, 32);
+            // 
+            // privilegesAndAttendance
+            // 
+            this.privilegesAndAttendance.Text = "STUDENT ATTENDANCE";
+            this.privilegesAndAttendance.Click += new System.EventHandler(this.privilegesAndAttendance_Click);
             // 
             // panel11
             // 
@@ -177,7 +185,6 @@
             this.panel5.Controls.Add(this.mand_birthDate);
             this.panel5.Controls.Add(this.mand_lastName);
             this.panel5.Controls.Add(this.mand_firstName);
-            this.panel5.Controls.Add(this.mand_nic);
             this.panel5.Controls.Add(this.image_browse);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label8);
@@ -208,7 +215,6 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(225, 9);
             // 
             // label3
             // 
@@ -222,11 +228,11 @@
             // 
             // NIC_txt
             // 
+            this.NIC_txt.Enabled = false;
             this.NIC_txt.Location = new System.Drawing.Point(15, 89);
             this.NIC_txt.Name = "NIC_txt";
             this.NIC_txt.Size = new System.Drawing.Size(269, 20);
             this.NIC_txt.TabIndex = 1;
-            this.NIC_txt.TextChanged += new System.EventHandler(this.NIC_txt_TextChanged);
             // 
             // firstName_txt
             // 
@@ -339,18 +345,6 @@
             this.image_browse.Text = "Browse";
             this.image_browse.UseVisualStyleBackColor = true;
             this.image_browse.Click += new System.EventHandler(this.image_browse_Click);
-            // 
-            // mand_nic
-            // 
-            this.mand_nic.BackColor = System.Drawing.Color.Transparent;
-            this.mand_nic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mand_nic.ForeColor = System.Drawing.Color.White;
-            this.mand_nic.Location = new System.Drawing.Point(271, 71);
-            this.mand_nic.Name = "mand_nic";
-            this.mand_nic.Size = new System.Drawing.Size(14, 16);
-            this.mand_nic.TabIndex = 16;
-            this.mand_nic.Text = "*";
-            this.mand_nic.Visible = false;
             // 
             // mand_firstName
             // 
@@ -779,6 +773,7 @@
             this.gradeDropDown.Name = "gradeDropDown";
             this.gradeDropDown.Size = new System.Drawing.Size(130, 21);
             this.gradeDropDown.TabIndex = 46;
+            this.gradeDropDown.SelectedIndexChanged += new System.EventHandler(this.gradeDropDown_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -854,7 +849,6 @@
         private System.Windows.Forms.TextBox firstName_txt;
         private System.Windows.Forms.TextBox NIC_txt;
         new private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label mand_nic;
         private System.Windows.Forms.Label mand_gender;
         private System.Windows.Forms.Label mand_address;
         private System.Windows.Forms.Label mand_telephone;

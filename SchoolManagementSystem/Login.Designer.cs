@@ -168,11 +168,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(6, 8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.Size = new System.Drawing.Size(49, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "LOGIN";
             // 
@@ -189,6 +189,8 @@
             this.minimizeBtn.TabIndex = 2;
             this.minimizeBtn.TabStop = false;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
+            this.minimizeBtn.MouseLeave += new System.EventHandler(this.minimizeBtn_MouseLeave);
+            this.minimizeBtn.MouseHover += new System.EventHandler(this.minimizeBtn_MouseHover_1);
             // 
             // maximizeBtn
             // 
@@ -203,6 +205,8 @@
             this.maximizeBtn.TabIndex = 1;
             this.maximizeBtn.TabStop = false;
             this.maximizeBtn.Click += new System.EventHandler(this.maximizeBtn_Click);
+            this.maximizeBtn.MouseLeave += new System.EventHandler(this.maximizeBtn_MouseLeave_1);
+            this.maximizeBtn.MouseHover += new System.EventHandler(this.maximizeBtn_MouseHover_1);
             // 
             // closeBtn
             // 
@@ -217,6 +221,8 @@
             this.closeBtn.TabIndex = 0;
             this.closeBtn.TabStop = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.closeBtn.MouseLeave += new System.EventHandler(this.closeBtn_MouseLeave_1);
+            this.closeBtn.MouseHover += new System.EventHandler(this.closeBtn_MouseHover_1);
             // 
             // Login
             // 

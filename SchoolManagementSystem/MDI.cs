@@ -58,12 +58,16 @@ namespace SchoolManagementSystem
 
         private void MDI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MainClass.appStatus != null)
+            if (MainClass.immidiateLogout == false)
             {
-                DialogResult dr = MainClass.checkAction("Do you want to exit?", "Exit");
-                if (dr == DialogResult.No)
-                    e.Cancel = true;
+                if (MainClass.appStatus != null)
+                {
+                    DialogResult dr = MainClass.checkAction("Do you want to exit?", "Exit");
+                    if (dr == DialogResult.No)
+                        e.Cancel = true;
+                }
             }
+            MainClass.immediateLogoutOff();
             
         }
 
@@ -112,6 +116,50 @@ namespace SchoolManagementSystem
 
         public void setTopic(string name) {
             topic.Text = name;
+        }
+
+        private void closeBtn_MouseHover(object sender, EventArgs e)
+        {
+            closeBtn.Image = Properties.Resources.close_hover;
+        }
+
+        private void maximizeBtn_MouseHover(object sender, EventArgs e)
+        {
+            maximizeBtn.Image = Properties.Resources.max_hover;
+        }
+
+        private void minimizeBtn_MouseHover(object sender, EventArgs e)
+        {
+            minimizeBtn.Image = Properties.Resources.min_hover;
+        }
+
+        private void closeBtn_MouseLeave(object sender, EventArgs e)
+        {
+            closeBtn.Image = Properties.Resources.close_normal;
+        }
+
+        private void maximizeBtn_MouseLeave(object sender, EventArgs e)
+        {
+            maximizeBtn.Image = Properties.Resources.max_normal;
+        }
+
+        private void minimizeBtn_MouseLeave(object sender, EventArgs e)
+        {
+            minimizeBtn.Image = Properties.Resources.min_normal;
+        }
+
+        private void panel1_DoubleClick(object sender, EventArgs e)
+        {
+            if (windowStatus == "normal")
+            {
+                this.WindowState = FormWindowState.Maximized;
+                windowStatus = "max";
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                windowStatus = "normal";
+            }
         }
     }
 }

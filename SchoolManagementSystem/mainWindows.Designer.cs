@@ -31,12 +31,10 @@
             this.leftPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.leftPanel.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,23 +59,11 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(300, 32);
             this.panel4.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(163, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome";
             // 
             // rightPanel
             // 
@@ -116,8 +102,6 @@
             this.Controls.Add(this.leftPanel);
             this.Name = "mainWindows";
             this.leftPanel.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.rightPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -131,6 +115,5 @@
         public System.Windows.Forms.Panel rightPanel;
         public System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.Panel panel3;
-        public System.Windows.Forms.Label label1;
     }
 }

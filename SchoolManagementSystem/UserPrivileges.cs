@@ -22,7 +22,8 @@ namespace SchoolManagementSystem
 
         private void UserPrivileges_Load(object sender, EventArgs e)
         {
-
+            MainClass.setCurrentForm(new UserPrivileges());
+            MainClass.mdi.topic.Text = "User Privileges";
         }
 
         private void setPrivilleges_Click_1(object sender, EventArgs e)
@@ -36,6 +37,11 @@ namespace SchoolManagementSystem
 
         public Form getPrevious() {
             return Previous;
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            MainClass.showWindow(new Users(), this, MDI.ActiveForm);
         }
     }
 }

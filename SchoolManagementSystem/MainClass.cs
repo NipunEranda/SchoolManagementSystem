@@ -19,6 +19,7 @@ namespace SchoolManagementSystem
         public static bool loginCheck = false;
         public static string appStatus = "open";
         public static MDI mdi;
+        public static Boolean immidiateLogout = false;
 
         public static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public static volatile MainClass Instance;
@@ -368,7 +369,6 @@ namespace SchoolManagementSystem
         public DateTime getDateFromString(string date) {
             DateTime dateFromString =
                 DateTime.Parse(date, System.Globalization.CultureInfo.InvariantCulture);
-            Console.WriteLine(dateFromString.ToString());
             return dateFromString;
         }
 
@@ -378,6 +378,19 @@ namespace SchoolManagementSystem
 
         public static void setMDI(MDI m) {
             mdi = m;
+        }
+
+        public static void closeMDI() {
+            mdi.Close();
+        }
+
+        public static void immediateLogoutOn() {
+            immidiateLogout = true;
+        }
+
+        public static void immediateLogoutOff()
+        {
+            immidiateLogout = false;
         }
 
     }
