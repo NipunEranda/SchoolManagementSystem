@@ -1,25 +1,131 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="sms" Class="schoolDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-TM7VHQ4;Initial Catalog=sms;Integrated Security=True" SettingsObjectName="SchoolManagementSystem.Properties.Settings" SettingsPropertyName="smsDB" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-FG1TKL1;Initial Catalog=sms;Integrated Security=True" SettingsObjectName="SchoolManagementSystem.Properties.Settings" SettingsPropertyName="smsConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Class" Member="Classes">
+    <Type Name="Class">
+      <Column Name="classId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="className" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grades" Member="Grades">
+    <Type Name="Grade">
+      <Column Name="gradeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sectionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gradeName" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="section_Grade" Member="section" ThisKey="sectionId" OtherKey="sectionId" Type="section" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.homePrivileges" Member="homePrivileges">
+    <Type Name="homePrivilege">
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="student" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="staff" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="classes" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="courses" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="timetables" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="payments" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="events" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="library" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="examinations" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="inventory" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="roles" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="users" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="role_homePrivilege" Member="role" ThisKey="roleId" OtherKey="roleId" Type="role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[privileges]" Member="privileges">
+    <Type Name="privilege">
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="studAdd" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="studEdit" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="studDelete" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="role_privilege" Member="role" ThisKey="roleId" OtherKey="roleId" Type="role" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.roles" Member="roles">
     <Type Name="role">
-      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="roleName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="roleName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="role_homePrivilege" Member="homePrivilege" ThisKey="roleId" OtherKey="roleId" Type="homePrivilege" Cardinality="One" />
+      <Association Name="role_privilege" Member="privilege" ThisKey="roleId" OtherKey="roleId" Type="privilege" Cardinality="One" />
+      <Association Name="role_user" Member="users" ThisKey="roleId" OtherKey="roleId" Type="user" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sections" Member="sections">
+    <Type Name="section">
+      <Column Name="sectionId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sectionDescription" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="section_Grade" Member="Grades" ThisKey="sectionId" OtherKey="sectionId" Type="Grade" />
     </Type>
   </Table>
   <Table Name="dbo.student" Member="students">
     <Type Name="student">
-      <Column Name="sid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nic" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="firstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="lastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="telephone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="birthdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="address" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="gender" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="sid" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nic" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="firstName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lastName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="birthdate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="telephone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="gender" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="gradeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="classId" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="userName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="roleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="role_user" Member="role" ThisKey="roleId" OtherKey="roleId" Type="role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.class_getClasses" Method="class_getClasses">
+    <ElementType Name="class_getClassesResult">
+      <Column Name="classId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="className" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.grades_getGrades" Method="grades_getGrades">
+    <ElementType Name="grades_getGradesResult">
+      <Column Name="gradeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sectionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gradeName" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.privileges_getPrivileges" Method="privileges_getPrivileges">
+    <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="privileges_getPrivilegesResult">
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="studAdd" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="studEdit" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="studDelete" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.privileges_HomePrivileges" Method="privileges_HomePrivileges">
+    <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="privileges_HomePrivilegesResult">
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="student" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="staff" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="classes" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="courses" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="timetables" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="payments" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="events" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="library" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="examinations" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="inventory" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="roles" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="users" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.roles_delete" Method="roles_delete">
     <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -31,11 +137,6 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.roles_insert" Method="roles_insert">
-    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="status" Type="System.Byte" DbType="TinyInt" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.roles_search" Method="roles_search">
     <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="roles_searchResult">
@@ -44,11 +145,36 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.roles_insert" Method="roles_insert">
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="status" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.roles_update" Method="roles_update">
     <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="status" Type="System.Byte" DbType="TinyInt" />
     <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.student_advanceSearch" Method="student_advanceSearch">
+    <Parameter Name="nic" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="sid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="gradeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="classId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="student_advanceSearchResult">
+      <Column Name="sid" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="nic" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="firstName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lastName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="birthdate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="telephone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="gender" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="grade" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="class" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.student_delete" Method="student_delete">
     <Parameter Name="sid" Type="System.Int32" DbType="Int" />
@@ -96,6 +222,7 @@
     <Parameter Name="address" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="gender" Type="System.Byte" DbType="TinyInt" />
     <Parameter Name="image" Type="System.Data.Linq.Binary" DbType="Image" />
+<<<<<<< Updated upstream
     <Parameter Name="sid" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
@@ -106,6 +233,68 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.student_search" Method="student_search">
+=======
+    <Parameter Name="grade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="class" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.student_search" Method="student_search">
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="student_searchResult">
+      <Column Name="sid" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="nic" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="firstName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lastName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="birthdate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="telephone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="gender" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="grade" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="class" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.student_update_withoutImage" Method="student_update_withoutImage">
+    <Parameter Name="nic" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="telephone" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="birthDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="address" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="gender" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="grade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="class" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.systemLogin" Method="systemLogin">
+    <Parameter Name="userName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="systemLoginResult">
+      <Column Name="userName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="roleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.users_deleteUser" Method="users_deleteUser">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.users_changePassword" Method="users_changePassword">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="currentPassword" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="newPassword" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="users_changePasswordResult">
+      <Column Name="changedId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.users_insert" Method="users_insert">
+    <Parameter Name="userName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.users_search" Method="users_search">
+>>>>>>> Stashed changes
     <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="student_searchResult">
       <Column Name="SID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
@@ -118,6 +307,7 @@
       <Column Name="GENDER" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+<<<<<<< Updated upstream
   <Function Name="dbo.student_update_withoutImage" Method="student_update_withoutImage">
     <Parameter Name="nic" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="firstName" Type="System.String" DbType="VarChar(50)" />
@@ -127,6 +317,15 @@
     <Parameter Name="address" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="gender" Type="System.Byte" DbType="TinyInt" />
     <Parameter Name="sid" Type="System.Int32" DbType="Int" />
+=======
+  <Function Name="dbo.getRoleId" Method="getRoleId" IsComposable="true">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.getStudentId" Method="getStudentId" IsComposable="true">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.getUserId" Method="getUserId" IsComposable="true">
+>>>>>>> Stashed changes
     <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -140,7 +140,7 @@ namespace SchoolManagementSystem
                 if (statusTxt.SelectedIndex >= 0)
                 {
 
-                    obj.roles_insert(roleTxt.Text, r.status);
+                    obj.roles_insert(roleTxt.Text, Convert.ToByte(r.status));
                     obj.SubmitChanges();
                     MainClass.showMsg(roleTxt.Text + " added successfully.", "Success", "success");
                     MainClass.disable_reset(panel5);

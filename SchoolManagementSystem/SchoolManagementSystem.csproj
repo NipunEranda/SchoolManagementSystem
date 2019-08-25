@@ -49,7 +49,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+<<<<<<< Updated upstream
     <Reference Include="System" />
+=======
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+>>>>>>> Stashed changes
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -69,6 +76,12 @@
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -123,6 +136,9 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,9 +160,46 @@
     <EmbeddedResource Include="Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< Updated upstream
     <None Include="schoolDB.dbml.layout">
       <DependentUpon>schoolDB.dbml</DependentUpon>
     </None>
+=======
+    <EmbeddedResource Include="StudentAttendance.resx">
+      <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPrivileges.resx">
+      <DependentUpon>UserPrivileges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\DbConnection.datasource" />
+    <None Include="Properties\DataSources\get_homePrivillegesResult.datasource" />
+    <None Include="Properties\DataSources\get_privillegesResult.datasource" />
+    <None Include="Properties\DataSources\Home.datasource" />
+    <None Include="Properties\DataSources\Login.datasource" />
+    <None Include="Properties\DataSources\MainClass.datasource" />
+    <None Include="Properties\DataSources\mainWindows.datasource" />
+    <None Include="Properties\DataSources\MDI.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\role.datasource" />
+    <None Include="Properties\DataSources\Roles.datasource" />
+    <None Include="Properties\DataSources\roles_getRolesResult.datasource" />
+    <None Include="Properties\DataSources\roles_searchResult.datasource" />
+    <None Include="Properties\DataSources\schoolDBDataContext.datasource" />
+    <None Include="Properties\DataSources\SchoolManagementSystem.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\SchoolManagementSystem.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Settings.datasource" />
+    <None Include="Properties\DataSources\student.datasource" />
+    <None Include="Properties\DataSources\Students.datasource" />
+    <None Include="Properties\DataSources\student_getStudentResult.datasource" />
+    <None Include="Properties\DataSources\student_searchResult.datasource" />
+    <None Include="Properties\DataSources\subWindows.datasource" />
+    <None Include="Properties\DataSources\systemLoginResult.datasource" />
+    <None Include="Properties\DataSources\Users.datasource" />
+    <None Include="Properties\DataSources\users_viewUsersResult.datasource" />
+>>>>>>> Stashed changes
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +223,12 @@
       <LastGenOutput>schoolDB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+<<<<<<< Updated upstream
+=======
+    <None Include="schoolDB.dbml.layout">
+      <DependentUpon>schoolDB.dbml</DependentUpon>
+    </None>
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

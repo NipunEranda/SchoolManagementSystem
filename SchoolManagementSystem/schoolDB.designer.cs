@@ -30,16 +30,34 @@ namespace SchoolManagementSystem
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertClass(Class instance);
+    partial void UpdateClass(Class instance);
+    partial void DeleteClass(Class instance);
+    partial void InsertGrade(Grade instance);
+    partial void UpdateGrade(Grade instance);
+    partial void DeleteGrade(Grade instance);
+    partial void InserthomePrivilege(homePrivilege instance);
+    partial void UpdatehomePrivilege(homePrivilege instance);
+    partial void DeletehomePrivilege(homePrivilege instance);
+    partial void Insertprivilege(privilege instance);
+    partial void Updateprivilege(privilege instance);
+    partial void Deleteprivilege(privilege instance);
     partial void Insertrole(role instance);
     partial void Updaterole(role instance);
     partial void Deleterole(role instance);
+    partial void Insertsection(section instance);
+    partial void Updatesection(section instance);
+    partial void Deletesection(section instance);
     partial void Insertstudent(student instance);
     partial void Updatestudent(student instance);
     partial void Deletestudent(student instance);
+    partial void Insertuser(user instance);
+    partial void Updateuser(user instance);
+    partial void Deleteuser(user instance);
     #endregion
 		
 		public schoolDBDataContext() : 
-				base(global::SchoolManagementSystem.Properties.Settings.Default.smsDB, mappingSource)
+				base(global::SchoolManagementSystem.Properties.Settings.Default.smsConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -68,11 +86,51 @@ namespace SchoolManagementSystem
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<Class> Classes
+		{
+			get
+			{
+				return this.GetTable<Class>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Grade> Grades
+		{
+			get
+			{
+				return this.GetTable<Grade>();
+			}
+		}
+		
+		public System.Data.Linq.Table<homePrivilege> homePrivileges
+		{
+			get
+			{
+				return this.GetTable<homePrivilege>();
+			}
+		}
+		
+		public System.Data.Linq.Table<privilege> privileges
+		{
+			get
+			{
+				return this.GetTable<privilege>();
+			}
+		}
+		
 		public System.Data.Linq.Table<role> roles
 		{
 			get
 			{
 				return this.GetTable<role>();
+			}
+		}
+		
+		public System.Data.Linq.Table<section> sections
+		{
+			get
+			{
+				return this.GetTable<section>();
 			}
 		}
 		
@@ -82,6 +140,42 @@ namespace SchoolManagementSystem
 			{
 				return this.GetTable<student>();
 			}
+		}
+		
+		public System.Data.Linq.Table<user> users
+		{
+			get
+			{
+				return this.GetTable<user>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.class_getClasses")]
+		public ISingleResult<class_getClassesResult> class_getClasses()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<class_getClassesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.grades_getGrades")]
+		public ISingleResult<grades_getGradesResult> grades_getGrades()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<grades_getGradesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.privileges_getPrivileges")]
+		public ISingleResult<privileges_getPrivilegesResult> privileges_getPrivileges([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), roleId);
+			return ((ISingleResult<privileges_getPrivilegesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.privileges_HomePrivileges")]
+		public ISingleResult<privileges_HomePrivilegesResult> privileges_HomePrivileges([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), roleId);
+			return ((ISingleResult<privileges_HomePrivilegesResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.roles_delete")]
@@ -98,13 +192,6 @@ namespace SchoolManagementSystem
 			return ((ISingleResult<roles_getRolesResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.roles_insert")]
-		public int roles_insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, status);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.roles_search")]
 		public ISingleResult<roles_searchResult> roles_search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name)
 		{
@@ -112,11 +199,25 @@ namespace SchoolManagementSystem
 			return ((ISingleResult<roles_searchResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.roles_insert")]
+		public int roles_insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, status);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.roles_update")]
 		public int roles_update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> status, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleId)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, status, roleId);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_advanceSearch")]
+		public ISingleResult<student_advanceSearchResult> student_advanceSearch([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string fName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> gradeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> classId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, sid, fName, lName, gradeId, classId);
+			return ((ISingleResult<student_advanceSearchResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_delete")]
@@ -148,12 +249,31 @@ namespace SchoolManagementSystem
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_update")]
+<<<<<<< Updated upstream
 		public int student_update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Image")] System.Data.Linq.Binary image, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid)
+=======
+		public int student_update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Image")] System.Data.Linq.Binary image, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> grade, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="class", DbType="Int")] System.Nullable<int> @class, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, image, grade, @class, sid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_search")]
+		public ISingleResult<student_searchResult> student_search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<student_searchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.student_update_withoutImage")]
+		public int student_update_withoutImage([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string telephone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="TinyInt")] System.Nullable<byte> gender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> grade, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="class", DbType="Int")] System.Nullable<int> @class, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sid)
+>>>>>>> Stashed changes
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, image, sid);
 			return ((int)(result.ReturnValue));
 		}
 		
+<<<<<<< Updated upstream
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getRoleId", IsComposable=true)]
 		public System.Nullable<int> getRoleId()
 		{
@@ -179,79 +299,140 @@ namespace SchoolManagementSystem
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nic, firstName, lastName, telephone, birthDate, address, gender, sid);
 			return ((int)(result.ReturnValue));
 		}
+=======
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.systemLogin")]
+		public ISingleResult<systemLoginResult> systemLogin([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password);
+			return ((ISingleResult<systemLoginResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_deleteUser")]
+		public int users_deleteUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_changePassword")]
+		public ISingleResult<users_changePasswordResult> users_changePassword([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string currentPassword, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string newPassword)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, currentPassword, newPassword);
+			return ((ISingleResult<users_changePasswordResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_insert")]
+		public int users_insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password, roleId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_search")]
+		public ISingleResult<users_searchResult> users_search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<users_searchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.users_viewUsers")]
+		public ISingleResult<users_viewUsersResult> users_viewUsers()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<users_viewUsersResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getRoleId", IsComposable=true)]
+		public System.Nullable<int> getRoleId()
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getStudentId", IsComposable=true)]
+		public System.Nullable<int> getStudentId()
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getUserId", IsComposable=true)]
+		public System.Nullable<int> getUserId()
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
+		}
+>>>>>>> Stashed changes
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.roles")]
-	public partial class role : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Class")]
+	public partial class Class : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _roleId;
+		private int _classId;
 		
-		private string _roleName;
+		private System.Nullable<char> _className;
 		
-		private byte _status;
+		private System.Nullable<byte> _status;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnroleIdChanging(int value);
-    partial void OnroleIdChanged();
-    partial void OnroleNameChanging(string value);
-    partial void OnroleNameChanged();
-    partial void OnstatusChanging(byte value);
+    partial void OnclassIdChanging(int value);
+    partial void OnclassIdChanged();
+    partial void OnclassNameChanging(System.Nullable<char> value);
+    partial void OnclassNameChanged();
+    partial void OnstatusChanging(System.Nullable<byte> value);
     partial void OnstatusChanged();
     #endregion
 		
-		public role()
+		public Class()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int roleId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_classId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int classId
 		{
 			get
 			{
-				return this._roleId;
+				return this._classId;
 			}
 			set
 			{
-				if ((this._roleId != value))
+				if ((this._classId != value))
 				{
-					this.OnroleIdChanging(value);
+					this.OnclassIdChanging(value);
 					this.SendPropertyChanging();
-					this._roleId = value;
-					this.SendPropertyChanged("roleId");
-					this.OnroleIdChanged();
+					this._classId = value;
+					this.SendPropertyChanged("classId");
+					this.OnclassIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string roleName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_className", DbType="Char(1)")]
+		public System.Nullable<char> className
 		{
 			get
 			{
-				return this._roleName;
+				return this._className;
 			}
 			set
 			{
-				if ((this._roleName != value))
+				if ((this._className != value))
 				{
-					this.OnroleNameChanging(value);
+					this.OnclassNameChanging(value);
 					this.SendPropertyChanging();
-					this._roleName = value;
-					this.SendPropertyChanged("roleName");
-					this.OnroleNameChanged();
+					this._className = value;
+					this.SendPropertyChanged("className");
+					this.OnclassNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="TinyInt NOT NULL")]
-		public byte status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="TinyInt")]
+		public System.Nullable<byte> status
 		{
 			get
 			{
@@ -291,13 +472,1070 @@ namespace SchoolManagementSystem
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Grades")]
+	public partial class Grade : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _gradeId;
+		
+		private System.Nullable<int> _sectionId;
+		
+		private string _gradeName;
+		
+		private System.Nullable<byte> _status;
+		
+		private EntityRef<section> _section;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OngradeIdChanging(int value);
+    partial void OngradeIdChanged();
+    partial void OnsectionIdChanging(System.Nullable<int> value);
+    partial void OnsectionIdChanged();
+    partial void OngradeNameChanging(string value);
+    partial void OngradeNameChanged();
+    partial void OnstatusChanging(System.Nullable<byte> value);
+    partial void OnstatusChanged();
+    #endregion
+		
+		public Grade()
+		{
+			this._section = default(EntityRef<section>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gradeId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int gradeId
+		{
+			get
+			{
+				return this._gradeId;
+			}
+			set
+			{
+				if ((this._gradeId != value))
+				{
+					this.OngradeIdChanging(value);
+					this.SendPropertyChanging();
+					this._gradeId = value;
+					this.SendPropertyChanged("gradeId");
+					this.OngradeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sectionId", DbType="Int")]
+		public System.Nullable<int> sectionId
+		{
+			get
+			{
+				return this._sectionId;
+			}
+			set
+			{
+				if ((this._sectionId != value))
+				{
+					if (this._section.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnsectionIdChanging(value);
+					this.SendPropertyChanging();
+					this._sectionId = value;
+					this.SendPropertyChanged("sectionId");
+					this.OnsectionIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gradeName", DbType="Char(2)")]
+		public string gradeName
+		{
+			get
+			{
+				return this._gradeName;
+			}
+			set
+			{
+				if ((this._gradeName != value))
+				{
+					this.OngradeNameChanging(value);
+					this.SendPropertyChanging();
+					this._gradeName = value;
+					this.SendPropertyChanged("gradeName");
+					this.OngradeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="TinyInt")]
+		public System.Nullable<byte> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="section_Grade", Storage="_section", ThisKey="sectionId", OtherKey="sectionId", IsForeignKey=true)]
+		public section section
+		{
+			get
+			{
+				return this._section.Entity;
+			}
+			set
+			{
+				section previousValue = this._section.Entity;
+				if (((previousValue != value) 
+							|| (this._section.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._section.Entity = null;
+						previousValue.Grades.Remove(this);
+					}
+					this._section.Entity = value;
+					if ((value != null))
+					{
+						value.Grades.Add(this);
+						this._sectionId = value.sectionId;
+					}
+					else
+					{
+						this._sectionId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("section");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.homePrivileges")]
+	public partial class homePrivilege : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _roleId;
+		
+		private System.Nullable<byte> _student;
+		
+		private System.Nullable<byte> _staff;
+		
+		private System.Nullable<byte> _classes;
+		
+		private System.Nullable<byte> _courses;
+		
+		private System.Nullable<byte> _timetables;
+		
+		private System.Nullable<byte> _payments;
+		
+		private System.Nullable<byte> _events;
+		
+		private System.Nullable<byte> _library;
+		
+		private System.Nullable<byte> _examinations;
+		
+		private System.Nullable<byte> _inventory;
+		
+		private System.Nullable<byte> _roles;
+		
+		private System.Nullable<byte> _users;
+		
+		private EntityRef<role> _role;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnroleIdChanging(int value);
+    partial void OnroleIdChanged();
+    partial void OnstudentChanging(System.Nullable<byte> value);
+    partial void OnstudentChanged();
+    partial void OnstaffChanging(System.Nullable<byte> value);
+    partial void OnstaffChanged();
+    partial void OnclassesChanging(System.Nullable<byte> value);
+    partial void OnclassesChanged();
+    partial void OncoursesChanging(System.Nullable<byte> value);
+    partial void OncoursesChanged();
+    partial void OntimetablesChanging(System.Nullable<byte> value);
+    partial void OntimetablesChanged();
+    partial void OnpaymentsChanging(System.Nullable<byte> value);
+    partial void OnpaymentsChanged();
+    partial void OneventsChanging(System.Nullable<byte> value);
+    partial void OneventsChanged();
+    partial void OnlibraryChanging(System.Nullable<byte> value);
+    partial void OnlibraryChanged();
+    partial void OnexaminationsChanging(System.Nullable<byte> value);
+    partial void OnexaminationsChanged();
+    partial void OninventoryChanging(System.Nullable<byte> value);
+    partial void OninventoryChanged();
+    partial void OnrolesChanging(System.Nullable<byte> value);
+    partial void OnrolesChanged();
+    partial void OnusersChanging(System.Nullable<byte> value);
+    partial void OnusersChanged();
+    #endregion
+		
+		public homePrivilege()
+		{
+			this._role = default(EntityRef<role>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					if (this._role.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnroleIdChanging(value);
+					this.SendPropertyChanging();
+					this._roleId = value;
+					this.SendPropertyChanged("roleId");
+					this.OnroleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student", DbType="TinyInt")]
+		public System.Nullable<byte> student
+		{
+			get
+			{
+				return this._student;
+			}
+			set
+			{
+				if ((this._student != value))
+				{
+					this.OnstudentChanging(value);
+					this.SendPropertyChanging();
+					this._student = value;
+					this.SendPropertyChanged("student");
+					this.OnstudentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_staff", DbType="TinyInt")]
+		public System.Nullable<byte> staff
+		{
+			get
+			{
+				return this._staff;
+			}
+			set
+			{
+				if ((this._staff != value))
+				{
+					this.OnstaffChanging(value);
+					this.SendPropertyChanging();
+					this._staff = value;
+					this.SendPropertyChanged("staff");
+					this.OnstaffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_classes", DbType="TinyInt")]
+		public System.Nullable<byte> classes
+		{
+			get
+			{
+				return this._classes;
+			}
+			set
+			{
+				if ((this._classes != value))
+				{
+					this.OnclassesChanging(value);
+					this.SendPropertyChanging();
+					this._classes = value;
+					this.SendPropertyChanged("classes");
+					this.OnclassesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_courses", DbType="TinyInt")]
+		public System.Nullable<byte> courses
+		{
+			get
+			{
+				return this._courses;
+			}
+			set
+			{
+				if ((this._courses != value))
+				{
+					this.OncoursesChanging(value);
+					this.SendPropertyChanging();
+					this._courses = value;
+					this.SendPropertyChanged("courses");
+					this.OncoursesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_timetables", DbType="TinyInt")]
+		public System.Nullable<byte> timetables
+		{
+			get
+			{
+				return this._timetables;
+			}
+			set
+			{
+				if ((this._timetables != value))
+				{
+					this.OntimetablesChanging(value);
+					this.SendPropertyChanging();
+					this._timetables = value;
+					this.SendPropertyChanged("timetables");
+					this.OntimetablesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payments", DbType="TinyInt")]
+		public System.Nullable<byte> payments
+		{
+			get
+			{
+				return this._payments;
+			}
+			set
+			{
+				if ((this._payments != value))
+				{
+					this.OnpaymentsChanging(value);
+					this.SendPropertyChanging();
+					this._payments = value;
+					this.SendPropertyChanged("payments");
+					this.OnpaymentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_events", DbType="TinyInt")]
+		public System.Nullable<byte> events
+		{
+			get
+			{
+				return this._events;
+			}
+			set
+			{
+				if ((this._events != value))
+				{
+					this.OneventsChanging(value);
+					this.SendPropertyChanging();
+					this._events = value;
+					this.SendPropertyChanged("events");
+					this.OneventsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_library", DbType="TinyInt")]
+		public System.Nullable<byte> library
+		{
+			get
+			{
+				return this._library;
+			}
+			set
+			{
+				if ((this._library != value))
+				{
+					this.OnlibraryChanging(value);
+					this.SendPropertyChanging();
+					this._library = value;
+					this.SendPropertyChanged("library");
+					this.OnlibraryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_examinations", DbType="TinyInt")]
+		public System.Nullable<byte> examinations
+		{
+			get
+			{
+				return this._examinations;
+			}
+			set
+			{
+				if ((this._examinations != value))
+				{
+					this.OnexaminationsChanging(value);
+					this.SendPropertyChanging();
+					this._examinations = value;
+					this.SendPropertyChanged("examinations");
+					this.OnexaminationsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inventory", DbType="TinyInt")]
+		public System.Nullable<byte> inventory
+		{
+			get
+			{
+				return this._inventory;
+			}
+			set
+			{
+				if ((this._inventory != value))
+				{
+					this.OninventoryChanging(value);
+					this.SendPropertyChanging();
+					this._inventory = value;
+					this.SendPropertyChanged("inventory");
+					this.OninventoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roles", DbType="TinyInt")]
+		public System.Nullable<byte> roles
+		{
+			get
+			{
+				return this._roles;
+			}
+			set
+			{
+				if ((this._roles != value))
+				{
+					this.OnrolesChanging(value);
+					this.SendPropertyChanging();
+					this._roles = value;
+					this.SendPropertyChanged("roles");
+					this.OnrolesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_users", DbType="TinyInt")]
+		public System.Nullable<byte> users
+		{
+			get
+			{
+				return this._users;
+			}
+			set
+			{
+				if ((this._users != value))
+				{
+					this.OnusersChanging(value);
+					this.SendPropertyChanging();
+					this._users = value;
+					this.SendPropertyChanged("users");
+					this.OnusersChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_homePrivilege", Storage="_role", ThisKey="roleId", OtherKey="roleId", IsForeignKey=true)]
+		public role role
+		{
+			get
+			{
+				return this._role.Entity;
+			}
+			set
+			{
+				role previousValue = this._role.Entity;
+				if (((previousValue != value) 
+							|| (this._role.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._role.Entity = null;
+						previousValue.homePrivilege = null;
+					}
+					this._role.Entity = value;
+					if ((value != null))
+					{
+						value.homePrivilege = this;
+						this._roleId = value.roleId;
+					}
+					else
+					{
+						this._roleId = default(int);
+					}
+					this.SendPropertyChanged("role");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[privileges]")]
+	public partial class privilege : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _roleId;
+		
+		private System.Nullable<byte> _studAdd;
+		
+		private System.Nullable<byte> _studEdit;
+		
+		private System.Nullable<byte> _studDelete;
+		
+		private EntityRef<role> _role;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnroleIdChanging(int value);
+    partial void OnroleIdChanged();
+    partial void OnstudAddChanging(System.Nullable<byte> value);
+    partial void OnstudAddChanged();
+    partial void OnstudEditChanging(System.Nullable<byte> value);
+    partial void OnstudEditChanged();
+    partial void OnstudDeleteChanging(System.Nullable<byte> value);
+    partial void OnstudDeleteChanged();
+    #endregion
+		
+		public privilege()
+		{
+			this._role = default(EntityRef<role>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					if (this._role.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnroleIdChanging(value);
+					this.SendPropertyChanging();
+					this._roleId = value;
+					this.SendPropertyChanged("roleId");
+					this.OnroleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studAdd", DbType="TinyInt")]
+		public System.Nullable<byte> studAdd
+		{
+			get
+			{
+				return this._studAdd;
+			}
+			set
+			{
+				if ((this._studAdd != value))
+				{
+					this.OnstudAddChanging(value);
+					this.SendPropertyChanging();
+					this._studAdd = value;
+					this.SendPropertyChanged("studAdd");
+					this.OnstudAddChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studEdit", DbType="TinyInt")]
+		public System.Nullable<byte> studEdit
+		{
+			get
+			{
+				return this._studEdit;
+			}
+			set
+			{
+				if ((this._studEdit != value))
+				{
+					this.OnstudEditChanging(value);
+					this.SendPropertyChanging();
+					this._studEdit = value;
+					this.SendPropertyChanged("studEdit");
+					this.OnstudEditChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studDelete", DbType="TinyInt")]
+		public System.Nullable<byte> studDelete
+		{
+			get
+			{
+				return this._studDelete;
+			}
+			set
+			{
+				if ((this._studDelete != value))
+				{
+					this.OnstudDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._studDelete = value;
+					this.SendPropertyChanged("studDelete");
+					this.OnstudDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_privilege", Storage="_role", ThisKey="roleId", OtherKey="roleId", IsForeignKey=true)]
+		public role role
+		{
+			get
+			{
+				return this._role.Entity;
+			}
+			set
+			{
+				role previousValue = this._role.Entity;
+				if (((previousValue != value) 
+							|| (this._role.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._role.Entity = null;
+						previousValue.privilege = null;
+					}
+					this._role.Entity = value;
+					if ((value != null))
+					{
+						value.privilege = this;
+						this._roleId = value.roleId;
+					}
+					else
+					{
+						this._roleId = default(int);
+					}
+					this.SendPropertyChanged("role");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.roles")]
+	public partial class role : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _roleId;
+		
+		private string _roleName;
+		
+		private System.Nullable<int> _status;
+		
+		private EntityRef<homePrivilege> _homePrivilege;
+		
+		private EntityRef<privilege> _privilege;
+		
+		private EntitySet<user> _users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnroleIdChanging(int value);
+    partial void OnroleIdChanged();
+    partial void OnroleNameChanging(string value);
+    partial void OnroleNameChanged();
+    partial void OnstatusChanging(System.Nullable<int> value);
+    partial void OnstatusChanged();
+    #endregion
+		
+		public role()
+		{
+			this._homePrivilege = default(EntityRef<homePrivilege>);
+			this._privilege = default(EntityRef<privilege>);
+			this._users = new EntitySet<user>(new Action<user>(this.attach_users), new Action<user>(this.detach_users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this.OnroleIdChanging(value);
+					this.SendPropertyChanging();
+					this._roleId = value;
+					this.SendPropertyChanged("roleId");
+					this.OnroleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleName", DbType="VarChar(20)")]
+		public string roleName
+		{
+			get
+			{
+				return this._roleName;
+			}
+			set
+			{
+				if ((this._roleName != value))
+				{
+					this.OnroleNameChanging(value);
+					this.SendPropertyChanging();
+					this._roleName = value;
+					this.SendPropertyChanged("roleName");
+					this.OnroleNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
+		public System.Nullable<int> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_homePrivilege", Storage="_homePrivilege", ThisKey="roleId", OtherKey="roleId", IsUnique=true, IsForeignKey=false)]
+		public homePrivilege homePrivilege
+		{
+			get
+			{
+				return this._homePrivilege.Entity;
+			}
+			set
+			{
+				homePrivilege previousValue = this._homePrivilege.Entity;
+				if (((previousValue != value) 
+							|| (this._homePrivilege.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._homePrivilege.Entity = null;
+						previousValue.role = null;
+					}
+					this._homePrivilege.Entity = value;
+					if ((value != null))
+					{
+						value.role = this;
+					}
+					this.SendPropertyChanged("homePrivilege");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_privilege", Storage="_privilege", ThisKey="roleId", OtherKey="roleId", IsUnique=true, IsForeignKey=false)]
+		public privilege privilege
+		{
+			get
+			{
+				return this._privilege.Entity;
+			}
+			set
+			{
+				privilege previousValue = this._privilege.Entity;
+				if (((previousValue != value) 
+							|| (this._privilege.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._privilege.Entity = null;
+						previousValue.role = null;
+					}
+					this._privilege.Entity = value;
+					if ((value != null))
+					{
+						value.role = this;
+					}
+					this.SendPropertyChanged("privilege");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_user", Storage="_users", ThisKey="roleId", OtherKey="roleId")]
+		public EntitySet<user> users
+		{
+			get
+			{
+				return this._users;
+			}
+			set
+			{
+				this._users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_users(user entity)
+		{
+			this.SendPropertyChanging();
+			entity.role = this;
+		}
+		
+		private void detach_users(user entity)
+		{
+			this.SendPropertyChanging();
+			entity.role = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sections")]
+	public partial class section : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sectionId;
+		
+		private string _sectionDescription;
+		
+		private EntitySet<Grade> _Grades;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnsectionIdChanging(int value);
+    partial void OnsectionIdChanged();
+    partial void OnsectionDescriptionChanging(string value);
+    partial void OnsectionDescriptionChanged();
+    #endregion
+		
+		public section()
+		{
+			this._Grades = new EntitySet<Grade>(new Action<Grade>(this.attach_Grades), new Action<Grade>(this.detach_Grades));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sectionId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int sectionId
+		{
+			get
+			{
+				return this._sectionId;
+			}
+			set
+			{
+				if ((this._sectionId != value))
+				{
+					this.OnsectionIdChanging(value);
+					this.SendPropertyChanging();
+					this._sectionId = value;
+					this.SendPropertyChanged("sectionId");
+					this.OnsectionIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sectionDescription", DbType="VarChar(100)")]
+		public string sectionDescription
+		{
+			get
+			{
+				return this._sectionDescription;
+			}
+			set
+			{
+				if ((this._sectionDescription != value))
+				{
+					this.OnsectionDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._sectionDescription = value;
+					this.SendPropertyChanged("sectionDescription");
+					this.OnsectionDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="section_Grade", Storage="_Grades", ThisKey="sectionId", OtherKey="sectionId")]
+		public EntitySet<Grade> Grades
+		{
+			get
+			{
+				return this._Grades;
+			}
+			set
+			{
+				this._Grades.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Grades(Grade entity)
+		{
+			this.SendPropertyChanging();
+			entity.section = this;
+		}
+		
+		private void detach_Grades(Grade entity)
+		{
+			this.SendPropertyChanging();
+			entity.section = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.student")]
 	public partial class student : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _sid;
+		private long _sid;
 		
 		private string _nic;
 		
@@ -305,21 +1543,25 @@ namespace SchoolManagementSystem
 		
 		private string _lastName;
 		
-		private string _telephone;
-		
-		private System.DateTime _birthdate;
+		private string _birthdate;
 		
 		private string _address;
 		
-		private char _gender;
+		private string _telephone;
+		
+		private System.Nullable<byte> _gender;
 		
 		private System.Data.Linq.Binary _image;
+		
+		private System.Nullable<int> _gradeId;
+		
+		private System.Nullable<int> _classId;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnsidChanging(int value);
+    partial void OnsidChanging(long value);
     partial void OnsidChanged();
     partial void OnnicChanging(string value);
     partial void OnnicChanged();
@@ -327,16 +1569,20 @@ namespace SchoolManagementSystem
     partial void OnfirstNameChanged();
     partial void OnlastNameChanging(string value);
     partial void OnlastNameChanged();
-    partial void OntelephoneChanging(string value);
-    partial void OntelephoneChanged();
-    partial void OnbirthdateChanging(System.DateTime value);
+    partial void OnbirthdateChanging(string value);
     partial void OnbirthdateChanged();
     partial void OnaddressChanging(string value);
     partial void OnaddressChanged();
-    partial void OngenderChanging(char value);
+    partial void OntelephoneChanging(string value);
+    partial void OntelephoneChanged();
+    partial void OngenderChanging(System.Nullable<byte> value);
     partial void OngenderChanged();
     partial void OnimageChanging(System.Data.Linq.Binary value);
     partial void OnimageChanged();
+    partial void OngradeIdChanging(System.Nullable<int> value);
+    partial void OngradeIdChanged();
+    partial void OnclassIdChanging(System.Nullable<int> value);
+    partial void OnclassIdChanged();
     #endregion
 		
 		public student()
@@ -344,8 +1590,8 @@ namespace SchoolManagementSystem
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int sid
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sid", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long sid
 		{
 			get
 			{
@@ -364,7 +1610,7 @@ namespace SchoolManagementSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nic", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nic", DbType="VarChar(20)")]
 		public string nic
 		{
 			get
@@ -384,7 +1630,7 @@ namespace SchoolManagementSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="VarChar(20)")]
 		public string firstName
 		{
 			get
@@ -404,7 +1650,7 @@ namespace SchoolManagementSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="VarChar(20)")]
 		public string lastName
 		{
 			get
@@ -424,28 +1670,8 @@ namespace SchoolManagementSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telephone", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string telephone
-		{
-			get
-			{
-				return this._telephone;
-			}
-			set
-			{
-				if ((this._telephone != value))
-				{
-					this.OntelephoneChanging(value);
-					this.SendPropertyChanging();
-					this._telephone = value;
-					this.SendPropertyChanged("telephone");
-					this.OntelephoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthdate", DbType="Date NOT NULL")]
-		public System.DateTime birthdate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthdate", DbType="VarChar(20)")]
+		public string birthdate
 		{
 			get
 			{
@@ -464,7 +1690,7 @@ namespace SchoolManagementSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="VarChar(100)")]
 		public string address
 		{
 			get
@@ -484,8 +1710,28 @@ namespace SchoolManagementSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="Char(1) NOT NULL")]
-		public char gender
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telephone", DbType="VarChar(10)")]
+		public string telephone
+		{
+			get
+			{
+				return this._telephone;
+			}
+			set
+			{
+				if ((this._telephone != value))
+				{
+					this.OntelephoneChanging(value);
+					this.SendPropertyChanging();
+					this._telephone = value;
+					this.SendPropertyChanged("telephone");
+					this.OntelephoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="TinyInt")]
+		public System.Nullable<byte> gender
 		{
 			get
 			{
@@ -524,6 +1770,46 @@ namespace SchoolManagementSystem
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gradeId", DbType="Int")]
+		public System.Nullable<int> gradeId
+		{
+			get
+			{
+				return this._gradeId;
+			}
+			set
+			{
+				if ((this._gradeId != value))
+				{
+					this.OngradeIdChanging(value);
+					this.SendPropertyChanging();
+					this._gradeId = value;
+					this.SendPropertyChanged("gradeId");
+					this.OngradeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_classId", DbType="Int")]
+		public System.Nullable<int> classId
+		{
+			get
+			{
+				return this._classId;
+			}
+			set
+			{
+				if ((this._classId != value))
+				{
+					this.OnclassIdChanging(value);
+					this.SendPropertyChanging();
+					this._classId = value;
+					this.SendPropertyChanged("classId");
+					this.OnclassIdChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -541,6 +1827,745 @@ namespace SchoolManagementSystem
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.users")]
+	public partial class user : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _userName;
+		
+		private string _password;
+		
+		private System.Nullable<int> _roleId;
+		
+		private EntityRef<role> _role;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnuserNameChanging(string value);
+    partial void OnuserNameChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnroleIdChanging(System.Nullable<int> value);
+    partial void OnroleIdChanged();
+    #endregion
+		
+		public user()
+		{
+			this._role = default(EntityRef<role>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="VarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this.OnuserNameChanging(value);
+					this.SendPropertyChanging();
+					this._userName = value;
+					this.SendPropertyChanged("userName");
+					this.OnuserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50)")]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int")]
+		public System.Nullable<int> roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					if (this._role.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnroleIdChanging(value);
+					this.SendPropertyChanging();
+					this._roleId = value;
+					this.SendPropertyChanged("roleId");
+					this.OnroleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_user", Storage="_role", ThisKey="roleId", OtherKey="roleId", IsForeignKey=true)]
+		public role role
+		{
+			get
+			{
+				return this._role.Entity;
+			}
+			set
+			{
+				role previousValue = this._role.Entity;
+				if (((previousValue != value) 
+							|| (this._role.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._role.Entity = null;
+						previousValue.users.Remove(this);
+					}
+					this._role.Entity = value;
+					if ((value != null))
+					{
+						value.users.Add(this);
+						this._roleId = value.roleId;
+					}
+					else
+					{
+						this._roleId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("role");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class class_getClassesResult
+	{
+		
+		private int _classId;
+		
+		private System.Nullable<char> _className;
+		
+		private string _status;
+		
+<<<<<<< Updated upstream
+		public student_getStudentResult()
+=======
+		public class_getClassesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_classId", DbType="Int NOT NULL")]
+		public int classId
+		{
+			get
+			{
+				return this._classId;
+			}
+			set
+			{
+				if ((this._classId != value))
+				{
+					this._classId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_className", DbType="Char(1)")]
+		public System.Nullable<char> className
+>>>>>>> Stashed changes
+		{
+			get
+			{
+				return this._className;
+			}
+			set
+			{
+				if ((this._className != value))
+				{
+					this._className = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class grades_getGradesResult
+	{
+		
+		private int _gradeId;
+		
+		private System.Nullable<int> _sectionId;
+		
+		private string _gradeName;
+		
+		private string _status;
+		
+		public grades_getGradesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gradeId", DbType="Int NOT NULL")]
+		public int gradeId
+		{
+			get
+			{
+				return this._gradeId;
+			}
+			set
+			{
+				if ((this._gradeId != value))
+				{
+					this._gradeId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sectionId", DbType="Int")]
+		public System.Nullable<int> sectionId
+		{
+			get
+			{
+				return this._sectionId;
+			}
+			set
+			{
+				if ((this._sectionId != value))
+				{
+					this._sectionId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gradeName", DbType="Char(2)")]
+		public string gradeName
+		{
+			get
+			{
+				return this._gradeName;
+			}
+			set
+			{
+				if ((this._gradeName != value))
+				{
+					this._gradeName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class privileges_getPrivilegesResult
+	{
+		
+		private int _roleId;
+		
+		private System.Nullable<byte> _studAdd;
+		
+		private System.Nullable<byte> _studEdit;
+		
+		private System.Nullable<byte> _studDelete;
+		
+		public privileges_getPrivilegesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int NOT NULL")]
+		public int roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studAdd", DbType="TinyInt")]
+		public System.Nullable<byte> studAdd
+		{
+			get
+			{
+				return this._studAdd;
+			}
+			set
+			{
+				if ((this._studAdd != value))
+				{
+					this._studAdd = value;
+				}
+			}
+		}
+<<<<<<< Updated upstream
+=======
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studEdit", DbType="TinyInt")]
+		public System.Nullable<byte> studEdit
+		{
+			get
+			{
+				return this._studEdit;
+			}
+			set
+			{
+				if ((this._studEdit != value))
+				{
+					this._studEdit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studDelete", DbType="TinyInt")]
+		public System.Nullable<byte> studDelete
+		{
+			get
+			{
+				return this._studDelete;
+			}
+			set
+			{
+				if ((this._studDelete != value))
+				{
+					this._studDelete = value;
+				}
+			}
+		}
+>>>>>>> Stashed changes
+	}
+	
+	public partial class privileges_HomePrivilegesResult
+	{
+		
+<<<<<<< Updated upstream
+		private long _SID;
+		
+		private string _NIC;
+		
+		private string _FNAME;
+		
+		private string _LNAME;
+		
+		private string _BIRTHDATE;
+		
+		private string _ADDRESS;
+		
+		private string _TELEPHONE;
+		
+		private string _GENDER;
+=======
+		private int _roleId;
+		
+		private System.Nullable<byte> _student;
+		
+		private System.Nullable<byte> _staff;
+		
+		private System.Nullable<byte> _classes;
+		
+		private System.Nullable<byte> _courses;
+		
+		private System.Nullable<byte> _timetables;
+		
+		private System.Nullable<byte> _payments;
+		
+		private System.Nullable<byte> _events;
+		
+		private System.Nullable<byte> _library;
+		
+		private System.Nullable<byte> _examinations;
+>>>>>>> Stashed changes
+		
+		private System.Nullable<byte> _inventory;
+		
+		private System.Nullable<byte> _roles;
+		
+		private System.Nullable<byte> _users;
+		
+		public privileges_HomePrivilegesResult()
+		{
+		}
+		
+<<<<<<< Updated upstream
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SID", DbType="BigInt NOT NULL")]
+		public long SID
+		{
+			get
+			{
+				return this._SID;
+			}
+			set
+			{
+				if ((this._SID != value))
+				{
+					this._SID = value;
+=======
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int NOT NULL")]
+		public int roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student", DbType="TinyInt")]
+		public System.Nullable<byte> student
+		{
+			get
+			{
+				return this._student;
+			}
+			set
+			{
+				if ((this._student != value))
+				{
+					this._student = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_staff", DbType="TinyInt")]
+		public System.Nullable<byte> staff
+		{
+			get
+			{
+				return this._staff;
+			}
+			set
+			{
+				if ((this._staff != value))
+				{
+					this._staff = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_classes", DbType="TinyInt")]
+		public System.Nullable<byte> classes
+		{
+			get
+			{
+				return this._classes;
+			}
+			set
+			{
+				if ((this._classes != value))
+				{
+					this._classes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_courses", DbType="TinyInt")]
+		public System.Nullable<byte> courses
+		{
+			get
+			{
+				return this._courses;
+			}
+			set
+			{
+				if ((this._courses != value))
+				{
+					this._courses = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_timetables", DbType="TinyInt")]
+		public System.Nullable<byte> timetables
+		{
+			get
+			{
+				return this._timetables;
+			}
+			set
+			{
+				if ((this._timetables != value))
+				{
+					this._timetables = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payments", DbType="TinyInt")]
+		public System.Nullable<byte> payments
+		{
+			get
+			{
+				return this._payments;
+			}
+			set
+			{
+				if ((this._payments != value))
+				{
+					this._payments = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_events", DbType="TinyInt")]
+		public System.Nullable<byte> events
+		{
+			get
+			{
+				return this._events;
+			}
+			set
+			{
+				if ((this._events != value))
+				{
+					this._events = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_library", DbType="TinyInt")]
+		public System.Nullable<byte> library
+		{
+			get
+			{
+				return this._library;
+			}
+			set
+			{
+				if ((this._library != value))
+				{
+					this._library = value;
+>>>>>>> Stashed changes
+				}
+			}
+		}
+		
+<<<<<<< Updated upstream
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(20)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+=======
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_examinations", DbType="TinyInt")]
+		public System.Nullable<byte> examinations
+		{
+			get
+			{
+				return this._examinations;
+			}
+			set
+			{
+				if ((this._examinations != value))
+				{
+					this._examinations = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inventory", DbType="TinyInt")]
+		public System.Nullable<byte> inventory
+		{
+			get
+			{
+				return this._inventory;
+			}
+			set
+			{
+				if ((this._inventory != value))
+				{
+					this._inventory = value;
+>>>>>>> Stashed changes
+				}
+			}
+		}
+		
+<<<<<<< Updated upstream
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNAME", DbType="VarChar(20)")]
+		public string FNAME
+		{
+			get
+			{
+				return this._FNAME;
+			}
+			set
+			{
+				if ((this._FNAME != value))
+				{
+					this._FNAME = value;
+=======
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roles", DbType="TinyInt")]
+		public System.Nullable<byte> roles
+		{
+			get
+			{
+				return this._roles;
+			}
+			set
+			{
+				if ((this._roles != value))
+				{
+					this._roles = value;
+>>>>>>> Stashed changes
+				}
+			}
+		}
+		
+<<<<<<< Updated upstream
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LNAME", DbType="VarChar(20)")]
+		public string LNAME
+		{
+			get
+			{
+				return this._LNAME;
+			}
+			set
+			{
+				if ((this._LNAME != value))
+				{
+					this._LNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDATE", DbType="VarChar(20)")]
+		public string BIRTHDATE
+		{
+			get
+			{
+				return this._BIRTHDATE;
+			}
+			set
+			{
+				if ((this._BIRTHDATE != value))
+				{
+					this._BIRTHDATE = value;
+=======
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_users", DbType="TinyInt")]
+		public System.Nullable<byte> users
+		{
+			get
+			{
+				return this._users;
+			}
+			set
+			{
+				if ((this._users != value))
+				{
+					this._users = value;
+				}
 			}
 		}
 	}
@@ -570,10 +2595,25 @@ namespace SchoolManagementSystem
 				if ((this._ID != value))
 				{
 					this._ID = value;
+>>>>>>> Stashed changes
 				}
 			}
 		}
 		
+<<<<<<< Updated upstream
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDRESS", DbType="VarChar(100)")]
+		public string ADDRESS
+		{
+			get
+			{
+				return this._ADDRESS;
+			}
+			set
+			{
+				if ((this._ADDRESS != value))
+				{
+					this._ADDRESS = value;
+=======
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="VarChar(20)")]
 		public string Role
 		{
@@ -586,10 +2626,41 @@ namespace SchoolManagementSystem
 				if ((this._Role != value))
 				{
 					this._Role = value;
+>>>>>>> Stashed changes
 				}
 			}
 		}
 		
+<<<<<<< Updated upstream
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEPHONE", DbType="VarChar(10)")]
+		public string TELEPHONE
+		{
+			get
+			{
+				return this._TELEPHONE;
+			}
+			set
+			{
+				if ((this._TELEPHONE != value))
+				{
+					this._TELEPHONE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENDER", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string GENDER
+		{
+			get
+			{
+				return this._GENDER;
+			}
+			set
+			{
+				if ((this._GENDER != value))
+				{
+					this._GENDER = value;
+=======
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
 		public string Status
 		{
@@ -669,6 +2740,194 @@ namespace SchoolManagementSystem
 		}
 	}
 	
+	public partial class student_advanceSearchResult
+	{
+		
+		private long _sid;
+		
+		private string _nic;
+		
+		private string _firstName;
+		
+		private string _lastName;
+		
+		private string _birthdate;
+		
+		private string _telephone;
+		
+		private string _address;
+		
+		private string _gender;
+		
+		private string _grade;
+		
+		private System.Nullable<char> _class;
+		
+		public student_advanceSearchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sid", DbType="BigInt NOT NULL")]
+		public long sid
+		{
+			get
+			{
+				return this._sid;
+			}
+			set
+			{
+				if ((this._sid != value))
+				{
+					this._sid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nic", DbType="VarChar(20)")]
+		public string nic
+		{
+			get
+			{
+				return this._nic;
+			}
+			set
+			{
+				if ((this._nic != value))
+				{
+					this._nic = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="VarChar(20)")]
+		public string firstName
+		{
+			get
+			{
+				return this._firstName;
+			}
+			set
+			{
+				if ((this._firstName != value))
+				{
+					this._firstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="VarChar(20)")]
+		public string lastName
+		{
+			get
+			{
+				return this._lastName;
+			}
+			set
+			{
+				if ((this._lastName != value))
+				{
+					this._lastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthdate", DbType="VarChar(20)")]
+		public string birthdate
+		{
+			get
+			{
+				return this._birthdate;
+			}
+			set
+			{
+				if ((this._birthdate != value))
+				{
+					this._birthdate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telephone", DbType="VarChar(10)")]
+		public string telephone
+		{
+			get
+			{
+				return this._telephone;
+			}
+			set
+			{
+				if ((this._telephone != value))
+				{
+					this._telephone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="VarChar(100)")]
+		public string address
+		{
+			get
+			{
+				return this._address;
+			}
+			set
+			{
+				if ((this._address != value))
+				{
+					this._address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string gender
+		{
+			get
+			{
+				return this._gender;
+			}
+			set
+			{
+				if ((this._gender != value))
+				{
+					this._gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_grade", DbType="Char(2)")]
+		public string grade
+		{
+			get
+			{
+				return this._grade;
+			}
+			set
+			{
+				if ((this._grade != value))
+				{
+					this._grade = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="class", Storage="_class", DbType="Char(1)")]
+		public System.Nullable<char> @class
+		{
+			get
+			{
+				return this._class;
+			}
+			set
+			{
+				if ((this._class != value))
+				{
+					this._class = value;
+				}
+			}
+		}
+	}
+	
 	public partial class student_getStudentResult
 	{
 		
@@ -687,6 +2946,10 @@ namespace SchoolManagementSystem
 		private string _address;
 		
 		private string _gender;
+		
+		private string _grade;
+		
+		private System.Nullable<char> _class;
 		
 		public student_getStudentResult()
 		{
@@ -819,155 +3082,418 @@ namespace SchoolManagementSystem
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_grade", DbType="Char(2)")]
+		public string grade
+		{
+			get
+			{
+				return this._grade;
+			}
+			set
+			{
+				if ((this._grade != value))
+				{
+					this._grade = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="class", Storage="_class", DbType="Char(1)")]
+		public System.Nullable<char> @class
+		{
+			get
+			{
+				return this._class;
+			}
+			set
+			{
+				if ((this._class != value))
+				{
+					this._class = value;
+				}
+			}
+		}
 	}
 	
 	public partial class student_searchResult
 	{
 		
-		private long _SID;
+		private long _sid;
 		
-		private string _NIC;
+		private string _nic;
 		
-		private string _FNAME;
+		private string _firstName;
 		
-		private string _LNAME;
+		private string _lastName;
 		
-		private string _BIRTHDATE;
+		private string _birthdate;
 		
-		private string _ADDRESS;
+		private string _telephone;
 		
-		private string _TELEPHONE;
+		private string _address;
 		
-		private string _GENDER;
+		private string _gender;
+		
+		private string _grade;
+		
+		private System.Nullable<char> _class;
 		
 		public student_searchResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SID", DbType="BigInt NOT NULL")]
-		public long SID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sid", DbType="BigInt NOT NULL")]
+		public long sid
 		{
 			get
 			{
-				return this._SID;
+				return this._sid;
 			}
 			set
 			{
-				if ((this._SID != value))
+				if ((this._sid != value))
 				{
-					this._SID = value;
+					this._sid = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(20)")]
-		public string NIC
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nic", DbType="VarChar(20)")]
+		public string nic
 		{
 			get
 			{
-				return this._NIC;
+				return this._nic;
 			}
 			set
 			{
-				if ((this._NIC != value))
+				if ((this._nic != value))
 				{
-					this._NIC = value;
+					this._nic = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNAME", DbType="VarChar(20)")]
-		public string FNAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="VarChar(20)")]
+		public string firstName
 		{
 			get
 			{
-				return this._FNAME;
+				return this._firstName;
 			}
 			set
 			{
-				if ((this._FNAME != value))
+				if ((this._firstName != value))
 				{
-					this._FNAME = value;
+					this._firstName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LNAME", DbType="VarChar(20)")]
-		public string LNAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="VarChar(20)")]
+		public string lastName
 		{
 			get
 			{
-				return this._LNAME;
+				return this._lastName;
 			}
 			set
 			{
-				if ((this._LNAME != value))
+				if ((this._lastName != value))
 				{
-					this._LNAME = value;
+					this._lastName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDATE", DbType="VarChar(20)")]
-		public string BIRTHDATE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthdate", DbType="VarChar(20)")]
+		public string birthdate
 		{
 			get
 			{
-				return this._BIRTHDATE;
+				return this._birthdate;
 			}
 			set
 			{
-				if ((this._BIRTHDATE != value))
+				if ((this._birthdate != value))
 				{
-					this._BIRTHDATE = value;
+					this._birthdate = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDRESS", DbType="VarChar(100)")]
-		public string ADDRESS
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telephone", DbType="VarChar(10)")]
+		public string telephone
 		{
 			get
 			{
-				return this._ADDRESS;
+				return this._telephone;
 			}
 			set
 			{
-				if ((this._ADDRESS != value))
+				if ((this._telephone != value))
 				{
-					this._ADDRESS = value;
+					this._telephone = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEPHONE", DbType="VarChar(10)")]
-		public string TELEPHONE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="VarChar(100)")]
+		public string address
 		{
 			get
 			{
-				return this._TELEPHONE;
+				return this._address;
 			}
 			set
 			{
-				if ((this._TELEPHONE != value))
+				if ((this._address != value))
 				{
-					this._TELEPHONE = value;
+					this._address = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENDER", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
-		public string GENDER
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string gender
 		{
 			get
 			{
-				return this._GENDER;
+				return this._gender;
 			}
 			set
 			{
-				if ((this._GENDER != value))
+				if ((this._gender != value))
 				{
-					this._GENDER = value;
+					this._gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_grade", DbType="Char(2)")]
+		public string grade
+		{
+			get
+			{
+				return this._grade;
+			}
+			set
+			{
+				if ((this._grade != value))
+				{
+					this._grade = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="class", Storage="_class", DbType="Char(1)")]
+		public System.Nullable<char> @class
+		{
+			get
+			{
+				return this._class;
+			}
+			set
+			{
+				if ((this._class != value))
+				{
+					this._class = value;
+				}
+			}
+		}
+	}
+	
+	public partial class systemLoginResult
+	{
+		
+		private string _userName;
+		
+		private System.Nullable<int> _roleId;
+		
+		public systemLoginResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="VarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this._userName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="Int")]
+		public System.Nullable<int> roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class users_changePasswordResult
+	{
+		
+		private int _changedId;
+		
+		public users_changePasswordResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_changedId", DbType="Int NOT NULL")]
+		public int changedId
+		{
+			get
+			{
+				return this._changedId;
+			}
+			set
+			{
+				if ((this._changedId != value))
+				{
+					this._changedId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class users_searchResult
+	{
+		
+		private int _userId;
+		
+		private string _userName;
+		
+		private string _roleId;
+		
+		public users_searchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+		public int userId
+		{
+			get
+			{
+				return this._userId;
+			}
+			set
+			{
+				if ((this._userId != value))
+				{
+					this._userId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="VarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this._userName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="VarChar(20)")]
+		public string roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class users_viewUsersResult
+	{
+		
+		private int _userId;
+		
+		private string _userName;
+		
+		private string _roleId;
+		
+		public users_viewUsersResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+		public int userId
+		{
+			get
+			{
+				return this._userId;
+			}
+			set
+			{
+				if ((this._userId != value))
+				{
+					this._userId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="VarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this._userName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roleId", DbType="VarChar(20)")]
+		public string roleId
+		{
+			get
+			{
+				return this._roleId;
+			}
+			set
+			{
+				if ((this._roleId != value))
+				{
+					this._roleId = value;
+>>>>>>> Stashed changes
 				}
 			}
 		}

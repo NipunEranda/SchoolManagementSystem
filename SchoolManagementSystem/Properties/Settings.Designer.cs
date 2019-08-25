@@ -12,7 +12,11 @@ namespace SchoolManagementSystem.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+<<<<<<< Updated upstream
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.1.0.0")]
+=======
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+>>>>>>> Stashed changes
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -32,5 +36,30 @@ namespace SchoolManagementSystem.Properties {
                 return ((string)(this["smsDB"]));
             }
         }
+<<<<<<< Updated upstream
+=======
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Zyph3Rx\\Documents\\V" +
+            "isual Studio 2015\\Projects\\SchoolManagementSystem\\resources\\DB\\sms.mdf\";Integrat" +
+            "ed Security=True;Connect Timeout=30")]
+        public string smsConnectionString {
+            get {
+                return ((string)(this["smsConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-FG1TKL1;Initial Catalog=sms;Integrated Security=True")]
+        public string smsConnectionString1 {
+            get {
+                return ((string)(this["smsConnectionString1"]));
+            }
+        }
+>>>>>>> Stashed changes
     }
 }

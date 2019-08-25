@@ -22,6 +22,7 @@ namespace SchoolManagementSystem
 
         MainClass main = MainClass.getInstance();
         schoolDBDataContext obj = new schoolDBDataContext();
+        
         Image i;
 
         public Students()

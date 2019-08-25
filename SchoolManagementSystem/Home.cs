@@ -69,7 +69,7 @@ namespace SchoolManagementSystem
 
         private void inventoryBtn_Click(object sender, EventArgs e)
         {
-
+            MainClass.showWindow(new Inventory(), this, MDI.ActiveForm);
         }
 
         private void rolesBtn_Click(object sender, EventArgs e)
