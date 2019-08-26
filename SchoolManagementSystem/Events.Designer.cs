@@ -2,7 +2,10 @@
 {
     partial class Events
     {
-        private System.ComponentModel.IContainer components = null;
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        new private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -23,296 +26,349 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        new private void InitializeComponent()
         {
-            this.seaBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.hideBtn = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.addBtn = new System.Windows.Forms.Button();
-            this.resetBtn = new System.Windows.Forms.Button();
-            this.updateBtn = new System.Windows.Forms.Button();
-            this.deleteBtn = new System.Windows.Forms.Button();
-            this.repoBtn = new System.Windows.Forms.Button();
             this.ename = new System.Windows.Forms.Label();
             this.enameTxt = new System.Windows.Forms.TextBox();
-            this.venue = new System.Windows.Forms.Label();
-            this.date = new System.Windows.Forms.Label();
-            this.venueTxt = new System.Windows.Forms.TextBox();
-            this.time = new System.Windows.Forms.Label();
+            this.edate = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.EventgroupBox = new System.Windows.Forms.GroupBox();
+            this.evenue = new System.Windows.Forms.Label();
+            this.evenueTxt = new System.Windows.Forms.TextBox();
+            this.etime = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.EventGridView = new System.Windows.Forms.DataGridView();
+            this.eventGridView = new System.Windows.Forms.DataGridView();
+            this.eventIDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventNameGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edateGv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.evenueGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etimeGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eId = new System.Windows.Forms.Label();
+            this.eIdTxt = new System.Windows.Forms.TextBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.monthlyCalendarGB = new System.Windows.Forms.GroupBox();
+            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.EventgroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EventGridView)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
+            this.panel12.SuspendLayout();
+            this.leftPanel.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.rightPanel.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventGridView)).BeginInit();
+            this.monthlyCalendarGB.SuspendLayout();
             this.SuspendLayout();
             // 
-            // seaBtn
+            // panel1
             // 
-            this.seaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seaBtn.Location = new System.Drawing.Point(243, 8);
-            this.seaBtn.Name = "seaBtn";
-            this.seaBtn.Size = new System.Drawing.Size(151, 26);
-            this.seaBtn.TabIndex = 0;
-            this.seaBtn.Text = "search";
-            this.seaBtn.UseVisualStyleBackColor = true;
-            this.seaBtn.Click += new System.EventHandler(this.seaBtn_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(28, 8);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 26);
-            this.textBox1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(875, 729);
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Controls.Add(this.exitBtn);
-            this.groupBox1.Controls.Add(this.hideBtn);
-            this.groupBox1.Controls.Add(this.monthCalendar1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(28, 69);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 280);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "MONTH";
+            this.groupBox1.Controls.Add(this.eventGridView);
+            this.groupBox1.Size = new System.Drawing.Size(875, 729);
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.Controls.SetChildIndex(this.panel2, 0);
+            this.groupBox1.Controls.SetChildIndex(this.panel8, 0);
+            this.groupBox1.Controls.SetChildIndex(this.panel9, 0);
+            this.groupBox1.Controls.SetChildIndex(this.panel10, 0);
+            this.groupBox1.Controls.SetChildIndex(this.panel11, 0);
+            this.groupBox1.Controls.SetChildIndex(this.eventGridView, 0);
             // 
-            // exitBtn
+            // panel2
             // 
-            this.exitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitBtn.Location = new System.Drawing.Point(266, 204);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(75, 32);
-            this.exitBtn.TabIndex = 3;
-            this.exitBtn.Text = "exit";
-            this.exitBtn.UseVisualStyleBackColor = true;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click_1);
+            this.panel2.Location = new System.Drawing.Point(699, 16);
+            this.panel2.Size = new System.Drawing.Size(173, 710);
             // 
-            // hideBtn
+            // panel8
             // 
-            this.hideBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideBtn.Location = new System.Drawing.Point(114, 204);
-            this.hideBtn.Name = "hideBtn";
-            this.hideBtn.Size = new System.Drawing.Size(70, 32);
-            this.hideBtn.TabIndex = 1;
-            this.hideBtn.Text = "Hide";
-            this.hideBtn.UseVisualStyleBackColor = true;
-            this.hideBtn.Click += new System.EventHandler(this.hideBtn_Click);
+            this.panel8.Size = new System.Drawing.Size(696, 14);
             // 
-            // monthCalendar1
+            // panel10
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(114, 21);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
+            this.panel10.Location = new System.Drawing.Point(689, 30);
+            this.panel10.Size = new System.Drawing.Size(10, 696);
             // 
-            // addBtn
+            // panel9
             // 
-            this.addBtn.Location = new System.Drawing.Point(6, 142);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(75, 23);
-            this.addBtn.TabIndex = 3;
-            this.addBtn.Text = "ADD";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            this.panel9.Size = new System.Drawing.Size(10, 696);
             // 
-            // resetBtn
+            // label2
             // 
-            this.resetBtn.Location = new System.Drawing.Point(87, 142);
-            this.resetBtn.Name = "resetBtn";
-            this.resetBtn.Size = new System.Drawing.Size(75, 23);
-            this.resetBtn.TabIndex = 4;
-            this.resetBtn.Text = "RESET";
-            this.resetBtn.UseVisualStyleBackColor = true;
-            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
+            this.label2.Location = new System.Drawing.Point(40, 11);
             // 
-            // updateBtn
+            // panel13
             // 
-            this.updateBtn.Location = new System.Drawing.Point(168, 142);
-            this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(75, 23);
-            this.updateBtn.TabIndex = 5;
-            this.updateBtn.Text = "UPDATE";
-            this.updateBtn.UseVisualStyleBackColor = true;
-            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            this.panel13.Size = new System.Drawing.Size(875, 32);
             // 
-            // deleteBtn
+            // panel11
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(249, 142);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
-            this.deleteBtn.TabIndex = 6;
-            this.deleteBtn.Text = "DELETE";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            this.panel11.Location = new System.Drawing.Point(13, 716);
+            this.panel11.Size = new System.Drawing.Size(676, 10);
             // 
-            // repoBtn
+            // panel12
             // 
-            this.repoBtn.Location = new System.Drawing.Point(179, 377);
-            this.repoBtn.Name = "repoBtn";
-            this.repoBtn.Size = new System.Drawing.Size(75, 23);
-            this.repoBtn.TabIndex = 7;
-            this.repoBtn.Text = "REPORT";
-            this.repoBtn.UseVisualStyleBackColor = true;
+            this.panel12.Location = new System.Drawing.Point(0, 660);
+            // 
+            // panel14
+            // 
+            this.panel14.Location = new System.Drawing.Point(0, 700);
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.Size = new System.Drawing.Size(300, 761);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.eIdTxt);
+            this.panel5.Controls.Add(this.monthlyCalendarGB);
+            this.panel5.Controls.Add(this.eId);
+            this.panel5.Controls.Add(this.dateTimePicker2);
+            this.panel5.Controls.Add(this.etime);
+            this.panel5.Controls.Add(this.evenueTxt);
+            this.panel5.Controls.Add(this.evenue);
+            this.panel5.Controls.Add(this.dateTimePicker1);
+            this.panel5.Controls.Add(this.edate);
+            this.panel5.Controls.Add(this.enameTxt);
+            this.panel5.Controls.Add(this.ename);
+            this.panel5.Size = new System.Drawing.Size(300, 712);
+            // 
+            // panel4
+            // 
+            this.panel4.Size = new System.Drawing.Size(300, 49);
+            // 
+            // rightPanel
+            // 
+            this.rightPanel.Location = new System.Drawing.Point(300, 0);
+            this.rightPanel.Size = new System.Drawing.Size(875, 761);
+            // 
+            // panel6
+            // 
+            this.panel6.Size = new System.Drawing.Size(875, 729);
+            // 
+            // panel3
+            // 
+            this.panel3.Size = new System.Drawing.Size(875, 32);
             // 
             // ename
             // 
             this.ename.AutoSize = true;
-            this.ename.Location = new System.Drawing.Point(6, 25);
+            this.ename.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ename.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ename.Location = new System.Drawing.Point(16, 108);
             this.ename.Name = "ename";
-            this.ename.Size = new System.Drawing.Size(65, 13);
-            this.ename.TabIndex = 10;
-            this.ename.Text = "eventName:";
+            this.ename.Size = new System.Drawing.Size(82, 16);
+            this.ename.TabIndex = 1;
+            this.ename.Text = "Event Name";
+            this.ename.Click += new System.EventHandler(this.ename_Click);
             // 
             // enameTxt
             // 
-            this.enameTxt.Location = new System.Drawing.Point(152, 25);
+            this.enameTxt.Location = new System.Drawing.Point(19, 127);
             this.enameTxt.Name = "enameTxt";
             this.enameTxt.Size = new System.Drawing.Size(200, 20);
-            this.enameTxt.TabIndex = 11;
-            this.enameTxt.TextChanged += new System.EventHandler(this.enameTxt_TextChanged);
+            this.enameTxt.TabIndex = 2;
             // 
-            // venue
+            // edate
             // 
-            this.venue.AutoSize = true;
-            this.venue.Location = new System.Drawing.Point(6, 77);
-            this.venue.Name = "venue";
-            this.venue.Size = new System.Drawing.Size(40, 13);
-            this.venue.TabIndex = 14;
-            this.venue.Text = "venue:";
-            this.venue.Click += new System.EventHandler(this.venue_Click);
-            // 
-            // date
-            // 
-            this.date.AutoSize = true;
-            this.date.Location = new System.Drawing.Point(3, 51);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(31, 13);
-            this.date.TabIndex = 15;
-            this.date.Text = "date:";
-            // 
-            // venueTxt
-            // 
-            this.venueTxt.Location = new System.Drawing.Point(152, 77);
-            this.venueTxt.Name = "venueTxt";
-            this.venueTxt.Size = new System.Drawing.Size(200, 20);
-            this.venueTxt.TabIndex = 19;
-            // 
-            // time
-            // 
-            this.time.AutoSize = true;
-            this.time.Location = new System.Drawing.Point(8, 103);
-            this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(29, 13);
-            this.time.TabIndex = 20;
-            this.time.Text = "time:";
-            this.time.Click += new System.EventHandler(this.time_Click);
+            this.edate.AutoSize = true;
+            this.edate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edate.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.edate.Location = new System.Drawing.Point(16, 150);
+            this.edate.Name = "edate";
+            this.edate.Size = new System.Drawing.Size(37, 16);
+            this.edate.TabIndex = 3;
+            this.edate.Text = "Date";
+            this.edate.Click += new System.EventHandler(this.edate_Click);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker1.Location = new System.Drawing.Point(152, 51);
+            this.dateTimePicker1.Location = new System.Drawing.Point(19, 169);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 23;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.TabIndex = 4;
             // 
-            // EventgroupBox
+            // evenue
             // 
-            this.EventgroupBox.Controls.Add(this.dateTimePicker2);
-            this.EventgroupBox.Controls.Add(this.ename);
-            this.EventgroupBox.Controls.Add(this.dateTimePicker1);
-            this.EventgroupBox.Controls.Add(this.enameTxt);
-            this.EventgroupBox.Controls.Add(this.deleteBtn);
-            this.EventgroupBox.Controls.Add(this.date);
-            this.EventgroupBox.Controls.Add(this.updateBtn);
-            this.EventgroupBox.Controls.Add(this.time);
-            this.EventgroupBox.Controls.Add(this.resetBtn);
-            this.EventgroupBox.Controls.Add(this.venueTxt);
-            this.EventgroupBox.Controls.Add(this.addBtn);
-            this.EventgroupBox.Controls.Add(this.venue);
-            this.EventgroupBox.Location = new System.Drawing.Point(473, 8);
-            this.EventgroupBox.Name = "EventgroupBox";
-            this.EventgroupBox.Size = new System.Drawing.Size(352, 171);
-            this.EventgroupBox.TabIndex = 24;
-            this.EventgroupBox.TabStop = false;
-            this.EventgroupBox.Text = "Event_Details";
+            this.evenue.AutoSize = true;
+            this.evenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.evenue.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.evenue.Location = new System.Drawing.Point(16, 192);
+            this.evenue.Name = "evenue";
+            this.evenue.Size = new System.Drawing.Size(47, 16);
+            this.evenue.TabIndex = 5;
+            this.evenue.Text = "Venue";
+            this.evenue.Click += new System.EventHandler(this.evenue_Click);
+            // 
+            // evenueTxt
+            // 
+            this.evenueTxt.Location = new System.Drawing.Point(19, 211);
+            this.evenueTxt.Name = "evenueTxt";
+            this.evenueTxt.Size = new System.Drawing.Size(200, 20);
+            this.evenueTxt.TabIndex = 6;
+            // 
+            // etime
+            // 
+            this.etime.AutoSize = true;
+            this.etime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.etime.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.etime.Location = new System.Drawing.Point(16, 234);
+            this.etime.Name = "etime";
+            this.etime.Size = new System.Drawing.Size(39, 16);
+            this.etime.TabIndex = 7;
+            this.etime.Text = "Time";
+            this.etime.Click += new System.EventHandler(this.etime_Click);
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.CustomFormat = "Time";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(152, 103);
+            this.dateTimePicker2.Location = new System.Drawing.Point(19, 253);
             this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 24;
-            this.dateTimePicker2.Value = new System.DateTime(2019, 8, 12, 3, 39, 0, 0);
+            this.dateTimePicker2.TabIndex = 8;
             // 
-            // EventGridView
+            // eventGridView
             // 
-            this.EventGridView.AllowUserToOrderColumns = true;
-            this.EventGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EventGridView.Location = new System.Drawing.Point(473, 211);
-            this.EventGridView.Name = "EventGridView";
-            this.EventGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.EventGridView.Size = new System.Drawing.Size(352, 189);
-            this.EventGridView.TabIndex = 25;
-            this.EventGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EventGridView_CellClick);
+            this.eventGridView.AllowUserToAddRows = false;
+            this.eventGridView.AllowUserToDeleteRows = false;
+            this.eventGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.eventGridView.BackgroundColor = System.Drawing.Color.White;
+            this.eventGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.eventGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.eventIDGV,
+            this.eventNameGV,
+            this.edateGv,
+            this.evenueGV,
+            this.etimeGV});
+            this.eventGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventGridView.Location = new System.Drawing.Point(13, 30);
+            this.eventGridView.Name = "eventGridView";
+            this.eventGridView.ReadOnly = true;
+            this.eventGridView.RowHeadersVisible = false;
+            this.eventGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.eventGridView.Size = new System.Drawing.Size(676, 686);
+            this.eventGridView.TabIndex = 5;
+            this.eventGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventGridView_CellContentClick);
+            // 
+            // eventIDGV
+            // 
+            this.eventIDGV.FillWeight = 83.59366F;
+            this.eventIDGV.HeaderText = "eventID";
+            this.eventIDGV.Name = "eventIDGV";
+            this.eventIDGV.ReadOnly = true;
+            // 
+            // eventNameGV
+            // 
+            this.eventNameGV.FillWeight = 94.71403F;
+            this.eventNameGV.HeaderText = "eventName";
+            this.eventNameGV.Name = "eventNameGV";
+            this.eventNameGV.ReadOnly = true;
+            // 
+            // edateGv
+            // 
+            this.edateGv.FillWeight = 107.6985F;
+            this.edateGv.HeaderText = "date";
+            this.edateGv.Name = "edateGv";
+            this.edateGv.ReadOnly = true;
+            // 
+            // evenueGV
+            // 
+            this.evenueGV.FillWeight = 122.5285F;
+            this.evenueGV.HeaderText = "venue";
+            this.evenueGV.Name = "evenueGV";
+            this.evenueGV.ReadOnly = true;
+            // 
+            // etimeGV
+            // 
+            this.etimeGV.FillWeight = 138.9574F;
+            this.etimeGV.HeaderText = "time";
+            this.etimeGV.Name = "etimeGV";
+            this.etimeGV.ReadOnly = true;
+            // 
+            // eId
+            // 
+            this.eId.AutoSize = true;
+            this.eId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eId.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.eId.Location = new System.Drawing.Point(16, 64);
+            this.eId.Name = "eId";
+            this.eId.Size = new System.Drawing.Size(56, 16);
+            this.eId.TabIndex = 10;
+            this.eId.Text = "Event Id";
+            // 
+            // eIdTxt
+            // 
+            this.eIdTxt.Location = new System.Drawing.Point(19, 84);
+            this.eIdTxt.Name = "eIdTxt";
+            this.eIdTxt.Size = new System.Drawing.Size(200, 20);
+            this.eIdTxt.TabIndex = 11;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(21, 25);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 12;
+            // 
+            // monthlyCalendarGB
+            // 
+            this.monthlyCalendarGB.Controls.Add(this.monthCalendar1);
+            this.monthlyCalendarGB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.monthlyCalendarGB.Location = new System.Drawing.Point(19, 293);
+            this.monthlyCalendarGB.Name = "monthlyCalendarGB";
+            this.monthlyCalendarGB.Size = new System.Drawing.Size(260, 203);
+            this.monthlyCalendarGB.TabIndex = 6;
+            this.monthlyCalendarGB.TabStop = false;
+            this.monthlyCalendarGB.Text = "MONTHLY CALENDAR";
             // 
             // Events
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 450);
-            this.ControlBox = false;
-            this.Controls.Add(this.EventGridView);
-            this.Controls.Add(this.EventgroupBox);
-            this.Controls.Add(this.seaBtn);
-            this.Controls.Add(this.repoBtn);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1175, 761);
             this.Name = "Events";
-            this.Padding = new System.Windows.Forms.Padding(5);
-            this.RightToLeftLayout = true;
-            this.Text = "Calendar";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Events";
+            this.Load += new System.EventHandler(this.Event_Load);
+            this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.EventgroupBox.ResumeLayout(false);
-            this.EventgroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EventGridView)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.leftPanel.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.rightPanel.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eventGridView)).EndInit();
+            this.monthlyCalendarGB.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button seaBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button hideBtn;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button resetBtn;
-        private System.Windows.Forms.Button updateBtn;
-        private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button repoBtn;
         private System.Windows.Forms.Label ename;
-        private System.Windows.Forms.TextBox enameTxt;
-        private System.Windows.Forms.Label venue;
-        private System.Windows.Forms.Label date;
-        private System.Windows.Forms.TextBox venueTxt;
-        private System.Windows.Forms.Label time;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.GroupBox EventgroupBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DataGridView EventGridView;
+        private System.Windows.Forms.Label etime;
+        private System.Windows.Forms.TextBox evenueTxt;
+        private System.Windows.Forms.Label evenue;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label edate;
+        private System.Windows.Forms.TextBox enameTxt;
+        private System.Windows.Forms.DataGridView eventGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eventIDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eventNameGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn edateGv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evenueGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etimeGV;
+        private System.Windows.Forms.TextBox eIdTxt;
+        private System.Windows.Forms.Label eId;
+        private System.Windows.Forms.GroupBox monthlyCalendarGB;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

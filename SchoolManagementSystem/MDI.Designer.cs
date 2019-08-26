@@ -35,6 +35,9 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.hELPToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mannualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.topic = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -94,12 +97,34 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fILEToolStripMenuItem});
+            this.fILEToolStripMenuItem,
+            this.hELPToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 32);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1100, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // hELPToolStripMenuItem1
+            // 
+            this.hELPToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.mannualToolStripMenuItem});
+            this.hELPToolStripMenuItem1.Name = "hELPToolStripMenuItem1";
+            this.hELPToolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
+            this.hELPToolStripMenuItem1.Text = "HELP";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // mannualToolStripMenuItem
+            // 
+            this.mannualToolStripMenuItem.Name = "mannualToolStripMenuItem";
+            this.mannualToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.mannualToolStripMenuItem.Text = "Mannual";
             // 
             // panel1
             // 
@@ -144,7 +169,7 @@
             this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
             this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Image = global::SchoolManagementSystem.Properties.Resources.min_normal;
+            this.minimizeBtn.Image = global::SchoolManagementSystem.Properties.Resources.minnormal;
             this.minimizeBtn.Location = new System.Drawing.Point(34, 8);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(17, 17);
@@ -160,7 +185,7 @@
             this.closeBtn.BackColor = System.Drawing.Color.Transparent;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeBtn.Image = global::SchoolManagementSystem.Properties.Resources.close_normal;
+            this.closeBtn.Image = global::SchoolManagementSystem.Properties.Resources.closenormal;
             this.closeBtn.Location = new System.Drawing.Point(84, 8);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(17, 17);
@@ -176,7 +201,7 @@
             this.maximizeBtn.BackColor = System.Drawing.Color.Transparent;
             this.maximizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.maximizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.maximizeBtn.Image = global::SchoolManagementSystem.Properties.Resources.max_normal;
+            this.maximizeBtn.Image = global::SchoolManagementSystem.Properties.Resources.maxnormal;
             this.maximizeBtn.Location = new System.Drawing.Point(59, 8);
             this.maximizeBtn.Name = "maximizeBtn";
             this.maximizeBtn.Size = new System.Drawing.Size(17, 17);
@@ -198,10 +223,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1100, 800);
             this.Name = "MDI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "School Management System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MDI_FormClosing);
             this.Load += new System.EventHandler(this.MDI_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -231,5 +256,8 @@
         private System.Windows.Forms.PictureBox closeBtn;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label topic;
+        private System.Windows.Forms.ToolStripMenuItem hELPToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mannualToolStripMenuItem;
     }
 }

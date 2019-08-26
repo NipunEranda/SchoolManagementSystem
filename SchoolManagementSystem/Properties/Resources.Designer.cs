@@ -63,9 +63,9 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_hover {
+        internal static System.Drawing.Bitmap Author__Placeholder {
             get {
-                object obj = ResourceManager.GetObject("close-hover", resourceCulture);
+                object obj = ResourceManager.GetObject("Author__Placeholder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_normal {
+        internal static System.Drawing.Bitmap closehover {
             get {
-                object obj = ResourceManager.GetObject("close-normal", resourceCulture);
+                object obj = ResourceManager.GetObject("closehover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,19 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_press {
+        internal static System.Drawing.Bitmap closenormal {
             get {
-                object obj = ResourceManager.GetObject("close-press", resourceCulture);
+                object obj = ResourceManager.GetObject("closenormal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap closepress {
+            get {
+                object obj = ResourceManager.GetObject("closepress", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +113,9 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap max_hover {
+        internal static System.Drawing.Bitmap maxhover {
             get {
-                object obj = ResourceManager.GetObject("max-hover", resourceCulture);
+                object obj = ResourceManager.GetObject("maxhover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +123,9 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap max_normal {
+        internal static System.Drawing.Bitmap maxnormal {
             get {
-                object obj = ResourceManager.GetObject("max-normal", resourceCulture);
+                object obj = ResourceManager.GetObject("maxnormal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +133,9 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap max_press {
+        internal static System.Drawing.Bitmap maxpress {
             get {
-                object obj = ResourceManager.GetObject("max-press", resourceCulture);
+                object obj = ResourceManager.GetObject("maxpress", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +143,9 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap min_hover {
+        internal static System.Drawing.Bitmap minhover {
             get {
-                object obj = ResourceManager.GetObject("min-hover", resourceCulture);
+                object obj = ResourceManager.GetObject("minhover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +153,9 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap min_normal {
+        internal static System.Drawing.Bitmap minnormal {
             get {
-                object obj = ResourceManager.GetObject("min-normal", resourceCulture);
+                object obj = ResourceManager.GetObject("minnormal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +163,29 @@ namespace SchoolManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap min_press {
+        internal static System.Drawing.Bitmap minpress {
             get {
-                object obj = ResourceManager.GetObject("min-press", resourceCulture);
+                object obj = ResourceManager.GetObject("minpress", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap School_Management_System {
+            get {
+                object obj = ResourceManager.GetObject("School-Management-System", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user1 {
+            get {
+                object obj = ResourceManager.GetObject("user1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

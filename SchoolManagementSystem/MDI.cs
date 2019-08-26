@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,7 +22,16 @@ namespace SchoolManagementSystem
 
         public MDI()
         {
+            Thread trd = new Thread(new ThreadStart(formRun));
+            trd.Start();
+            Thread.Sleep(9000);
+            trd.Abort();
             InitializeComponent();
+        }
+
+        private void formRun()
+        {
+            Application.Run(new Splash());
         }
 
         private void MDI_Load(object sender, EventArgs e)
@@ -120,32 +130,32 @@ namespace SchoolManagementSystem
 
         private void closeBtn_MouseHover(object sender, EventArgs e)
         {
-            closeBtn.Image = Properties.Resources.close_hover;
+            closeBtn.Image = Properties.Resources.closehover;
         }
 
         private void maximizeBtn_MouseHover(object sender, EventArgs e)
         {
-            maximizeBtn.Image = Properties.Resources.max_hover;
+            maximizeBtn.Image = Properties.Resources.maxhover;
         }
 
         private void minimizeBtn_MouseHover(object sender, EventArgs e)
         {
-            minimizeBtn.Image = Properties.Resources.min_hover;
+            minimizeBtn.Image = Properties.Resources.minhover;
         }
 
         private void closeBtn_MouseLeave(object sender, EventArgs e)
         {
-            closeBtn.Image = Properties.Resources.close_normal;
+            closeBtn.Image = Properties.Resources.closenormal;
         }
 
         private void maximizeBtn_MouseLeave(object sender, EventArgs e)
         {
-            maximizeBtn.Image = Properties.Resources.max_normal;
+            maximizeBtn.Image = Properties.Resources.maxnormal;
         }
 
         private void minimizeBtn_MouseLeave(object sender, EventArgs e)
         {
-            minimizeBtn.Image = Properties.Resources.min_normal;
+            minimizeBtn.Image = Properties.Resources.minnormal;
         }
 
         private void panel1_DoubleClick(object sender, EventArgs e)

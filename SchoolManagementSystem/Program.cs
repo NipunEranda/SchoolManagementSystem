@@ -18,13 +18,10 @@ namespace SchoolManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             do
             {
                 if (MainClass.appStatus == "" || MainClass.appStatus == "open")
                 {
-                    MDI mdi = new MDI();
-                    MainClass.setMDI(mdi);
                     Login loginInstance = new Login();
                     MainClass main = MainClass.getInstance();
                     if (!File.Exists(MainClass.path + "\\cnt"))
@@ -39,6 +36,8 @@ namespace SchoolManagementSystem
                         Application.Run(loginInstance);
                         if (loginInstance.getStatus())
                         {
+                            MDI mdi = new MDI();
+                            MainClass.setMDI(mdi);
                             Application.Run(mdi);
                         }
                         if (MainClass.appStatus == "exit")

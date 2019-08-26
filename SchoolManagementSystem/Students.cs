@@ -23,6 +23,7 @@ namespace SchoolManagementSystem
         private int studentId;
         schoolDBDataContext obj = new schoolDBDataContext();
         Image i;
+        string imagePath;
 
         public Students()
         {
@@ -130,6 +131,7 @@ namespace SchoolManagementSystem
         public override void adSearch_Click(object sender, EventArgs e)
         {
             MainClass.enable_reset(advanceSearchPanel);
+            advSearchPicBox.Image = Properties.Resources.user1;
             if (advanceSearchPanel.Visible == true)
                 advanceSearchPanel.Visible = false;
             else
@@ -144,13 +146,14 @@ namespace SchoolManagementSystem
                 i = new Bitmap(openImage.FileName);
                 studentImage.Image = i;
                 studentImage.SizeMode = PictureBoxSizeMode.StretchImage;
-                imagePath.Text = openImage.FileName;
+                imagePath = openImage.FileName;
             }
         }
 
         public void loadStudents()
         {
             MainClass.disable_reset(panel5);
+            studentImage.Image = Properties.Resources.user1;
             var dataSet = obj.student_getStudent();
             id.DataPropertyName = "sid";
             nicId.DataPropertyName = "nic";
@@ -263,7 +266,7 @@ namespace SchoolManagementSystem
                         gender = 0;
                     }
 
-                    if (imagePath.Text == "")
+                    if (imagePath == "")
                     {
                         obj.student_insert_withoutImage(NIC_txt.Text, firstName_txt.Text, lastName_txt.Text, telephone_txt.Text, birthDay_txt.Value, address_txt.Text, gender, gradeDropDown.SelectedIndex + 1, classDropDown.SelectedIndex + 1);
                         MainClass.showMsg(firstName_txt.Text + " added Successfully", "Success", "success");
@@ -287,7 +290,7 @@ namespace SchoolManagementSystem
                     else
                         gender = 0;
 
-                    if (imagePath.Text == "")
+                    if (imagePath == "")
                     {
                         obj.student_update_withoutImage(NIC_txt.Text, firstName_txt.Text, lastName_txt.Text, telephone_txt.Text, birthDay_txt.Value, address_txt.Text, gender, gradeDropDown.SelectedIndex + 1, classDropDown.SelectedIndex + 1, sid);
                     }
@@ -336,31 +339,31 @@ namespace SchoolManagementSystem
                 {
                     MainClass.enable(panel5);
                 }
-                if (e.RowIndex != -1 && e.ColumnIndex != -1)
-                {
-                    DataGridViewRow row = studentGridView.Rows[e.RowIndex];
-                    sid = Convert.ToInt32(row.Cells["id"].Value.ToString());
-                    NIC_txt.Text = row.Cells["nicId"].Value.ToString();
-                    firstName_txt.Text = row.Cells["fName"].Value.ToString();
-                    lastName_txt.Text = row.Cells["lName"].Value.ToString();
-                    birthDay_txt.Text = row.Cells["birthDate"].Value.ToString();
-                    address_txt.Text = row.Cells["address"].Value.ToString();
-                    telephone_txt.Text = row.Cells["telephone"].Value.ToString();
-                    genderDropDown.SelectedItem = row.Cells["gender"].Value.ToString();
-                    gradeDropDown.SelectedItem = row.Cells["grade"].Value.ToString();
-                    classDropDown.SelectedItem = row.Cells["cls"].Value;
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                DataGridViewRow row = studentGridView.Rows[e.RowIndex];
+                sid = Convert.ToInt32(row.Cells["id"].Value.ToString());
+                NIC_txt.Text = row.Cells["nicId"].Value.ToString();
+                firstName_txt.Text = row.Cells["fName"].Value.ToString();
+                lastName_txt.Text = row.Cells["lName"].Value.ToString();
+                birthDay_txt.Text = row.Cells["birthDate"].Value.ToString();
+                address_txt.Text = row.Cells["address"].Value.ToString();
+                telephone_txt.Text = row.Cells["telephone"].Value.ToString();
+                genderDropDown.SelectedItem = row.Cells["gender"].Value.ToString();
+                gradeDropDown.SelectedItem = row.Cells["grade"].Value.ToString();
+                classDropDown.SelectedItem = row.Cells["cls"].Value;
 
-                    var im = (from x in obj.students where x.sid == sid select x.image).First();
-                    if (im == null) { }
-                    else
-                    {
-                        byte[] arr = im.ToArray();
-                        MemoryStream ms = new MemoryStream(arr);
-                        i = Image.FromStream(ms);
-                        studentImage.Image = i;
-                        studentImage.SizeMode = PictureBoxSizeMode.StretchImage;
-                    }
+                var im = (from x in obj.students where x.sid == sid select x.image).First();
+                if (im == null) { }
+                else
+                {
+                    byte[] arr = im.ToArray();
+                    MemoryStream ms = new MemoryStream(arr);
+                    i = Image.FromStream(ms);
+                    studentImage.Image = i;
+                    studentImage.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
+            }
         }
 
 
@@ -476,6 +479,16 @@ namespace SchoolManagementSystem
         private void backBtn_Click(object sender, EventArgs e)
         {
             MainClass.showWindow(new Home(), this, MDI.ActiveForm);
+        }
+
+        private void studentGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            advanceSearchPanel.Visible = false;
+        }
+
+        private void studentGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
     }

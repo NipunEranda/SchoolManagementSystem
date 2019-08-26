@@ -133,6 +133,12 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </Compile>
     <EmbeddedResource Include="Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentAttendance.resx">
       <DependentUpon>StudentAttendance.cs</DependentUpon>
@@ -275,6 +284,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconD.ico" />
+    <None Include="Resources\School-Management-System.jpg" />
+    <None Include="Resources\user1.png" />
+    <None Include="Resources\user11.png" />
+    <None Include="Resources\Author__Placeholder.png" />
     <None Include="Resources\ico.png" />
     <None Include="Resources\min-normal.png" />
     <None Include="Resources\min-press.png" />

@@ -20,6 +20,15 @@
       <Column Name="image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="eventID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="eventName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="venue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="time" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.roles_delete" Method="roles_delete">
     <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -246,5 +255,43 @@
     <ElementType Name="users_changePasswordResult">
       <Column Name="changedId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.event_delete" Method="event_delete">
+    <Parameter Name="eid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.event_getEvent" Method="event_getEvent">
+    <ElementType Name="event_getEventResult">
+      <Column Name="eventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="eventName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="venue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="time" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.event_insert" Method="event_insert">
+    <Parameter Name="eventName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="venue" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="time" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.event_search" Method="event_search">
+    <Parameter Name="eventName" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="event_searchResult">
+      <Column Name="eventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="eventName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.event_update" Method="event_update">
+    <Parameter Name="eventName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="venue" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="time" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="eid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.getEventId" Method="getEventId" IsComposable="true">
+    <Return Type="System.Int32" />
   </Function>
 </Database>

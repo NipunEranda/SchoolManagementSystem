@@ -98,32 +98,32 @@ namespace SchoolManagementSystem
 
         private void closeBtn_MouseHover_1(object sender, EventArgs e)
         {
-            closeBtn.Image = Properties.Resources.close_hover;
+            closeBtn.Image = Properties.Resources.closehover;
         }
 
         private void maximizeBtn_MouseHover_1(object sender, EventArgs e)
         {
-            maximizeBtn.Image = Properties.Resources.max_hover;
+            maximizeBtn.Image = Properties.Resources.maxhover;
         }
 
         private void minimizeBtn_MouseHover_1(object sender, EventArgs e)
         {
-            minimizeBtn.Image = Properties.Resources.min_hover;
+            minimizeBtn.Image = Properties.Resources.minhover;
         }
 
         private void closeBtn_MouseLeave_1(object sender, EventArgs e)
         {
-            closeBtn.Image = Properties.Resources.close_normal;
+            closeBtn.Image = Properties.Resources.closenormal;
         }
 
         private void maximizeBtn_MouseLeave_1(object sender, EventArgs e)
         {
-            maximizeBtn.Image = Properties.Resources.max_normal;
+            maximizeBtn.Image = Properties.Resources.maxnormal;
         }
 
         private void minimizeBtn_MouseLeave(object sender, EventArgs e)
         {
-            minimizeBtn.Image = Properties.Resources.min_normal;
+            minimizeBtn.Image = Properties.Resources.minnormal;
         }
     }
 }
