@@ -24,7 +24,7 @@ namespace SchoolManagementSystem
         {
             Thread trd = new Thread(new ThreadStart(formRun));
             trd.Start();
-            Thread.Sleep(9000);
+            Thread.Sleep(7500);
             trd.Abort();
             InitializeComponent();
         }

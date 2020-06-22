@@ -64,11 +64,41 @@
     <ApplicationIcon>iconD.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.DataVisualization.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.Design.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.WebDesign.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Compression.Base, Version=17.2451.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.17.2.0.51\lib\net451\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=17.2451.0.51, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.17.2.0.51\lib\net451\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=17.2451.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.WinForms.17.2.0.51\lib\net451\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,17 +110,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addBooks.designer.cs">
+      <DependentUpon>addBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addMembers.designer.cs">
+      <DependentUpon>addMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="checkAvailability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="checkAvailability.designer.cs">
+      <DependentUpon>checkAvailability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Timetable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_Timetable.designer.cs">
+      <DependentUpon>Create_Timetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employee_payments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee_payments.designer.cs">
+      <DependentUpon>employee_payments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Events.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Events.Designer.cs">
+    <Compile Include="Events.designer.cs">
       <DependentUpon>Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LibraryMainWindow.designer.cs">
+      <DependentUpon>LibraryMainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryManagementSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LibraryManagementSystem.designer.cs">
+      <DependentUpon>LibraryManagementSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="libraryOverDuePayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="libraryOverDuePayments.designer.cs">
+      <DependentUpon>libraryOverDuePayments.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -111,8 +195,38 @@
     <Compile Include="MDI.Designer.cs">
       <DependentUpon>MDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="New_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_Update.designer.cs">
+      <DependentUpon>New_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paymentSub_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paymentSub_window.designer.cs">
+      <DependentUpon>paymentSub_window.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reserveBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reserveBooks.designer.cs">
+      <DependentUpon>reserveBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Results.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Results.Designer.cs">
+      <DependentUpon>Results.cs</DependentUpon>
+    </Compile>
+    <Compile Include="returnBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="returnBooks.designer.cs">
+      <DependentUpon>returnBooks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Roles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,17 +247,58 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="smsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>smsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff.Designer.cs">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCrystalReport11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffCrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StaffDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="staffReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staffReport.Designer.cs">
+      <DependentUpon>staffReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StudentAttendance.Designer.cs">
       <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="studentPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="studentPayments.Designer.cs">
+      <DependentUpon>studentPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentReport.Designer.cs">
+      <DependentUpon>StudentReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Students.cs">
       <SubType>Form</SubType>
@@ -157,6 +312,13 @@
     <Compile Include="subWindows.Designer.cs">
       <DependentUpon>subWindows.cs</DependentUpon>
     </Compile>
+    <Compile Include="Timetable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Timetable.Designer.cs">
+      <DependentUpon>Timetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimetableSlot.cs" />
     <Compile Include="UserPrivileges.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,11 +331,38 @@
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addBooks.resx">
+      <DependentUpon>addBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addMembers.resx">
+      <DependentUpon>addMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="checkAvailability.resx">
+      <DependentUpon>checkAvailability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_Timetable.resx">
+      <DependentUpon>Create_Timetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employee_payments.resx">
+      <DependentUpon>employee_payments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Events.resx">
       <DependentUpon>Events.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibraryMainWindow.resx">
+      <DependentUpon>LibraryMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibraryManagementSystem.resx">
+      <DependentUpon>LibraryManagementSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="libraryOverDuePayments.resx">
+      <DependentUpon>libraryOverDuePayments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -183,6 +372,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Update.resx">
+      <DependentUpon>New_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paymentSub_window.resx">
+      <DependentUpon>paymentSub_window.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -194,14 +389,47 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="reserveBooks.resx">
+      <DependentUpon>reserveBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Results.resx">
+      <DependentUpon>Results.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="returnBooks.resx">
+      <DependentUpon>returnBooks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Staff.resx">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffCrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StaffCrystalReport11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staffReport.resx">
+      <DependentUpon>staffReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentAttendance.resx">
       <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="studentPayments.resx">
+      <DependentUpon>studentPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentReport.rdlc" />
+    <EmbeddedResource Include="StudentReport.resx">
+      <DependentUpon>StudentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students.resx">
+      <DependentUpon>Students.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Timetable.resx">
+      <DependentUpon>Timetable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserPrivileges.resx">
       <DependentUpon>UserPrivileges.cs</DependentUpon>
@@ -209,39 +437,21 @@
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\DbConnection.datasource" />
     <None Include="Properties\DataSources\get_homePrivillegesResult.datasource" />
     <None Include="Properties\DataSources\get_privillegesResult.datasource" />
-    <None Include="Properties\DataSources\Home.datasource" />
-    <None Include="Properties\DataSources\Login.datasource" />
-    <None Include="Properties\DataSources\MainClass.datasource" />
-    <None Include="Properties\DataSources\mainWindows.datasource" />
-    <None Include="Properties\DataSources\MDI.datasource" />
-    <None Include="Properties\DataSources\Program.datasource" />
-    <None Include="Properties\DataSources\role.datasource" />
-    <None Include="Properties\DataSources\Roles.datasource" />
-    <None Include="Properties\DataSources\roles_getRolesResult.datasource" />
-    <None Include="Properties\DataSources\roles_searchResult.datasource" />
-    <None Include="Properties\DataSources\schoolDBDataContext.datasource" />
     <None Include="Properties\DataSources\SchoolManagementSystem.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\SchoolManagementSystem.Properties.Settings.datasource" />
-    <None Include="Properties\DataSources\Settings.datasource" />
     <None Include="Properties\DataSources\student.datasource" />
-    <None Include="Properties\DataSources\Students.datasource" />
-    <None Include="Properties\DataSources\student_getStudentResult.datasource" />
-    <None Include="Properties\DataSources\student_searchResult.datasource" />
-    <None Include="Properties\DataSources\subWindows.datasource" />
-    <None Include="Properties\DataSources\systemLoginResult.datasource" />
-    <None Include="Properties\DataSources\Users.datasource" />
-    <None Include="Properties\DataSources\users_viewUsersResult.datasource" />
+    <None Include="Properties\DataSources\student_attendance1.datasource" />
+    <None Include="Properties\DataSources\student_attendance_getAllAttendance_reportResult.datasource" />
+    <None Include="Properties\DataSources\student_attendance_getDailyAttendance_reportResult1.datasource" />
     <None Include="schoolDB.dbml.layout">
       <DependentUpon>schoolDB.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Students.resx">
-      <DependentUpon>Students.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subWindows.resx">
       <DependentUpon>subWindows.cs</DependentUpon>
@@ -261,6 +471,28 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="SchoolManagementSystem_TemporaryKey.pfx" />
+    <None Include="smsDataSet.xsc">
+      <DependentUpon>smsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="smsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>smsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="smsDataSet.xss">
+      <DependentUpon>smsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StaffDataSet.xsc">
+      <DependentUpon>StaffDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StaffDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StaffDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StaffDataSet.xss">
+      <DependentUpon>StaffDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -281,9 +513,43 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconD.ico" />
+    <None Include="Resources\libraryBooks.png" />
+    <None Include="Resources\libraryBooks1.png" />
+    <None Include="Resources\libraryMember.png" />
+    <None Include="Resources\libraryReservation.png" />
+    <None Include="Resources\libraryReturnBook.png" />
+    <None Include="Resources\libraryCheckAvailability.png" />
+    <None Include="Resources\libraryOverDue.png" />
+    <None Include="Resources\libraryReport.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\users.png" />
+    <None Include="Resources\library.png" />
+    <None Include="Resources\subjects.png" />
+    <None Include="Resources\roles.png" />
+    <None Include="Resources\events.png" />
+    <None Include="Resources\classes.png" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\payments.png" />
+    <None Include="Resources\staff.png" />
+    <None Include="Resources\exam.png" />
+    <None Include="Resources\timetables.png" />
+    <None Include="Resources\student.png" />
     <None Include="Resources\School-Management-System.jpg" />
     <None Include="Resources\user1.png" />
     <None Include="Resources\user11.png" />

@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelSlide = new System.Windows.Forms.Panel();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.waitLabel = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panelSlide.SuspendLayout();
             this.SuspendLayout();
@@ -48,27 +48,27 @@
             // 
             // panelSlide
             // 
-            this.panelSlide.BackColor = System.Drawing.Color.White;
+            this.panelSlide.BackColor = System.Drawing.Color.LightBlue;
             this.panelSlide.Controls.Add(this.waitLabel);
             this.panelSlide.Location = new System.Drawing.Point(0, 0);
             this.panelSlide.Name = "panelSlide";
             this.panelSlide.Size = new System.Drawing.Size(1, 18);
             this.panelSlide.TabIndex = 1;
             // 
-            // timer
-            // 
-            this.timer.Interval = 1;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // waitLabel
             // 
             this.waitLabel.AutoSize = true;
-            this.waitLabel.BackColor = System.Drawing.Color.White;
+            this.waitLabel.BackColor = System.Drawing.Color.Transparent;
             this.waitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.waitLabel.Location = new System.Drawing.Point(4, 3);
             this.waitLabel.Name = "waitLabel";
             this.waitLabel.Size = new System.Drawing.Size(0, 13);
             this.waitLabel.TabIndex = 0;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Splash
             // 

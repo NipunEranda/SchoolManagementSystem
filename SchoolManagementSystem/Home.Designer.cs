@@ -45,7 +45,6 @@
             this.stdBtn = new System.Windows.Forms.Button();
             this.rolesBtn = new System.Windows.Forms.Button();
             this.usersBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,14 +52,15 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.helpBtn = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.leftPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel9.SuspendLayout();
             this.logoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // leftPanel
@@ -150,12 +150,11 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(24, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.72159F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.00568F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.69318F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 704);
@@ -167,11 +166,15 @@
             this.inventoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventoryBtn.FlatAppearance.BorderSize = 2;
             this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventoryBtn.Location = new System.Drawing.Point(174, 283);
+            this.inventoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryBtn.Image = global::SchoolManagementSystem.Properties.Resources.inventory;
+            this.inventoryBtn.Location = new System.Drawing.Point(174, 336);
             this.inventoryBtn.Name = "inventoryBtn";
-            this.inventoryBtn.Size = new System.Drawing.Size(165, 134);
+            this.inventoryBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.inventoryBtn.Size = new System.Drawing.Size(165, 162);
             this.inventoryBtn.TabIndex = 9;
             this.inventoryBtn.Text = "Inventory";
+            this.inventoryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.inventoryBtn.UseVisualStyleBackColor = true;
             this.inventoryBtn.Click += new System.EventHandler(this.inventoryBtn_Click);
             // 
@@ -181,11 +184,15 @@
             this.examBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.examBtn.FlatAppearance.BorderSize = 2;
             this.examBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.examBtn.Location = new System.Drawing.Point(3, 283);
+            this.examBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.examBtn.Image = global::SchoolManagementSystem.Properties.Resources.exam;
+            this.examBtn.Location = new System.Drawing.Point(3, 336);
             this.examBtn.Name = "examBtn";
-            this.examBtn.Size = new System.Drawing.Size(165, 134);
+            this.examBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.examBtn.Size = new System.Drawing.Size(165, 162);
             this.examBtn.TabIndex = 8;
             this.examBtn.Text = "Examinations";
+            this.examBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.examBtn.UseVisualStyleBackColor = true;
             this.examBtn.Click += new System.EventHandler(this.examBtn_Click);
             // 
@@ -195,11 +202,15 @@
             this.libraryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.libraryBtn.FlatAppearance.BorderSize = 2;
             this.libraryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.libraryBtn.Location = new System.Drawing.Point(516, 143);
+            this.libraryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.libraryBtn.Image = global::SchoolManagementSystem.Properties.Resources.library;
+            this.libraryBtn.Location = new System.Drawing.Point(516, 170);
             this.libraryBtn.Name = "libraryBtn";
-            this.libraryBtn.Size = new System.Drawing.Size(167, 134);
+            this.libraryBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.libraryBtn.Size = new System.Drawing.Size(167, 160);
             this.libraryBtn.TabIndex = 7;
             this.libraryBtn.Text = "Library";
+            this.libraryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.libraryBtn.UseVisualStyleBackColor = true;
             this.libraryBtn.Click += new System.EventHandler(this.libraryBtn_Click);
             // 
@@ -209,11 +220,15 @@
             this.eventsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventsBtn.FlatAppearance.BorderSize = 2;
             this.eventsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eventsBtn.Location = new System.Drawing.Point(345, 143);
+            this.eventsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventsBtn.Image = global::SchoolManagementSystem.Properties.Resources.events;
+            this.eventsBtn.Location = new System.Drawing.Point(345, 170);
             this.eventsBtn.Name = "eventsBtn";
-            this.eventsBtn.Size = new System.Drawing.Size(165, 134);
+            this.eventsBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.eventsBtn.Size = new System.Drawing.Size(165, 160);
             this.eventsBtn.TabIndex = 6;
             this.eventsBtn.Text = "Events";
+            this.eventsBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.eventsBtn.UseVisualStyleBackColor = true;
             this.eventsBtn.Click += new System.EventHandler(this.eventsBtn_Click);
             // 
@@ -223,11 +238,15 @@
             this.paymentsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paymentsBtn.FlatAppearance.BorderSize = 2;
             this.paymentsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paymentsBtn.Location = new System.Drawing.Point(174, 143);
+            this.paymentsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentsBtn.Image = global::SchoolManagementSystem.Properties.Resources.payments;
+            this.paymentsBtn.Location = new System.Drawing.Point(174, 170);
             this.paymentsBtn.Name = "paymentsBtn";
-            this.paymentsBtn.Size = new System.Drawing.Size(165, 134);
+            this.paymentsBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.paymentsBtn.Size = new System.Drawing.Size(165, 160);
             this.paymentsBtn.TabIndex = 5;
             this.paymentsBtn.Text = "Payments";
+            this.paymentsBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.paymentsBtn.UseVisualStyleBackColor = true;
             this.paymentsBtn.Click += new System.EventHandler(this.paymentsBtn_Click);
             // 
@@ -237,11 +256,15 @@
             this.timeTablesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timeTablesBtn.FlatAppearance.BorderSize = 2;
             this.timeTablesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.timeTablesBtn.Location = new System.Drawing.Point(3, 143);
+            this.timeTablesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeTablesBtn.Image = global::SchoolManagementSystem.Properties.Resources.timetables;
+            this.timeTablesBtn.Location = new System.Drawing.Point(3, 170);
             this.timeTablesBtn.Name = "timeTablesBtn";
-            this.timeTablesBtn.Size = new System.Drawing.Size(165, 134);
+            this.timeTablesBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.timeTablesBtn.Size = new System.Drawing.Size(165, 160);
             this.timeTablesBtn.TabIndex = 4;
             this.timeTablesBtn.Text = "TimeTables";
+            this.timeTablesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.timeTablesBtn.UseVisualStyleBackColor = true;
             this.timeTablesBtn.Click += new System.EventHandler(this.timeTablesBtn_Click);
             // 
@@ -251,11 +274,15 @@
             this.coursesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.coursesBtn.FlatAppearance.BorderSize = 2;
             this.coursesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.coursesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coursesBtn.Image = global::SchoolManagementSystem.Properties.Resources.subjects;
             this.coursesBtn.Location = new System.Drawing.Point(516, 3);
             this.coursesBtn.Name = "coursesBtn";
-            this.coursesBtn.Size = new System.Drawing.Size(167, 134);
+            this.coursesBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.coursesBtn.Size = new System.Drawing.Size(167, 161);
             this.coursesBtn.TabIndex = 3;
-            this.coursesBtn.Text = "Courses";
+            this.coursesBtn.Text = "Subjects";
+            this.coursesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.coursesBtn.UseVisualStyleBackColor = true;
             this.coursesBtn.Click += new System.EventHandler(this.coursesBtn_Click);
             // 
@@ -265,11 +292,15 @@
             this.classesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classesBtn.FlatAppearance.BorderSize = 2;
             this.classesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.classesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classesBtn.Image = global::SchoolManagementSystem.Properties.Resources.classes;
             this.classesBtn.Location = new System.Drawing.Point(345, 3);
             this.classesBtn.Name = "classesBtn";
-            this.classesBtn.Size = new System.Drawing.Size(165, 134);
+            this.classesBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.classesBtn.Size = new System.Drawing.Size(165, 161);
             this.classesBtn.TabIndex = 2;
             this.classesBtn.Text = "Classes";
+            this.classesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.classesBtn.UseVisualStyleBackColor = true;
             this.classesBtn.Click += new System.EventHandler(this.classesBtn_Click);
             // 
@@ -279,11 +310,15 @@
             this.staffBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.staffBtn.FlatAppearance.BorderSize = 2;
             this.staffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.staffBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffBtn.Image = global::SchoolManagementSystem.Properties.Resources.staff;
             this.staffBtn.Location = new System.Drawing.Point(174, 3);
             this.staffBtn.Name = "staffBtn";
-            this.staffBtn.Size = new System.Drawing.Size(165, 134);
+            this.staffBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.staffBtn.Size = new System.Drawing.Size(165, 161);
             this.staffBtn.TabIndex = 1;
             this.staffBtn.Text = "Staff";
+            this.staffBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.staffBtn.UseVisualStyleBackColor = true;
             this.staffBtn.Click += new System.EventHandler(this.staffBtn_Click);
             // 
@@ -293,11 +328,15 @@
             this.stdBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stdBtn.FlatAppearance.BorderSize = 2;
             this.stdBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stdBtn.Image = global::SchoolManagementSystem.Properties.Resources.student;
             this.stdBtn.Location = new System.Drawing.Point(3, 3);
             this.stdBtn.Name = "stdBtn";
-            this.stdBtn.Size = new System.Drawing.Size(165, 134);
+            this.stdBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.stdBtn.Size = new System.Drawing.Size(165, 161);
             this.stdBtn.TabIndex = 0;
             this.stdBtn.Text = "Students";
+            this.stdBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.stdBtn.UseVisualStyleBackColor = true;
             this.stdBtn.Click += new System.EventHandler(this.stdBtn_Click);
             // 
@@ -307,11 +346,15 @@
             this.rolesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rolesBtn.FlatAppearance.BorderSize = 2;
             this.rolesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rolesBtn.Location = new System.Drawing.Point(345, 283);
+            this.rolesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rolesBtn.Image = global::SchoolManagementSystem.Properties.Resources.roles;
+            this.rolesBtn.Location = new System.Drawing.Point(345, 336);
             this.rolesBtn.Name = "rolesBtn";
-            this.rolesBtn.Size = new System.Drawing.Size(165, 134);
+            this.rolesBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.rolesBtn.Size = new System.Drawing.Size(165, 162);
             this.rolesBtn.TabIndex = 10;
             this.rolesBtn.Text = "Roles";
+            this.rolesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.rolesBtn.UseVisualStyleBackColor = true;
             this.rolesBtn.Click += new System.EventHandler(this.rolesBtn_Click);
             // 
@@ -321,25 +364,17 @@
             this.usersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usersBtn.FlatAppearance.BorderSize = 2;
             this.usersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usersBtn.Location = new System.Drawing.Point(516, 283);
+            this.usersBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersBtn.Image = global::SchoolManagementSystem.Properties.Resources.users;
+            this.usersBtn.Location = new System.Drawing.Point(516, 336);
             this.usersBtn.Name = "usersBtn";
-            this.usersBtn.Size = new System.Drawing.Size(167, 134);
+            this.usersBtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.usersBtn.Size = new System.Drawing.Size(167, 162);
             this.usersBtn.TabIndex = 11;
             this.usersBtn.Text = "Users";
+            this.usersBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.usersBtn.UseVisualStyleBackColor = true;
             this.usersBtn.Click += new System.EventHandler(this.usersBtn_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = global::SchoolManagementSystem.Properties.Resources.ico;
-            this.pictureBox1.Location = new System.Drawing.Point(67, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(211, 211);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
@@ -418,6 +453,18 @@
             this.logoPanel.Size = new System.Drawing.Size(350, 690);
             this.logoPanel.TabIndex = 6;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = global::SchoolManagementSystem.Properties.Resources.ico;
+            this.pictureBox1.Location = new System.Drawing.Point(67, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(211, 211);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,10 +479,10 @@
             this.rightPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.logoPanel.ResumeLayout(false);
             this.logoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -446,11 +493,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button inventoryBtn;
         private System.Windows.Forms.Button examBtn;
-        private System.Windows.Forms.Button libraryBtn;
         private System.Windows.Forms.Button eventsBtn;
         private System.Windows.Forms.Button paymentsBtn;
         private System.Windows.Forms.Button timeTablesBtn;
-        private System.Windows.Forms.Button coursesBtn;
         private System.Windows.Forms.Button classesBtn;
         private System.Windows.Forms.Button staffBtn;
         private System.Windows.Forms.Button stdBtn;
@@ -458,7 +503,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button rolesBtn;
-        private System.Windows.Forms.Button usersBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel siteLink;
         private System.Windows.Forms.Label label4;
@@ -467,5 +511,8 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button helpBtn;
         private System.Windows.Forms.Panel logoPanel;
+        private System.Windows.Forms.Button libraryBtn;
+        private System.Windows.Forms.Button coursesBtn;
+        private System.Windows.Forms.Button usersBtn;
     }
 }

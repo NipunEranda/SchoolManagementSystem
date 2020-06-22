@@ -33,7 +33,7 @@ namespace SchoolManagementSystem
 
         private void staffBtn_Click(object sender, EventArgs e)
         {
-
+            MainClass.showWindow(new Staff(), this, MDI.ActiveForm);
         }
 
         private void classesBtn_Click(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace SchoolManagementSystem
 
         private void libraryBtn_Click(object sender, EventArgs e)
         {
-
+            MainClass.showWindow(new LibraryManagementSystem(), this, MDI.ActiveForm);
         }
 
         private void eventsBtn_Click(object sender, EventArgs e)
@@ -60,21 +60,22 @@ namespace SchoolManagementSystem
 
         private void paymentsBtn_Click(object sender, EventArgs e)
         {
-
+            MainClass.showWindow(new paymentSub_window(), this, MDI.ActiveForm);
         }
 
         private void timeTablesBtn_Click(object sender, EventArgs e)
         {
-
+            MainClass.showWindow(new Timetable(), this, MDI.ActiveForm);
         }
 
         private void examBtn_Click(object sender, EventArgs e)
         {
-
+            MainClass.showWindow(new Results(), this, MDI.ActiveForm);
         }
 
         private void inventoryBtn_Click(object sender, EventArgs e)
         {
+           
 
         }
 

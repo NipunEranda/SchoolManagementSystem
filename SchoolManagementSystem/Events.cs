@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Globalization;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SchoolManagementSystem
 {
@@ -14,11 +16,16 @@ namespace SchoolManagementSystem
     {
         MainClass main = MainClass.getInstance();
         private String btnStatus = "view";
-        private int eid;
+        private int eid = -1;
         schoolDBDataContext obj = new schoolDBDataContext();
+        
+        
+        
         public Events()
         {
             InitializeComponent();
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.CustomFormat = "HH:mm:ss";
         }
 
         private void Event_Load(object sender, EventArgs e)
@@ -27,6 +34,8 @@ namespace SchoolManagementSystem
             MainClass.mdi.topic.Text = "Event";
             loadEvent();
             privillegeCheck();
+
+           
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -45,7 +54,7 @@ namespace SchoolManagementSystem
             else
             {
                 btnStatus = "add";
-                MainClass.enable_reset(panel5);
+                MainClass.enable(panel5);
 
             }
         }
@@ -68,7 +77,7 @@ namespace SchoolManagementSystem
 
         public override void deleteBtn_Click(object sender, EventArgs e)
         {
-            if (enameTxt.Text != "")
+            if (eid > 0)
             {
                 btnStatus = "view";
 
@@ -77,7 +86,7 @@ namespace SchoolManagementSystem
                 if (dr == DialogResult.Yes)
                 {
                     obj.event_delete(eid);
-                    MainClass.showMsg(enameTxt.Text + "Deleted successfully", "Success", "success");
+                    MainClass.showMsg(enameTxt.Text + "Deleted Successfully", "Success", "success");
                     MainClass.disable_reset(panel5);
                     loadEvent();
                 }
@@ -104,6 +113,9 @@ namespace SchoolManagementSystem
             var dataSet = obj.event_search(searchTxt.Text);
             eventIDGV.DataPropertyName = "eventID";
             eventNameGV.DataPropertyName = "eventName";
+            dateGV.DataPropertyName = "date";
+            venueGV.DataPropertyName = "venue";
+            timeGV.DataPropertyName = "time";
             eventGridView.DataSource = dataSet;
         }
 
@@ -113,6 +125,9 @@ namespace SchoolManagementSystem
             var dataSet = obj.event_search(searchTxt.Text);
             eventIDGV.DataPropertyName = "eventID";
             eventNameGV.DataPropertyName = "eventName";
+            dateGV.DataPropertyName = "date";
+            venueGV.DataPropertyName = "venue";
+            timeGV.DataPropertyName = "time";
             eventGridView.DataSource = dataSet;
         }
 
@@ -154,9 +169,9 @@ namespace SchoolManagementSystem
             var dataSet = obj.event_getEvent();
             eventIDGV.DataPropertyName = "eventID";
             eventNameGV.DataPropertyName = "eventName";
-            edateGv.DataPropertyName = "date";
-            evenueGV.DataPropertyName = "venue";
-            etimeGV.DataPropertyName = "time";
+            dateGV.DataPropertyName = "date";
+            venueGV.DataPropertyName = "venue";
+            timeGV.DataPropertyName = "time";
             eventGridView.DataSource = dataSet;
         }
 
@@ -181,8 +196,92 @@ namespace SchoolManagementSystem
 
         }
 
+        private void acceptBtn_Click_1(object sender, EventArgs e)
+        {
+            
+            if (fieldCheck() == 1)
+            {
+                if (btnStatus == "add")
+                {
+                    Events ev = new Events();
+
+                    if (enameTxt.Text != "")
+                    {
+
+                        String timeString = dateTimePicker2.Text;
+                        TimeSpan timeValue = TimeSpan.Parse(timeString);
+                        //DateTime date = DateTime.ParseExact(timeString, "h:mm:ss tt", CultureInfo.InvariantCulture);
+                        obj.event_insert(enameTxt.Text, MainClass.getDateFromString(dateTimePicker1.Text), evenueTxt.Text,timeValue);
+                        obj.SubmitChanges();
+                        MainClass.showMsg(enameTxt.Text + " added successfully", "Success", "success");
+                    }
+
+                    else
+                    {
+                        MainClass.showMsg(enameTxt.Text + dateTimePicker1 + evenueTxt + dateTimePicker2 + "complete the all the fields", "error", "error");
+                    }
+
+                }
+
+                else if (btnStatus == "edit")
+                {
+                    Events ev = new Events();
+
+                    if (enameTxt.Text != "")
+
+                 {
+                        String timeString = dateTimePicker2.Text;
+                        TimeSpan timeValue = TimeSpan.Parse(timeString);
+
+                        obj.event_update(enameTxt.Text, MainClass.getDateFromString(dateTimePicker1.Text),evenueTxt.Text,timeValue,Convert.ToInt32(eIdTxt.Text));
+
+                        MainClass.showMsg(enameTxt.Text + " updated successfully", "Success", "success");
+                    }
+
+                    else
+                    {
+                        MainClass.showMsg(enameTxt.Text + dateTimePicker1 + evenueTxt + dateTimePicker2 + eIdTxt + "complete the all the fields", "error", "error");
+                    }
+                }
+
+                MainClass.disable_reset(panel5);
+                loadEvent();
+            }
+        }
+
+        private void eventGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                DataGridViewRow row = eventGridView.Rows[e.RowIndex];
+                eid = Convert.ToInt32(row.Cells["eventIDGV"].Value.ToString());
+
+            }
 
 
+            }
 
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            DateTime myVacation1 = new DateTime(2019, 4, 28);
+
+            monthCalendar1.AddBoldedDate(myVacation1);
+        }
+
+        private void backBtn_Click_1(object sender, EventArgs e)
+        {
+            MainClass.showWindow(new Home(), this, MDI.ActiveForm);
+        }
+
+        private void reportBtn_Click(object sender, EventArgs e)
+        {
+           // MainClass.showWindow(new EventReports(), this, MDI.ActiveForm);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

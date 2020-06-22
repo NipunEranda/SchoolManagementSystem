@@ -177,21 +177,22 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 10);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(173, 184);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(173, 261);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // adSearch
             // 
             this.adSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.adSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adSearch.Location = new System.Drawing.Point(3, 147);
+            this.adSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adSearch.Location = new System.Drawing.Point(3, 211);
             this.adSearch.Name = "adSearch";
-            this.adSearch.Size = new System.Drawing.Size(167, 34);
+            this.adSearch.Size = new System.Drawing.Size(167, 47);
             this.adSearch.TabIndex = 4;
             this.adSearch.Text = "ADVANCE SEARCH";
             this.adSearch.UseVisualStyleBackColor = true;
@@ -202,9 +203,10 @@
             // 
             this.deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteBtn.Location = new System.Drawing.Point(3, 75);
+            this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.Location = new System.Drawing.Point(3, 107);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(167, 30);
+            this.deleteBtn.Size = new System.Drawing.Size(167, 46);
             this.deleteBtn.TabIndex = 3;
             this.deleteBtn.Text = "DELETE";
             this.deleteBtn.UseVisualStyleBackColor = true;
@@ -214,9 +216,10 @@
             // 
             this.editBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editBtn.Location = new System.Drawing.Point(3, 39);
+            this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtn.Location = new System.Drawing.Point(3, 55);
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(167, 30);
+            this.editBtn.Size = new System.Drawing.Size(167, 46);
             this.editBtn.TabIndex = 1;
             this.editBtn.Text = "EDIT";
             this.editBtn.UseVisualStyleBackColor = true;
@@ -226,9 +229,10 @@
             // 
             this.addBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.Location = new System.Drawing.Point(3, 3);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(167, 30);
+            this.addBtn.Size = new System.Drawing.Size(167, 46);
             this.addBtn.TabIndex = 0;
             this.addBtn.Text = "ADD";
             this.addBtn.UseVisualStyleBackColor = true;
@@ -238,9 +242,10 @@
             // 
             this.viewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewBtn.Location = new System.Drawing.Point(3, 111);
+            this.viewBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewBtn.Location = new System.Drawing.Point(3, 159);
             this.viewBtn.Name = "viewBtn";
-            this.viewBtn.Size = new System.Drawing.Size(167, 30);
+            this.viewBtn.Size = new System.Drawing.Size(167, 46);
             this.viewBtn.TabIndex = 2;
             this.viewBtn.Text = "VIEW";
             this.viewBtn.UseVisualStyleBackColor = true;
@@ -267,6 +272,7 @@
             // 
             this.privilegesAndAttendance.Cursor = System.Windows.Forms.Cursors.Hand;
             this.privilegesAndAttendance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.privilegesAndAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.privilegesAndAttendance.Location = new System.Drawing.Point(0, 0);
             this.privilegesAndAttendance.Name = "privilegesAndAttendance";
             this.privilegesAndAttendance.Size = new System.Drawing.Size(173, 40);

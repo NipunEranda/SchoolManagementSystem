@@ -170,7 +170,7 @@
             this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimizeBtn.Image = global::SchoolManagementSystem.Properties.Resources.minnormal;
-            this.minimizeBtn.Location = new System.Drawing.Point(34, 8);
+            this.minimizeBtn.Location = new System.Drawing.Point(39, 8);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(17, 17);
             this.minimizeBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -186,7 +186,7 @@
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeBtn.Image = global::SchoolManagementSystem.Properties.Resources.closenormal;
-            this.closeBtn.Location = new System.Drawing.Point(84, 8);
+            this.closeBtn.Location = new System.Drawing.Point(89, 8);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(17, 17);
             this.closeBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -202,7 +202,7 @@
             this.maximizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.maximizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.maximizeBtn.Image = global::SchoolManagementSystem.Properties.Resources.maxnormal;
-            this.maximizeBtn.Location = new System.Drawing.Point(59, 8);
+            this.maximizeBtn.Location = new System.Drawing.Point(64, 8);
             this.maximizeBtn.Name = "maximizeBtn";
             this.maximizeBtn.Size = new System.Drawing.Size(17, 17);
             this.maximizeBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

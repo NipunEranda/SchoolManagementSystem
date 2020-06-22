@@ -24,48 +24,15 @@ namespace SchoolManagementSystem
         private void timer_Tick(object sender, EventArgs e)
         {
 
-            /*if (left && panelSlide.Left < 554)
-            {
-                panelSlide.Left += 2;
-            }
-            else {
-                left = false;
-            }
-
-            if (left == false && panelSlide.Left > 0)
-            {
-                panelSlide.Left -= 2;
-            }
-            else {
-                left = true;
-            }*/
             if (panelSlide.Width < 900)
             {
                 panelSlide.Width += 2;
-                percentage = (panelSlide.Width / 900.0)*100;
+                percentage = (panelSlide.Width / 901.0)*100;
                 waitLabel.Text = Math.Round(percentage, 2).ToString() + "%";
             }
             else {
 
             }
-            /*if (panelSlide.Width > 100)
-            {
-                waitLabel.Text =  "Loading Modules...";
-            }
-            if (panelSlide.Width > 200)
-            {
-                waitLabel.Text += "Loading Files...";
-            }
-            if (panelSlide.Width > 300)
-            {
-                waitLabel.Text += "Loading user data...";
-            }
-            if (panelSlide.Width > 350) {
-                waitLabel.Text += "Configuring the application...";
-            }
-            if (panelSlide.Width > 400) {
-                waitLabel.Text += "Loading...";
-            }*/
 
 
         }

@@ -154,7 +154,7 @@ namespace SchoolManagementSystem
                 }
                 if (c is PictureBox) {
                     PictureBox pb = (PictureBox)c;
-                    pb.Image = null;
+                    pb.Image = Properties.Resources.user1;
                 }
             }
 
@@ -251,7 +251,7 @@ namespace SchoolManagementSystem
                 if (c is PictureBox)
                 {
                     PictureBox pb = (PictureBox)c;
-                    pb.Image = null;
+                    pb.Image = Properties.Resources.user1;
                 }
                 if (c is MonthCalendar)
                 {
@@ -303,7 +303,7 @@ namespace SchoolManagementSystem
                 if (c is PictureBox)
                 {
                     PictureBox pb = (PictureBox)c;
-                    pb.Image = null;
+                    pb.Image = Properties.Resources.user1;
                 }
                 if (c is MonthCalendar)
                 {
@@ -366,7 +366,7 @@ namespace SchoolManagementSystem
             return current;
         }
 
-        public DateTime getDateFromString(string date) {
+        public static DateTime getDateFromString(string date) {
             DateTime dateFromString =
                 DateTime.Parse(date, System.Globalization.CultureInfo.InvariantCulture);
             return dateFromString;
@@ -391,6 +391,18 @@ namespace SchoolManagementSystem
         public static void immediateLogoutOff()
         {
             immidiateLogout = false;
+        }
+
+        public static DialogResult showMsgLibrary(string msg, string heading, string type)
+        {
+            if (type == "Success")
+            {
+                return MessageBox.Show(msg, heading, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                return MessageBox.Show(msg, heading, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }
